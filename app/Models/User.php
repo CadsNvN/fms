@@ -26,6 +26,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'profile_id'
     ];
 
     /**
@@ -50,12 +51,12 @@ class User extends Authenticatable
 
     public function profile(): HasOne 
     {
-        return $this->hasOne(Profile::class)->withTimestamps();
+        return $this->hasOne(Profile::class);
     }
 
     public function cart(): HasMany
     {
-        return $this->hasMany(Cart::class)->withTimestamps();
+        return $this->hasMany(Cart::class);
     }
 
 }

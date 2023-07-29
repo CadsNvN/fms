@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Profile;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -30,22 +31,38 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // dd($request->all());
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'firstName' => ['required', 'string', 'max:255'],
+            'lastName' => ['required', 'string', 'max:255'],
+            'middleName' => ['required', 'string', 'max:255'],
+            'phoneNumber' => ['required', 'string'],
+            'address' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $profile = [
+            'firstName' => $request->firstName,
+            'lastName' => $request->lastName,
+            'middleName' => $request->middleName,
+            'phoneNumber' => $request->phoneNumber,
+            'address' => $request->address,
+        ];
 
-        event(new Registered($user));
+        $createdProfile = Profile::create($profile);
 
-        Auth::login($user);
+        if ($createdProfile) {
 
-        return redirect(RouteServiceProvider::HOME);
+            $account = [
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'profile_id' => $createdProfile->id
+            ];
+
+            $user = User::create($account);
+        }
+
+        return redirect('/login');
     }
 }
