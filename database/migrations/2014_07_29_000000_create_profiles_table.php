@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('middleName');
             $table->string('phoneNumber');
             $table->string('address');
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
