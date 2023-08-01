@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ProfileSeeder extends Seeder
 {
@@ -12,6 +13,34 @@ class ProfileSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        DB::table('profiles')->insert(
+            [
+                'firstName' => 'Admin',
+                'lastName' => 'Admin',
+                'middleName' => 'A.',
+                'phoneNumber' => '09123456789',
+                'address' => 'Bacoor Cavite'
+            ]
+        );
+
+        DB::table('profiles')->insert(
+            [
+                'firstName' => 'Owner',
+                'lastName' => 'Owner',
+                'middleName' => 'O.',
+                'phoneNumber' => '09123456789',
+                'address' => 'Bacoor Cavite'
+            ]
+        );
+
+        DB::table('profiles')->insert(
+            [
+                'firstName' => 'Customer',
+                'lastName' => 'Customer',
+                'middleName' => 'C.',
+                'phoneNumber' => '09123456789',
+                'address' => 'Bacoor Cavite'
+            ]
+        );
     }
 }
