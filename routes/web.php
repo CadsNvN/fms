@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Owner\OwnerDashboardController;
@@ -37,6 +38,10 @@ Route::middleware(['auth', 'role:customer'])->group(function() {
 
 Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::get('/admin/dasboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+
+    Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
+
+    Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
 });
 
 Route::middleware(['auth', 'role:owner'])->group(function() {

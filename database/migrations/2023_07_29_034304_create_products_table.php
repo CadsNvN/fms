@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('price');
             $table->integer('stock');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->boolean('is_available')->default(true);
             $table->foreignId('category_id')->references('id')->on('categories');
             $table->timestamps();
