@@ -1,6 +1,6 @@
 
 <section class="relative h-72 flex flex-col justify-center align-center 
-text-center space-y-8 mb-4">
+text-center space-y-8 mb-10">
   <div class="absolute top-0 left-0 w-full h-full opacity-50 bg-no-repeat bg-center"
   style="background-image: url('images/Torres_Escaro1.jpg')">
   </div>
