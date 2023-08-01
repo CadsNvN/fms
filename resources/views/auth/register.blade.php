@@ -1,4 +1,4 @@
-<x-welcome-layout>
+<x-guest-layout>
     <form method="POST" action="{{ route('register') }}" class="w-full">
         @csrf
 
@@ -75,4 +75,4 @@
             <button type="submit" class="rounded-md px-4 py-2 bg-blue-500 text-white">Register</button>
         </div>
     </form>
-</x-welcome-layout>
+</x-guest-layout>
