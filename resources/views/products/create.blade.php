@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="flex w-full justify-center items-start">
+    <div class="flex w-full justify-center items-start py-6">
         <div class="mx-auto w-1/2">
             <div class="border-b-2 border-gray-300 p-2">
                 <h1 class="text-xl text-blue-500 font-bold">ADD NEW PRODUCT</h1>

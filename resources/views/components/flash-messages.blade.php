@@ -1,5 +1,13 @@
 @if (session()->has('message'))
-    <div x-data="{show: true}" x-init="setTimeout(() => show = false, 2000)" x-show="show" class="fixed top-5 left-1/2 bg-green-100 text-green-800 transform -translate-x-1/2 px-10 py-3 text-medium rounded">
+    <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show" class="fixed top-5 left-1/2 bg-blue-600 text-white transform -translate-x-1/2 px-10 py-3 text-medium rounded shadow-xl">
         <p>{{session('message')}}</p>
+    </div>
+@elseif (session()->has('error'))
+    <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show" class="fixed top-5 left-1/2 bg-red-700 text-white transform -translate-x-1/2 px-10 py-3 text-medium rounded shadow-xl">
+        <p>{{session('error')}}</p>
+    </div>
+@elseif (session()->has('success'))
+    <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show" class="fixed top-5 left-1/2 bg-green-700 text-white transform -translate-x-1/2 px-10 py-3 text-medium rounded shadow-xl">
+        <p>{{session('success')}}</p>
     </div>
 @endif
