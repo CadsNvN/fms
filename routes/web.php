@@ -20,6 +20,9 @@ use App\Http\Controllers\Customer\CustomerDasboardController;
 
 Route::get('/', [ProductController::class, 'welcomePageProducts'])->name('welcome');
 
+// Single product page
+Route::get('/show/{product}', [ProductController::class, 'show'])->name('product.show');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
