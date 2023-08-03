@@ -1,6 +1,6 @@
 <x-app-layout>
     <section class="py-4">
-        <div class="flex flex-col mx-auto max-w-[1240px] px-4 ">
+        <div class="flex flex-col mx-auto max-w-[1240px]">
             <div class="py-2 border-b border-gray-300">
                 <h1 class="text-xl font-bold">Your Products</h1>
             </div>
