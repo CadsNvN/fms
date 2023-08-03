@@ -1,7 +1,7 @@
 <header class="bg-blue-800 border-b border-gray-300">
     <div class="flex items-center justify-between mx-auto max-w-[1240px] ">
         <a href="{{route('admin.dashboard')}}" class="flex items-center justify-start">
-            <h1 class="text-white text-xl font-bold px-4 py-2 border border-white rounded">FMS</h1>
+            <h1 class="text-white text-xl font-bold px-4 py-2 border border-white rounded">Torres Escaro FMS</h1>
         </a>
         <div class="flex space-x-4">
             <nav x-data="{ open: false }" class= border-b border-gray-100">
