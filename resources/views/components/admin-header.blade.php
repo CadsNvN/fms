@@ -1,10 +1,10 @@
-<header class="bg-white border-b border-gray-300">
-    <div class="flex items=center justify-between mx-auto max-w-[1240px] px-4 ">
-        <div class="flex items-center justify-start">
-            <h1 class="text-blue-700 text-xl font-bold">FMS</h1>
-        </div>
+<header class="bg-blue-800 border-b border-gray-300">
+    <div class="flex items-center justify-between mx-auto max-w-[1240px] ">
+        <a href="{{route('admin.dashboard')}}" class="flex items-center justify-start">
+            <h1 class="text-white text-xl font-bold px-4 py-2 border border-white rounded">FMS</h1>
+        </a>
         <div class="flex space-x-4">
-            <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+            <nav x-data="{ open: false }" class= border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto">
                     <div class="flex justify-between h-16">
@@ -13,8 +13,9 @@
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
                             <x-dropdown align="right" width="48">
                                 <x-slot name="trigger">
-                                    <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                        <div>{{ Auth::user()->name }}</div>
+                                    <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                        {{-- <div>{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}</div> --}}
+                                        <div>Matt Francia</div>
             
                                         <div class="ml-1">
                                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

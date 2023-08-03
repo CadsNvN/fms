@@ -39,15 +39,17 @@ Route::middleware(['auth', 'role:customer'])->group(function() {
 Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::get('/admin/dasboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 
-    Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/products', [ProductController::class, 'index'])->name('product.index');
 
-    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+    Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 
     Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
 
-    Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
+    Route::get('/product/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
 
-    Route::put('/product/{product}', [ProductController::class, 'update']);
+    Route::put('/product/{product}/update', [ProductController::class, 'update'])->name('product.update');
+
+    Route::delete('/product/{product}/delete', [ProductController::class, 'destroy'])->name('product.destroy');
 });
 
 Route::middleware(['auth', 'role:owner'])->group(function() {

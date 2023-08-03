@@ -4,7 +4,7 @@
           <div class="border-b-2 border-gray-300 p-2">
               <h1 class="text-xl text-blue-500 font-bold">UPDATE PRODUCT</h1>
           </div>
-          <form method="POST" action="/product/{{$product->id}}" class="flex flex-col w-full p-2">
+          <form method="POST" action="/product/{{$product->id}}/update" class="flex flex-col w-full p-2">
               @csrf
               @method('PUT')
               <div class="flex flex-col space-y-2 mt-3">
