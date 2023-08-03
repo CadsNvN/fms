@@ -7,10 +7,10 @@ text-center space-y-8 mb-10">
 
   <div class="z-10">
     <h1 class="text-5xl font-bold uppercase text-white">
-      <span class="text-cyan-700">Funeral Homes Service</span>
+      <span class="text-cyan-700">Torres Escaro</span>
     </h1>
-    <p class="text-2xl text-cyan-700 font-bold my-4">
-        Find Tradtional & Cremation Plan Service
+    <p class="text-4xl text-cyan-700 font-bold my-4">
+      Funeral Service
     </p>
     <div>
         <a href="register.html" class="inline-block border-2 border-black 

@@ -19,9 +19,7 @@ use App\Http\Controllers\Customer\CustomerDasboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ProductController::class, 'welcomePageProducts'])->name('welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
