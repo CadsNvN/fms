@@ -18,9 +18,7 @@ use App\Http\Controllers\Customer\CustomerDasboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ProductController::class, 'welcomePageProducts'])->name('welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -43,9 +41,9 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 
     Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
 
-    Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
+    Route::get('/product/{product}/edit/', [ProductController::class, 'edit'])->name('product.edit');
 
-    Route::put('/product/{product}', [ProductController::class, 'update']);
+    Route::put('/product/{product}', [ProductController::class, 'update'])->name('product.update');;
 });
 
 Route::middleware(['auth', 'role:owner'])->group(function() {
