@@ -35,4 +35,25 @@ class ProductController extends Controller
         return back()->with('message', 'Product has been added.');
 
     }
+
+    public function edit(Product $product) {
+        return view('products.edit', [
+            'product' => $product,
+            'categories' => Category::all()
+        ]);
+    }
+
+    public function update(Request $request, Product $product) {
+        $productFields = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+            'category_id' => 'required'
+        ]);
+
+        $product->update($productFields);
+
+        return back()->with('message', 'Product has been updated.');
+    }
 }
