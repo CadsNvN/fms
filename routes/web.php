@@ -22,9 +22,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -42,6 +42,10 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 
     Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
+
+    Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
+
+    Route::put('/product/{product}', [ProductController::class, 'update']);
 });
 
 Route::middleware(['auth', 'role:owner'])->group(function() {
