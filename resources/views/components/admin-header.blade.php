@@ -4,7 +4,7 @@
             <h1 class="text-white text-xl font-bold px-4 py-2 border border-white rounded">Torres Escaro FMS</h1>
         </a>
         <div class="flex space-x-4">
-            <nav x-data="{ open: false }" class= border-b border-gray-100">
+            <nav x-data="{ open: false }" class="border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto">
                     <div class="flex justify-between h-16">
