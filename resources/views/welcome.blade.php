@@ -188,14 +188,14 @@
       <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0" marginwidth="0" scrolling="no" src="https://maps.google.com/maps?q=Torres-Escaro Funeral Service 110 Bayanan Rd, Bacoor, 4102 Cavite&t=&z=17&ie=UTF8&iwloc=&output=embed" ></iframe>
       <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
         <div class="lg:w-1/2 px-6">
-          <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
-          <p class="mt-1">110 Bayanan Rd, Bacoor, 4102 Cavite</p>
+          <h2 class="title-font font-semibold text-black tracking-widest text-xs">ADDRESS</h2>
+          <p class="mt-1 text-black">110 Bayanan Rd, Bacoor, 4102 Cavite</p>
         </div>
         <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
-          <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
-          <a class="text-indigo-500 leading-relaxed">torresescarofuneral@email.com</a>
-          <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
-          <p class="leading-relaxed">0921-421-4743 / 0919-075-5427 / (046) 502-6635</p>
+          <h2 class="title-font font-semibold text-black tracking-widest text-xs">EMAIL</h2>
+          <a class="text-indigo-800 leading-relaxed">torresescarofuneral@gmail.com</a>
+          <h2 class="title-font font-semibold text-black tracking-widest text-xs mt-4">PHONE</h2>
+          <p class="leading-relaxed text-black">0921-421-4743 / 0919-075-5427 / (046) 502-6635</p>
         </div>
       </div>
     </div>
@@ -214,7 +214,7 @@
         <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
         <textarea id="message" name="message" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
       </div>
-      <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+      <button class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
       <p class="text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>
     </div>
   </div>

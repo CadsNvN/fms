@@ -17,7 +17,7 @@
     </head>
     <body>
         <header class="mx-auto">
-            <nav class="flex justify-between items-center bg-blue-900">
+            <nav class="flex justify-between items-center bg-blue-800">
                 <div class="py-5 font-bold text-3xl ms-5">
                     <a href="/">
                         <span class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">FMS</span>
