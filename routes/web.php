@@ -24,6 +24,10 @@ Route::get('/', [ProductController::class, 'welcomePageProducts'])->name('welcom
 // Single product page
 Route::get('/show/{product}', [ProductController::class, 'show'])->name('product.show');
 
+Route::get('/about-us', function () {
+    return view('pages.about-us');
+})->name('about-us');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
