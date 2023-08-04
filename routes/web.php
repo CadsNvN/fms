@@ -36,6 +36,10 @@ Route::get('/product/browse', [ProductController::class, 'browse'])
 
 //END PRODUCTS
 
+Route::get('/about-us', function () {
+    return view('pages.about-us');
+})->name('about-us');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

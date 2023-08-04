@@ -12,42 +12,41 @@
         />
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-        <title>Torres Escaro Funeral Services</title>
+        <title>Torres Escaro Funeral Service</title>
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
         <header class="mx-auto">
-            <nav class="flex justify-between items-center bg-blue-900">
-                <div class="py-2 font-bold text-3xl ms-5">
+            <nav class="flex justify-between items-center bg-blue-800">
+                <div class="py-5 font-bold text-3xl ms-5">
                     <a href="/">
                         <span class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">FMS</span>
                     </a>
                 </div>
 
-                <div class="flex items-center text-lg list-none space-x-9 font-semibold">
-                    <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a></li>
-                    <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Products</a></li>
-                    <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">About Us</a></li>
-                    <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">News & Update</a></li>
-                    <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Testimonial</a></li>
+                <div class="flex items-center list-none space-x-9 font-semibold">
+                    <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a></li>
+                    <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Products</a></li>
+                    <li><a href="about-us" class="text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">About Us</a></li>
+                    <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">News & Update</a></li>
+                    <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Testimonial</a></li>
+                    <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">My Cart<sup>0</sup></a></li>
                 </div>
                <div>
-                    @if (Route::has('login'))
+                  @if (Route::has('login'))
                     <div class=" sm:top-0 sm:right-0 p-6 text-right z-10">
                         @auth
-                            <a href="{{ route('cart.index') }}" class="">
-                                <i class='bx bx-cart text-3xl text-white py-2 px-3 rounded-full hover:bg-gray-400'></i>
-                            </a>
+                            <a href="{{ route('admin.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                         @else
-                            <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+                            <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                                <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
                             @endif
                         @endauth
                     </div>
-                @endif 
+                  @endif 
                </div>
             </nav>
         </header>
@@ -63,76 +62,65 @@
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                       </svg>
-                      <span class="ml-3 text-xl">Tailblocks</span>
+                      <span class="ml-3 text-xl">Torres-Escaro <br> Funeral Service</span>
                     </a>
-                    <p class="mt-2 text-sm text-gray-500">Air plant banjo lyft occupy retro adaptogen indego</p>
+                    <p class="mt-2 text-lg text-gray-900"><i class="fa-solid fa-mobile"></i> 0921-421-4743</p>
+                    <p class="mt-2 text-lg text-gray-900"><i class="fa-solid fa-mobile"></i> 0919-075-5427</p>
+                    <p class="mt-2 text-lg text-gray-900"><i class="fa-solid fa-phone"></i> 0919-075-5427</p>
+                    <p class="mt-2 text-lg text-gray-900"><i class="fa-solid fa-location"></i> 110 Bayanan Rd, Bacoor, 4102 Cavite</p>
                   </div>
+                  
                   <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
                     <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                      <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+                      <h2 class="title-font font-medium text-gray-900 tracking-widest text-xl mb-3">PRODUCTS</h2>
                       <nav class="list-none mb-10">
                         <li>
-                          <a class="text-gray-600 hover:text-gray-800">First Link</a>
+                          <a class="text-gray-600 text-lg hover:text-gray-900">Traditional Plan</a>
                         </li>
                         <li>
-                          <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-                        </li>
-                        <li>
-                          <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-                        </li>
-                        <li>
-                          <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                          <a class="text-gray-600 text-lg hover:text-gray-900">Cremation Plan</a>
                         </li>
                       </nav>
                     </div>
                     <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                      <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+                      <h2 class="title-font font-medium text-gray-900 tracking-widest text-xl mb-3">ABOUT US</h2>
                       <nav class="list-none mb-10">
                         <li>
-                          <a class="text-gray-600 hover:text-gray-800">First Link</a>
+                          <a class="text-gray-600 text-lg hover:text-gray-900">Our Company</a>
                         </li>
                         <li>
-                          <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+                          <a class="text-gray-600 text-lg hover:text-gray-900">Our Officers</a>
                         </li>
                         <li>
-                          <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-                        </li>
-                        <li>
-                          <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                          <a class="text-gray-600 text-lg hover:text-gray-900">Corporate Governance</a>
                         </li>
                       </nav>
                     </div>
                     <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                      <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+                      <h2 class="title-font font-medium text-gray-900 tracking-widest text-xl mb-3">RESOURCES</h2>
                       <nav class="list-none mb-10">
                         <li>
-                          <a class="text-gray-600 hover:text-gray-800">First Link</a>
+                          <a class="text-gray-600 text-lg hover:text-gray-900">Manage Account</a>
                         </li>
                         <li>
-                          <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+                          <a class="text-gray-600 text-lg hover:text-gray-9000">Contact Us</a>
                         </li>
                         <li>
-                          <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+                          <a class="text-gray-600 text-lg hover:text-gray-900">Directory</a>
                         </li>
                         <li>
-                          <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                          <a class="text-gray-600 text-lg hover:text-gray-900">Sitemap</a>
                         </li>
                       </nav>
                     </div>
                     <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                      <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+                      <h2 class="title-font font-medium text-gray-900 tracking-widest text-xl mb-3">LEGAL</h2>
                       <nav class="list-none mb-10">
                         <li>
-                          <a class="text-gray-600 hover:text-gray-800">First Link</a>
+                          <a class="text-gray-600 text-lg hover:text-gray-900">Terms of Use</a>
                         </li>
                         <li>
-                          <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-                        </li>
-                        <li>
-                          <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-                        </li>
-                        <li>
-                          <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                          <a class="text-gray-600 text-lg hover:text-gray-900">Privacy Policy</a>
                         </li>
                       </nav>
                     </div>
