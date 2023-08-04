@@ -10,6 +10,7 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
         <title>Torres Escaro Funeral Services</title>
 
@@ -18,7 +19,7 @@
     <body>
         <header class="mx-auto">
             <nav class="flex justify-between items-center bg-blue-900">
-                <div class="py-5 font-bold text-3xl ms-5">
+                <div class="py-2 font-bold text-3xl ms-5">
                     <a href="/">
                         <span class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">FMS</span>
                     </a>
@@ -30,13 +31,14 @@
                     <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">About Us</a></li>
                     <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">News & Update</a></li>
                     <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Testimonial</a></li>
-                    <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">My Cart<sup>0</sup></a></li>
                 </div>
                <div>
                     @if (Route::has('login'))
                     <div class=" sm:top-0 sm:right-0 p-6 text-right z-10">
                         @auth
-                            <a href="{{ route('admin.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                            <a href="{{ route('cart.index') }}" class="">
+                                <i class='bx bx-cart text-3xl text-white py-2 px-3 rounded-full hover:bg-gray-400'></i>
+                            </a>
                         @else
                             <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
@@ -168,6 +170,8 @@
                   </div>
                 </div>
               </footer>
+
+              <x-flash-messages/>
     </body>
 </html>
 

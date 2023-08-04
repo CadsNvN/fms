@@ -110,7 +110,7 @@
     <h1 class="text-4xl font-bold uppercase mb-4">
       Products
     </h1>
-    <a href="/" class="hover:underline text-l">See more Products</a>
+    <a href="{{route('product.browse')}}" class="hover:underline text-l">See more Products</a>
   </x-sub-header-text>
 
  

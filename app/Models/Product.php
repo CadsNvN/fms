@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -23,11 +25,16 @@ class Product extends Model
 
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class)->withTimestamps();
+        return $this->belongsToMany(Category::class);
     }
 
-    public function carts(): BelongsToMany
+    public function carts(): HasMany
     {
-        return $this->belongsToMany(Cart::class)->withTimestamps();
+        return $this->hasMany(Cart::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }

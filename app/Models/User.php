@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\Profile;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -54,9 +55,14 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class);
     }
 
-    public function cart(): HasMany
+    public function carts(): HasMany
     {
         return $this->hasMany(Cart::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\Owner\OwnerDashboardController;
 use App\Http\Controllers\Customer\CustomerDasboardController;
 
@@ -19,10 +20,21 @@ use App\Http\Controllers\Customer\CustomerDasboardController;
 |
 */
 
-Route::get('/', [ProductController::class, 'welcomePageProducts'])->name('welcome');
+Route::get('/about-us', function () {
+    return view('pages.about_us');
+})->name('about-us');
 
-// Single product page
-Route::get('/show/{product}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/', [ProductController::class, 'welcomePageProducts'])
+->name('welcome');
+
+// PRODUCTS
+Route::get('/show/{product}', [ProductController::class, 'show'])
+->name('product.show');
+
+Route::get('/product/browse', [ProductController::class, 'browse'])
+    ->name('product.browse');
+
+//END PRODUCTS
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -35,11 +47,22 @@ Route::middleware('auth')->group(function () {
     ->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])
     ->name('profile.destroy');
+
+    //CARTS
+    Route::post('show/{product}/cart/save', [CartController::class, 'addToCart'])
+    ->name('cart.add');
+
+    Route::put('/cart/{cartItem}/add', [CartController::class, 'addQuantity'])->name('quantity.add');
+
+    Route::put('/cart/{cartItem}/subtract', [CartController::class, 'subtractQuantity'])->name('quantity.subtract');
+
 });
 
 Route::middleware(['auth', 'role:customer'])->group(function() {
     Route::get('/customer/dasboard', [CustomerDasboardController::class, 'index'])
     ->name('customer.dashboard');
+
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function() {
@@ -66,6 +89,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 
     Route::delete('/product/{product}/delete', [ProductController::class, 'destroy'])
     ->name('product.destroy');
+
+
 
 
     // orders

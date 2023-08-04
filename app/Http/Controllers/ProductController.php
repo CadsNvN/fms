@@ -9,17 +9,6 @@ use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
-    public function welcomePageProducts () {
-        return view('welcome', [
-            'products' => Product::all()
-        ]);
-    }
-    
-    public function show (Product $product) {
-        return view('products.show', [
-            'product' => $product
-        ]);
-    }
 
     public function index () {
         return view('products.index', [
@@ -33,6 +22,27 @@ class ProductController extends Controller
         ]);
     }
 
+    public function show (Product $product) {
+        $category = $product->categories;
+
+        return view('products.show', [
+            'product' => $product,
+            'category' => $category->first()->name
+        ]);
+    }
+
+    public function welcomePageProducts () {
+        return view('welcome', [
+            'products' => Product::latest()->take(4)->get()
+        ]);
+    }
+
+    public function browse() {
+        return view('products.browse', [
+            'products' => Product::latest()->get()
+        ]);
+    }
+
     public function store(Request $request) {
 
         $productFields = $request->validate([
@@ -40,14 +50,18 @@ class ProductController extends Controller
             'description' => 'required|string',
             'price' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
-            'category_id' => 'required'
+            'category_id' => 'required|exists:categories,id'
         ]);
 
-        Product::create($productFields);
+        $product  = Product::create($productFields);
+
+        $categoryId = $request->input('category_id');
+        $product->categories()->attach($categoryId);
 
         return redirect()->route('product.index')->with('message', 'Product has been added.');
 
     }
+
 
     public function edit(Product $product) {
         return view('products.edit', [

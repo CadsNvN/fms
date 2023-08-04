@@ -18,7 +18,9 @@
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
             <x-admin-header/>
-            <x-admin-sub-header/>
+            @if ( Auth::user()->role === 'admin' || Auth::user()->role === 'owner')
+                <x-admin-sub-header/>
+            @endif
 
             <!-- Page Content -->
             <main>

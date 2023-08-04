@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('order_number');
+            $table->foreignId('product_id')->references('id')->on('products');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }
