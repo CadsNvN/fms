@@ -52,13 +52,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])
     ->name('profile.destroy');
 
-    //CARTS
-    Route::post('show/{product}/cart/save', [CartController::class, 'addToCart'])
-    ->name('cart.add');
-
-    Route::put('/cart/{cartItem}/add', [CartController::class, 'addQuantity'])->name('quantity.add');
-
-    Route::put('/cart/{cartItem}/subtract', [CartController::class, 'subtractQuantity'])->name('quantity.subtract');
 
 });
 
@@ -66,7 +59,20 @@ Route::middleware(['auth', 'role:customer'])->group(function() {
     Route::get('/customer/dasboard', [CustomerDasboardController::class, 'index'])
     ->name('customer.dashboard');
 
+    //CARTS
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+
+    Route::post('show/{product}/cart/save', [CartController::class, 'addToCart'])
+    ->name('cart.add');
+
+    Route::put('/cart/{cartItem}/add', [CartController::class, 'addQuantity'])->name('quantity.add');
+
+    Route::put('/cart/{cartItem}/subtract', [CartController::class, 'subtractQuantity'])->name('quantity.subtract');
+
+    Route::delete('/cart-delete/{cartItem}', [CartController::class, 'destroy'])->name('cart.destroy');
+
+    // OORDERS
+    Route::post('/order/create', [OrderController::class, 'store'])->name('order.store');
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function() {
