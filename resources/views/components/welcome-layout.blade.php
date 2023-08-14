@@ -26,18 +26,28 @@
                 </div>
 
                 <div class="flex items-center list-none space-x-9 font-semibold">
-                    <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a></li>
-                    <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Products</a></li>
-                    <li><a href="about-us" class="text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">About Us</a></li>
-                    <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">News & Update</a></li>
-                    <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Testimonial</a></li>
-                    <li><a href="" class="text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">My Cart<sup>0</sup></a></li>
+                    <li><a href="/" class="text-gray-600 dark:text-white hover:text-gray-900 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 inline-block pb-1 border-b-2 border-transparent hover:border-b-4 hover:border-gray-900 dark:hover:border-white">Home</a></li>
+                    <li><a href="{{route('product.browse')}}" class="text-gray-600 dark:text-white hover:text-gray-900 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 inline-block pb-1 border-b-2 border-transparent hover:border-b-4 hover:border-gray-900 dark:hover:border-white">Products</a></li>
+                    <li><a href="{{route('about-us')}}" class="text-gray-600 dark:text-white hover:text-gray-900 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 inline-block pb-1 border-b-2 border-transparent hover:border-b-4 hover:border-gray-900 dark:hover:border-white">About Us</a></li>
+                    <li><a href="" class="text-gray-600 dark:text-white hover:text-gray-900 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 inline-block pb-1 border-b-2 border-transparent hover:border-b-4 hover:border-gray-900 dark:hover:border-white">News & Update</a></li>
+                    <li><a href="" class="text-gray-600 dark:text-white hover:text-gray-900 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 inline-block pb-1 border-b-2 border-transparent hover:border-b-4 hover:border-gray-900 dark:hover:border-white">Testimonial</a></li>
+                    <li><a href="{{route('cart.index')}}" class="text-gray-600 dark:text-white hover:text-gray-900 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 inline-block pb-1 border-b-2 border-transparent hover:border-b-4 hover:border-gray-900 dark:hover:border-white"><sup>0</sup> My Cart</a></li>
                 </div>
                <div>
                   @if (Route::has('login'))
                     <div class=" sm:top-0 sm:right-0 p-6 text-right z-10">
                         @auth
-                            <a href="{{ route('admin.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                        
+                        @if(Auth::user()->role === 'admin')
+                            <a href="{{ route('admin.dashboard') }}" class="font-semibold text-gray-600
+                             hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline 
+                             focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                        @elseif(Auth::user()->role === 'customer')
+                            <a href="{{ route('customer.dashboard') }}" class="font-semibold text-gray-600
+                             hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline 
+                             focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>   
+                        @endif
+                                             
                         @else
                             <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
@@ -56,7 +66,7 @@
             </main>
 
             <footer class="text-gray-600 body-font bg-gray-200">
-                <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+                <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col cursor-pointer">
                   <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
                     <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
@@ -128,8 +138,8 @@
                 </div>
                 <div class="bg-gray-100">
                   <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-                    <p class="text-gray-500 text-sm text-center sm:text-left">© 2020 Tailblocks —
-                      <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@knyttneve</a>
+                    <p class="text-gray-500 text-sm text-center sm:text-left">© 2023 Torres-Escaro —
+                      <a href="https://facebook.com" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">Torres-Escaro</a>
                     </p>
                     <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
                       <a class="text-gray-500">
