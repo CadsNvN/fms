@@ -45,76 +45,80 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])
-    ->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])
-    ->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])
-    ->name('profile.destroy');
+    // PROFILE
+    Route::prefix('/profile')->controller(ProfileController::class)->as('profile.')->group(function() {
+        Route::get('/edit', 'edit')->name('edit');
+        Route::patch('/update', 'update')->name('update');
+        Route::delete('/destroy', 'destroy')->name('destroy');
+    });
+    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
 });
 
+// CUSTOMER
 Route::middleware(['auth', 'role:customer'])->group(function() {
-    Route::get('/customer/dasboard', [CustomerDasboardController::class, 'index'])
-    ->name('customer.dashboard');
+    Route::prefix('customer')->as('customer.')->controller(CustomerDasboardController::class)->group(function() {
+        Route::get('/dashboard', 'index')->name('dashboard');
+    });
 
     //CARTS
-    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::prefix('')->as('cart.')->controller(CartController::class)->group(function() {
+        Route::get('/cart', 'index')->name('index');
+        Route::post('show/{product}/cart/save', 'addToCart')->name('add');
+        Route::delete('/cart-delete/{cartItem}', 'destroy')->name('destroy');
+    });
 
-    Route::post('show/{product}/cart/save', [CartController::class, 'addToCart'])
-    ->name('cart.add');
-
-    Route::put('/cart/{cartItem}/add', [CartController::class, 'addQuantity'])->name('quantity.add');
-
-    Route::put('/cart/{cartItem}/subtract', [CartController::class, 'subtractQuantity'])->name('quantity.subtract');
-
-    Route::delete('/cart-delete/{cartItem}', [CartController::class, 'destroy'])->name('cart.destroy');
+    // CART QUANTITY
+    Route::prefix('/cart')->as('quantity.')->controller(CartController::class)->group(function() {
+        Route::put('/{cartItem}/add', 'addQuantity')->name('add');
+        Route::put('/{cartItem}/subtract', 'subtractQuantity')->name('subtract');
+    });
 
     // OORDERS
-    Route::post('/order/create', [OrderController::class, 'store'])->name('order.store');
+    Route::prefix('/order')->controller(OrderController::class)->as('order.')->group(function() {
+        Route::post('/create', 'store')->name('store');
+    });
 });
+// END CUSTOMER
 
+// ADMIN
 Route::middleware(['auth', 'role:admin'])->group(function() {
 
     // dashboard
-    Route::get('/admin/dasboard', [AdminDashboardController::class, 'index'])
-    ->name('admin.dashboard');
+    Route::prefix('admin')->as('admin.')->controller(AdminDashboardController::class)->group(function() {
+        Route::get('/dashboard', 'index')->name('dashboard');
+    });
 
     // products
-    Route::get('/products', [ProductController::class, 'index'])
-    ->name('product.index');
-
-    Route::get('/product/create', [ProductController::class, 'create'])
-    ->name('product.create');
-
-    Route::post('/product/store', [ProductController::class, 'store'])
-    ->name('product.store');
-
-    Route::get('/product/{product}/edit', [ProductController::class, 'edit'])
-    ->name('product.edit');
-
-    Route::put('/product/{product}/update', [ProductController::class, 'update'])
-    ->name('product.update');
-
-    Route::delete('/product/{product}/delete', [ProductController::class, 'destroy'])
-    ->name('product.destroy');
-
-
-
+    Route::prefix('/product')->as('product.')->controller(ProductController::class)->group(function() {
+        Route::get('/products', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/{product}/edit', 'edit')->name('edit');
+        Route::put('/{product}/update', 'update')->name('update');
+        Route::delete('/{product}/delete', 'destroy')->name('destroy');
+    });
 
     // orders
-    Route::get('/orders/current', [OrderController::class, 'currentOrders'])
-    ->name('orders.current');
+    Route::prefix('/orders')->as('orders.')->controller(OrderController::class)->group(function() {
+        Route::get('/current', 'currentOrders')->name('current');
+        Route::get('/completed', 'completedOrders')->name('completed');
+    });
 
-    Route::get('/orders/completed', [OrderController::class, 'completedOrders'])
-    ->name('orders.completed');
 });
+// END ADMIN
 
+// OWNER
 Route::middleware(['auth', 'role:owner'])->group(function() {
-    Route::get('/owner/dasboard', [OwnerDashboardController::class, 'index'])
-    ->name('owner.dashboard');
+    // dashboard
+    Route::prefix('owner')->controller(OwnerDashboardController::class)->as('owner.')->group(function() {
+        Route::get('/dashboard', 'index')->name('dashboard');
+    });
 });
+// END OWNER
 
 
 require __DIR__.'/auth.php';

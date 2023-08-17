@@ -15,7 +15,7 @@
                 @foreach ($products as $product)
                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full rounded border border-gray-200 shadow-lg">
                         <a class="block relative h-48 rounded overflow-hidden ">
-                        <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{asset('images/Torres_Escaro2.jpg')}}">
+                        <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{asset('images/BatesVille.jpg')}}">
                         </a>
                         <div class="mt-4">
                             @if ($product->category_id == 1)
