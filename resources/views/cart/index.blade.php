@@ -73,7 +73,13 @@
                                     <p class="w-1/3 text-center">{{$item->quantity}}</p>
                                     <p class="w-1/3 text-center">&#8369;{{ number_format($item->total_amount, 2, '.', ',') }}</p>
                                 </div>
+
+                                <input type="hidden" name="product_ids[]" value="{{$item->id}}">
+                                <input type="hidden" name="quantities[]" value="{{$item->quantity}}">
+                                <input type="hidden" name="unit_prices[]" value="{{$item->total_amount / $item->quantity}}">
+
                             @endforeach
+
                             <div class="w-full flex justify-between p-2 border-t border-gray-300">
                                 <h1>TOTAL:</h1>
                                 <p>&#8369;{{ number_format($total_due, 2, '.', ',') }}</p>

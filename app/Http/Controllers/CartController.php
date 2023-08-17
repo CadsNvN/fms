@@ -13,7 +13,10 @@ class CartController extends Controller
         if (auth()->check()) {
             $user = auth()->user();
     
-            $cartItems = $user->carts->load('product');
+            // $cartItems = $user->carts->load('product');
+            // $cartItems = $user->carts->where('product.status', 'active')->load('product');
+            $cartItems = $user->carts->where('status', 'active')->load('product');
+
     
             $total_due = 0;
             foreach ($cartItems as $item) {
