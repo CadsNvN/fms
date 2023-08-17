@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Owner\OwnerDashboardController;
 use App\Http\Controllers\Customer\CustomerDasboardController;
+use App\Http\Controllers\ReceiptController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,10 +52,9 @@ Route::middleware('auth')->group(function () {
         Route::patch('/update', 'update')->name('update');
         Route::delete('/destroy', 'destroy')->name('destroy');
     });
-    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
+    
+    //Order Receipt
+    Route::get('/generate-receipt/{orderId}', [ReceiptController::class, 'generateReceipt']);
 
 });
 
@@ -80,6 +80,7 @@ Route::middleware(['auth', 'role:customer'])->group(function() {
     // OORDERS
     Route::prefix('/order')->controller(OrderController::class)->as('order.')->group(function() {
         Route::post('/create', 'store')->name('store');
+        Route::get('/existing', 'index')->name('index');
     });
 });
 // END CUSTOMER

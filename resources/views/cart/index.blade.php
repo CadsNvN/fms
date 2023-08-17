@@ -88,6 +88,7 @@
                             <div class="wi-full flex justify-center items-center ">
                                 <button type="submit" class="w-full rounded text-white bg-blue-700 px-4 py-2">Place Order</button>
                             </div>
+                            
                         </div>
                     </form>
                 </div>

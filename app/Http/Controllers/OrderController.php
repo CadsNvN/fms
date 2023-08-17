@@ -6,11 +6,16 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItems;
 use Illuminate\Http\Request;
-use Dompdf\Dompdf;
-use Illuminate\Support\Facades\View;
 
 class OrderController extends Controller
 {
+    public function index() {
+        $orders = auth()->user()->orders;
+
+        return view('orders.index', [
+            'orders' => $orders
+        ]);
+    }
 
     public function store(Request $request) {
         $user = auth()->user();
@@ -58,23 +63,6 @@ class OrderController extends Controller
         }
     }
 
-
-    public function generateReceipt($orderId) {
-
-        $order = Order::with('orderItems')->findOrFail($orderId);
-
-        $view = View::make('receipt', ['order' => $order]);
-        $html = $view->render();
-
-        $dompdf = new Dompdf();
-        $dompdf->loadHtml($html);
-        $dompdf->setPaper('A4', 'portrait');
-        $dompdf->render();
-
-        return $dompdf->stream('receipt.pdf'); 
-    }
-
-    
 
     public function currentOrders() {
         return view('orders.current');
