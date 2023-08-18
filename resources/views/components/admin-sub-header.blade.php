@@ -26,10 +26,10 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('product.index')">
+                        <x-dropdown-link :href="route('orders.current')">
                             Current Orders
                         </x-dropdown-link>
-                        <x-dropdown-link :href="route('product.create')">
+                        <x-dropdown-link :href="route('orders.completed')">
                             Completed Orders
                         </x-dropdown-link>
                     </x-slot>

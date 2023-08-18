@@ -17,13 +17,13 @@
                     <tr>
                         <td class="py-2 px-4 border-b">{{ $item->product->name }}</td>
                         <td class="py-2 px-4 border-b">{{ $item->quantity }}</td>
-                        <td class="py-2 px-4 border-b">&#8369;{{ number_format($item->unit_price, 2, '.', ',') }}</td>
-                        <td class="py-2 px-4 border-b">&#8369;{{ number_format($item->total_price, 2, '.', ',') }}</td>
+                        <td class="py-2 px-4 border-b">Php{{ number_format($item->unit_price, 2, '.', ',') }}</td>
+                        <td class="py-2 px-4 border-b">Php{{ number_format($item->total_price, 2, '.', ',') }}</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
         
-        <p class="mt-4">Total Amount: &#8369;{{ number_format($order->total_due, 2, '.', ',') }}</p>
+        <p class="mt-4">Total Amount: Php{{ number_format($order->total_due, 2, '.', ',') }}</p>
     </div>    
 </x-app-layout>

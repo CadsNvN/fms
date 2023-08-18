@@ -41,9 +41,9 @@ Route::get('/about-us', function () {
     return view('pages.about-us');
 })->name('about-us');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     // PROFILE
@@ -54,7 +54,7 @@ Route::middleware('auth')->group(function () {
     });
     
     //Order Receipt
-    Route::get('/generate-receipt/{orderId}', [ReceiptController::class, 'generateReceipt']);
+    Route::get('/generate-receipt/{orderId}', [ReceiptController::class, 'generateReceipt'])->name('invoice.print');
 
 });
 
@@ -81,6 +81,7 @@ Route::middleware(['auth', 'role:customer'])->group(function() {
     Route::prefix('/order')->controller(OrderController::class)->as('order.')->group(function() {
         Route::post('/create', 'store')->name('store');
         Route::get('/existing', 'index')->name('index');
+        Route::delete('/{orderId}/delete', 'destroy')->name('destroy');
     });
 });
 // END CUSTOMER
@@ -107,6 +108,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::prefix('/orders')->as('orders.')->controller(OrderController::class)->group(function() {
         Route::get('/current', 'currentOrders')->name('current');
         Route::get('/completed', 'completedOrders')->name('completed');
+        Route::put('/{orderId}/confirm', 'confirmOrder')->name('confirm');
     });
 
 });

@@ -18,6 +18,7 @@ class OrderController extends Controller
     }
 
     public function store(Request $request) {
+
         $user = auth()->user();
     
         $order = [
@@ -49,25 +50,60 @@ class OrderController extends Controller
 
             if ($orderItemsCreated) {
                 for ($i = 0; $i < count($productIds); $i++) {
-                    $cartItem = Cart::find($productIds[$i]);
+                    $cartItem = Cart::where('product_id', $productIds[$i])->where('status', 'active')->first();   
                     if ($cartItem) {
+
                         $cartItem->status = "ordered";
                         $cartItem->save();
                     }
                 }
             }
     
-            return redirect()->back()->with('success', 'Order Successful');
+            return redirect()->route('order.index')->with('success', 'Order Successful');
         } else {
             return redirect()->back()->with('error', 'Failed to create order');
         }
     }
 
+    public function destroy($orderId) {
+        try {
+            $order = Order::findOrFail($orderId);
+            $order->delete(); 
+            return redirect()->back()->with('success', 'Order deleted successfully.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error deleting Order: ' . $e->getMessage());
+        }
+    }
 
     public function currentOrders() {
-        return view('orders.current');
+
+        $order = Order::where('status', 'pending')->get();
+        return view('orders.current', [
+            'orders' => $order
+        ]);
+
     }
+
     public function completedOrders() {
-        return view('orders.completed');
+
+        $order = Order::where('status', 'confirmed')->get();
+        return view('orders.completed', [
+            'orders' => $order,
+        ]);
     }
+
+    public function confirmOrder($orderId) {
+        try {
+
+            $order = Order::findOrFail($orderId);
+            $order->status = 'confirmed';
+            $order->save(); 
+
+            return redirect()->back()->with('success', 'Order confirmed successfully.');
+
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error confirming Order: ' . $e->getMessage());
+        }
+    }
+
 }
