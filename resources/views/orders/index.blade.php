@@ -3,7 +3,7 @@
         <div class="flex flex-col mx-auto max-w-[1240px]">
             <div class="flex flex-row justify-between mb-3">
                 <div class="w-full py-2 border-b border-gray-300">
-                    <h1 class="text-xl font-bold">Your Products</h1>
+                    <h1 class="text-xl font-bold">Your Orders</h1>
                 </div>
             </div>
     
@@ -14,10 +14,9 @@
                             <th class="px-4 py-2">Order Number</th>
                             <th class="px-4 py-2">Total Amount</th>
                             <th class="px-4 py-2">Date Ordered</th>
-                            <th class="px-4 py-2">Order Status</th>
-                            <th class="px-4 py-2">Receipt</th>
-                            {{-- <th class="px-4 py-2">Payment Status</th> --}}
-                            
+                            <th class="px-4 py-2">Status</th>
+                            {{-- <th class="px-4 py-2">Availability</th> --}}
+                            <th class="px-4 py-2">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,23 +32,19 @@
                                         <span class="rounded py-1 px-2 text-xs text-white bg-red-600">pending</span>
                                     @endif
                                 </td>
-
-                                {{-- <td class="px-4 py-2 text-sm ">                                           
-                                    <form action="{{ route('orders.confirm', $order->id) }}" method="POST">
-                                        @csrf
-                                        @method('PUT')
-                                        <button type="submit" class="rounded p-2 cursor-pointer text-xs font-medium text-white  bg-red-700 px-4 py-1">
-                                            unpaid
-                                        </button>
-                                    </form>  
-
-                                   
-                                </td> --}}
-
-                                <td class="px-4 py-2 text-sm">                                           
-                                    <a href="{{route('invoice.print', $order->id)}}" class="text-white text-xs rounded px-4 py-1 bg-blue-600 ">receipt</a>
+                                <td class="px-4 py-2 text-sm flex items-center space-x-2"> 
+                                    @if ($order->status === "pending")
+                                        <form action="{{ route('order.destroy', $order->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="rounded p-2 cursor-pointer">
+                                                <i class='bx bx-trash text-xl text-red-600'></i>
+                                            </button>
+                                        </form>
+                                    @else                        
+                                        <a href="{{route('invoice.print', $order->id)}}" class="text-white rounded text-xs px-4 py-1 bg-blue-600 ">Invoice</a>
+                                    @endif                                          
                                 </td>
-
                             </tr>
                         @endforeach
                     </tbody> 

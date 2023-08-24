@@ -13,7 +13,10 @@ class CartController extends Controller
         if (auth()->check()) {
             $user = auth()->user();
     
-            $cartItems = $user->carts->load('product');
+            // $cartItems = $user->carts->load('product');
+            // $cartItems = $user->carts->where('product.status', 'active')->load('product');
+            $cartItems = $user->carts->where('status', 'active')->load('product');
+
     
             $total_due = 0;
             foreach ($cartItems as $item) {
@@ -30,14 +33,18 @@ class CartController extends Controller
     }
 
     public function addToCart(Request $request, Product $product) {
+
         $userId = auth()->user()->id;
     
-        $cartItem = Cart::where('user_id', $userId)->where('product_id', $product->id)->first();
+        $cartItem = Cart::where('user_id', $userId)->where('product_id', $product->id)->where('status', 'active')->first();
     
         if ($cartItem) {
+
             $cartItem->update(['quantity' => $cartItem->quantity + 1]);
             $cartItem->update(['total_amount' => $product->price * $cartItem->quantity]);
+
             return redirect()->route('product.browse')->with('success', 'Product has been added to cart.');
+
         } else {
             
             $item = [

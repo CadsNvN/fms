@@ -2,6 +2,11 @@
     <div class="flex flex-col mx-auto max-w-[1240px]">
             <div class="py-4 flex space-x-4">
                 <div class="w-2/3">
+                    @if (count($items) < 1)
+                        <div class="w-full h-[100px] flex justify-center items-center">
+                            <p class="text-red-500 text-sm font-medium">You don't have an Item in your cart yet.</p>
+                        </div>
+                    @endif
                     @foreach ($items as $item)
                         <div class="h-32 flex space-x-4 p-2 rounded-md border border-gray-200 shadow-md mb-2">
                             <img src="{{asset('images/Torres_Escaro2.jpg')}}" alt="" class="w-32 h-full rounded-md">
@@ -61,7 +66,7 @@
                                 <p class="text-white font-bold">Quantity</p>
                                 <p class="text-white font-bold">Price</p>
                             </div>
-                            @if (count($items) == 0)
+                            @if (count($items) < 1)
                                 <div class="w-full h-[100px] flex justify-center items-center">
                                     <p class="text-red-500 text-sm font-medium">No items yet</p>
                                 </div>
@@ -73,7 +78,13 @@
                                     <p class="w-1/3 text-center">{{$item->quantity}}</p>
                                     <p class="w-1/3 text-center">&#8369;{{ number_format($item->total_amount, 2, '.', ',') }}</p>
                                 </div>
+
+                                <input type="hidden" name="product_ids[]" value="{{$item->product_id}}">
+                                <input type="hidden" name="quantities[]" value="{{$item->quantity}}">
+                                <input type="hidden" name="unit_prices[]" value="{{$item->total_amount / $item->quantity}}">
+
                             @endforeach
+
                             <div class="w-full flex justify-between p-2 border-t border-gray-300">
                                 <h1>TOTAL:</h1>
                                 <p>&#8369;{{ number_format($total_due, 2, '.', ',') }}</p>
@@ -82,6 +93,7 @@
                             <div class="wi-full flex justify-center items-center ">
                                 <button type="submit" class="w-full rounded text-white bg-blue-700 px-4 py-2">Place Order</button>
                             </div>
+                            
                         </div>
                     </form>
                 </div>
