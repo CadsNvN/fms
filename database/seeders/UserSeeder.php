@@ -21,7 +21,6 @@ class UserSeeder extends Seeder
                 'email' => 'admin@email.com',
                 'password' => Hash::make('admin'),
                 'role' => 'admin',
-                'profile_id' => 1
             ]
         );
 
@@ -30,7 +29,6 @@ class UserSeeder extends Seeder
                 'email' => 'owner@email.com',
                 'password' => Hash::make('owner'),
                 'role' => 'owner',
-                'profile_id' => 2
             ]
         );
 
@@ -39,7 +37,6 @@ class UserSeeder extends Seeder
                 'email' => 'customer@email.com',
                 'password' => Hash::make('customer'),
                 'role' => 'customer',
-                'profile_id' => 3
             ]
         );
     }
