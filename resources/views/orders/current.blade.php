@@ -32,30 +32,15 @@
                                         <span class="rounded py-1 px-2 text-xs text-white bg-red-700">pending</span>
                                     @endif
                                 </td>
-                                {{-- <td class="px-4 py-2 text-sm ">                                           
-                                    <form action="{{ route('orders.confirm', $order->id) }}" method="POST">
-                                        @csrf
-                                        @method('PUT')
-                                        <button type="submit" class="rounded p-2 cursor-pointer text-xs font-medium text-white  bg-red-700 px-4 py-1">
-                                            unpaid
-                                        </button>
-                                    </form>  
-
-                                    
-                                </td> --}}
-
+                                
                                 <td class="px-4 py-2 text-sm">                                           
                                     <a href="{{route('invoice.print', $order->id)}}" class="text-white text-xs rounded px-4 py-1 bg-blue-600 ">invoice</a>
                                 </td>
 
                                 <td class="px-4 py-2 text-sm flex items-center space-x-2">                                           
-                                    {{-- <form action="{{ route('orders.confirm', $order->id) }}" method="POST"> --}}
-                                        {{-- @csrf
-                                        @method('PUT') --}}
-                                        <button type="submit" class="rounded p-2 cursor-pointer text-xs font-medium text-white bg-green-700 px-4 py-1">
-                                            Process
-                                        </button>
-                                    {{-- </form>   --}}
+                                    <a href="{{ route('orders.process', $order->id) }}" class="rounded p-2 cursor-pointer text-xs font-medium text-white bg-green-700 px-4 py-1">
+                                        Process
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

@@ -92,11 +92,41 @@ class OrderController extends Controller
         ]);
     }
 
-    public function confirmOrder($orderId) {
+    public function processOrder($orderId) {
+
+        $order = Order::find($orderId);
+
+        $customer = $order->user->profile;
+
+        $order_items = $order->orderItems;
+
+        $products = [];
+        foreach($order_items as $item) {
+            if ($item->product) {
+                $products[] = $item->product;
+            }
+        }
+
+        return view('orders.process-order', [
+            'order' => $order,
+            'customer' => $customer,
+            'products' => $products,
+            'order_items' => $order_items
+        ]);
+    }
+
+    public function confirmOrder(Request $request, $orderId) {
         try {
 
             $order = Order::findOrFail($orderId);
+
             $order->status = 'confirmed';
+            $order->payment_method = $request->payment_method;
+            $order->ammount_recived = $request->amount_recieved;
+            $order->change = $request->amount_recieved - $order->total_due;
+            $order->payment_date = $request->payment_date;
+            $order->paid_by = $request->first_name . ' ' . $request->last_name;
+
             $order->save(); 
 
             return redirect()->back()->with('success', 'Order confirmed successfully.');
@@ -105,5 +135,7 @@ class OrderController extends Controller
             return redirect()->back()->with('error', 'Error confirming Order: ' . $e->getMessage());
         }
     }
+
+
 
 }

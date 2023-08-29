@@ -15,6 +15,7 @@ class ProfileSeeder extends Seeder
     {
         DB::table('profiles')->insert(
             [
+                'user_id' => 1,
                 'firstName' => 'Admin',
                 'lastName' => 'Admin',
                 'middleName' => 'A.',
@@ -25,6 +26,7 @@ class ProfileSeeder extends Seeder
 
         DB::table('profiles')->insert(
             [
+                'user_id' => 2,
                 'firstName' => 'Owner',
                 'lastName' => 'Owner',
                 'middleName' => 'O.',
@@ -35,6 +37,7 @@ class ProfileSeeder extends Seeder
 
         DB::table('profiles')->insert(
             [
+                'user_id' => 3,
                 'firstName' => 'Customer',
                 'lastName' => 'Customer',
                 'middleName' => 'C.',
