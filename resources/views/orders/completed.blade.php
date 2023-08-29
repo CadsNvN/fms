@@ -47,7 +47,7 @@
                                 </td> --}}
 
                                 <td class="px-4 py-2 text-sm">                                           
-                                    <a href="{{route('invoice.print', $order->id)}}" class="text-white text-xs rounded px-4 py-1 bg-blue-600 ">receipt</a>
+                                    <a href="{{route('receipt.view', $order->id)}}" class="text-white text-xs rounded px-4 py-1 bg-blue-600 ">receipt</a>
                                 </td>
 
                             </tr>

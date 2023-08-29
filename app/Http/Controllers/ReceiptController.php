@@ -11,15 +11,33 @@ use Illuminate\Support\Facades\View;
 
 class ReceiptController extends Controller
 {
-    public function generateReceipt($orderId) {
+    public function index($orderId)
+    {
+        $order = Order::findOrFail($orderId);
+        $orderItems = OrderItems::where('order_id', $order->id)->with('product')->get();
 
+        $products = [];
+
+        foreach ($orderItems as $item) {
+            if ($item->product) {
+                $products[] = $item->product;
+            }
+        }
+
+        return view('receipt', [
+            'order' => $order,
+            'orderItems' => $orderItems,
+        ]);
+    }
+    public function generateReceipt($orderId)
+    {
 
         $order = Order::findOrFail($orderId);
         $orderItems = OrderItems::where('order_id', $order->id)->with('product')->get();
 
         $products = [];
 
-        foreach($orderItems as $item) {
+        foreach ($orderItems as $item) {
             if ($item->product) {
                 $products[] = $item->product;
             }
@@ -31,9 +49,11 @@ class ReceiptController extends Controller
 
         $dompdf = new Dompdf();
         $dompdf->loadHtml($html);
+
+        $dompdf->set_option('isHtml5ParserEnabled', true);
         $dompdf->setPaper('A4', 'portrait');
         $dompdf->render();
 
-        return $dompdf->stream('receipt.pdf'); 
+        return $dompdf->stream('receipt.pdf');
     }
 }
