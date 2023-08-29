@@ -19,7 +19,7 @@
             
                 <p class="leading-relaxed">{{$product->description}}</p>
 
-                <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                <form action="{{ route('cart.save', $product->id) }}" method="POST">
                   @csrf
                   <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
                     <div class="flex">

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role')->default('customer');
-            // $table->foreignId('profile_id')->references('id')->on('profiles')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

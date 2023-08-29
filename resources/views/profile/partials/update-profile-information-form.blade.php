@@ -17,10 +17,35 @@
         @csrf
         @method('patch')
 
+        {{-- firstName --}}
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+            <x-input-label for="firstName" :value="__('First name')" />
+            <x-text-input id="firstName" name="firstName" type="text" class="mt-1 block w-full" :value="old('firstName', $profile->firstName)" required autofocus autocomplete="fisrtName" />
+            <x-input-error class="mt-2" :messages="$errors->get('firstName')" />
+        </div>
+        {{-- middleName --}}
+        <div>
+            <x-input-label for="middleName" :value="__('Middle name')" />
+            <x-text-input id="middleName" name="middleName" type="text" class="mt-1 block w-full" :value="old('middleName', $profile->middleName)" required autofocus autocomplete="middleName" />
+            <x-input-error class="mt-2" :messages="$errors->get('middleName')" />
+        </div>
+        {{-- lastName --}}
+        <div>
+            <x-input-label for="lastName" :value="__('Last name')" />
+            <x-text-input id="lastName" name="lastName" type="text" class="mt-1 block w-full" :value="old('lastName', $profile->lastName)" required autofocus autocomplete="lastName" />
+            <x-input-error class="mt-2" :messages="$errors->get('lastName')" />
+        </div>
+        {{-- phoneNumber --}}
+        <div>
+            <x-input-label for="phoneNumber" :value="__('Phone number')" />
+            <x-text-input id="phoneNumber" name="phoneNumber" type="text" class="mt-1 block w-full" :value="old('phoneNumber', $profile->phoneNumber)" required autofocus autocomplete="phoneNumber" />
+            <x-input-error class="mt-2" :messages="$errors->get('phoneNumber')" />
+        </div>
+        {{-- address --}}
+        <div>
+            <x-input-label for="address" :value="__('Address')" />
+            <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $profile->address)" required autofocus autocomplete="address" />
+            <x-input-error class="mt-2" :messages="$errors->get('address')" />
         </div>
 
         <div>

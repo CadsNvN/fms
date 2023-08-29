@@ -21,7 +21,7 @@
                                 <div class="flex flex-col space-y-1 justify-center items-center">
                                     <p class="font-bold text-lg">Quantity</p>
                                     <div class="flex space-x-2 items-center">
-                                        <form action="{{ route('quantity.subtract', $item->id) }}" method="POST">
+                                        <form action="{{ route('cart.subtract', $item->id) }}" method="POST">
                                             @csrf
                                             @method('put')
                                             <button>
@@ -31,7 +31,7 @@
 
                                         <span class="px-2 rounded-md border border-gray-300">{{$item->quantity}}</span>
 
-                                        <form action="{{ route('quantity.add', $item->id) }}"  method="POST">
+                                        <form action="{{ route('cart.add', $item->id) }}"  method="POST">
                                             @csrf
                                             @method('put')
                                             <button>
@@ -42,7 +42,7 @@
                                 </div>
 
                                 <div class="px-4 py-2 hover:bg-gray-200 rounded-md">
-                                    <form action="/cart-delete/{{$item->id}}"  method="post">
+                                    <form action="{{route('cart.destroy', $item->id)}}"  method="post">
                                         @csrf
                                         @method('delete')
                                         <button>
