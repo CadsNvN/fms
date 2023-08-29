@@ -16,9 +16,6 @@
         <x-news/>
         <x-news/>
         <x-news/>
-        <x-news/>
-        <x-news/>
-        <x-news/>
       </div>
     </div>
   </div>

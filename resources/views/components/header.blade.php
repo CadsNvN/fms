@@ -20,10 +20,10 @@
               <a href="{{route('about-us')}}" class="text-white">About Us</a>
             </li>
             <li class="border-b-2 border-b-blue-800 hover:border-b-white px-3 ">
-              <a href="{{route('about-us')}}" class="text-white">Contact Us</a>
+              <a href="{{route('contact-us')}}" class="text-white">Contact Us</a>
             </li>
             <li class="border-b-2 border-b-blue-800 hover:border-b-white px-3 ">
-              <a href="{{route('about-us')}}" class="text-white">News & Announcments</a>
+              <a href="{{route('news-announcement')}}" class="text-white">News & Announcments</a>
             </li>
         </div>
        <div>

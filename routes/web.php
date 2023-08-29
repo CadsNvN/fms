@@ -21,12 +21,23 @@ use App\Http\Controllers\ReceiptController;
 |
 */
 
+Route::get('/', [ProductController::class, 'welcomePageProducts'])
+->name('welcome');
+
+// ABOUT US
 Route::get('/about-us', function () {
     return view('pages.about_us');
 })->name('about-us');
 
-Route::get('/', [ProductController::class, 'welcomePageProducts'])
-->name('welcome');
+// CONTACT US
+route::get('/contact-us', function () {
+    return view('pages.contact-us');
+})->name('contact-us');
+
+// NEWS & ANNOUNCEMENTS
+route::get('/news-announcement', function () {
+    return view('pages.news-announcement');
+})->name('news-announcement');
 
 // PRODUCTS
 Route::get('/show/{product}', [ProductController::class, 'show'])
