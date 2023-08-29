@@ -106,7 +106,8 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::prefix('/orders')->controller(OrderController::class)->as('orders.')->group(function() {
         Route::get('/current', 'currentOrders')->name('current');
         Route::get('/completed', 'completedOrders')->name('completed');
-        Route::put('/{orderId}/confirm', 'confirmOrder')->name('confirm');
+        Route::get('/current/{orderId}', 'processOrder')->name('process');
+        Route::put('/current/{orderId}/confirm', 'confirmOrder')->name('confirm');
     });
 
 });

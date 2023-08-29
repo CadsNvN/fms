@@ -42,25 +42,26 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $profile = [
-            'firstName' => $request->firstName,
-            'lastName' => $request->lastName,
-            'middleName' => $request->middleName,
-            'phoneNumber' => $request->phoneNumber,
-            'address' => $request->address,
+        $account = [
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
         ];
 
-        $createdProfile = Profile::create($profile);
+        $user = User::create($account);
 
-        if ($createdProfile) {
+        if ($user) {
 
-            $account = [
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'profile_id' => $createdProfile->id
+            $profile = [
+                'user_id' => $user->id,
+                'firstName' => $request->firstName,
+                'lastName' => $request->lastName,
+                'middleName' => $request->middleName,
+                'phoneNumber' => $request->phoneNumber,
+                'address' => $request->address,
             ];
 
-            $user = User::create($account);
+            $createdProfile = Profile::create($profile);
+            
         }
 
         return redirect('/login');
