@@ -54,6 +54,7 @@ Route::middleware('auth')->group(function () {
     });
     
     //Order Receipt
+    Route::get('/receipt/{orderId}', [ReceiptController::class, 'index'])->name('receipt.view');
     Route::get('/generate-receipt/{orderId}', [ReceiptController::class, 'generateReceipt'])->name('invoice.print');
 
 });
