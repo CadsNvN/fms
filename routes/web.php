@@ -88,7 +88,7 @@ Route::middleware(['auth', 'role:customer'])->group(function() {
 Route::middleware(['auth', 'role:admin'])->group(function() {
 
     // dashboard
-    Route::prefix('admin')->controller(AdminDashboardController::class)->as('admin.')->group(function() {
+    Route::prefix('/admin')->controller(AdminDashboardController::class)->as('admin.')->group(function() {
         Route::get('/dashboard', 'index')->name('dashboard');
     });
 

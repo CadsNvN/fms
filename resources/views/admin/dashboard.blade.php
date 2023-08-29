@@ -21,7 +21,7 @@
                 <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
                     <div class="border-2 border-blue-300 px-4 py-6 rounded-lg">
                         <i class='bx bx-list-ul text-4xl text-blue-700'></i>
-                        <h2 class="title-font font-medium text-3xl text-gray-900">0</h2>
+                        <h2 class="title-font font-medium text-3xl text-gray-900">{{$orders}}</h2>
                         <p class="leading-relaxed">Current Orders</p>
                     </div>
                 </div>
