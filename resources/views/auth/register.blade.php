@@ -72,7 +72,10 @@
                 {{ __('Already registered?') }}
             </a>
 
-            <button type="submit" class="rounded-md px-4 py-2 bg-blue-500 text-white">Register</button>
+            {{-- <button type="submit" class="rounded-md px-4 py-2 bg-blue-500 text-white uppercase">Register</button> --}}
+            <x-primary-button>
+                {{ __('Register') }}
+            </x-primary-button>
         </div>
     </form>
 </x-guest-layout>

@@ -73,7 +73,7 @@
                 <tr>
                   <td class="title">
                     <a href="/" class=" flex space-x-2 items-center">
-                        <img src="{{asset('images/Torres_Escaro2.jpg')}}" alt="" class="w-16 h-16 rounded-full border border-gray-300">
+                        <img src="{{asset('images/torreslogo.png')}}" alt="" class="w-16 h-16 rounded-full border border-gray-300">
                         <div>
                             <h1 class="text-sm font-bold">TORRES ESCARO</h1>
                             <p class="text-xs">Funeral Services</p>

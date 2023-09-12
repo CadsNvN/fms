@@ -2,7 +2,7 @@
     <div class="flex mx-auto max-w-[1240px] py-12">
         <div class="w-1/5 flex-col space-y-4">
             <a href="/" class="text-white flex space-x-2 items-center">
-                <img src="{{asset('images/Torres_Escaro2.jpg')}}" alt="" class="w-12 h-12 rounded-full border border-gray-300">
+                <img src="{{asset('images/Torreslogo.png')}}" alt="" class="w-12 h-12 rounded-full border border-gray-300">
                 <div>
                     <h1 class="text-sm font-bold text-blue-700">TORRES ESCARO</h1>
                     <p class="text-xs text-blue-700">Funeral Services</p>

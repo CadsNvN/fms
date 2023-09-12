@@ -53,6 +53,10 @@ class ProductController extends Controller
             'category_id' => 'required|exists:categories,id'
         ]);
 
+        if($request->hasFile('image')) {
+            $productFields['image'] = $request->image->store('productImage', 'public');
+        }
+
         $product  = Product::create($productFields);
 
         $categoryId = $request->input('category_id');
@@ -78,6 +82,10 @@ class ProductController extends Controller
             'stock' => 'required|integer|min:0',
             'category_id' => 'required'
         ]);
+
+        if($request->hasFile('image')) {
+            $productFields['image'] = $request->image->store('productImage', 'public');
+        }
 
         $product->update($productFields);
 

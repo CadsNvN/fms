@@ -30,7 +30,7 @@
                         @foreach ($products as $product)
                             <tr class="border-t border-gray-300">
                                 <td class="px-4 py-2">
-                                    <img src="{{asset('images/Torres_Escaro2.jpg')}}" alt="Product Image" class="w-16 h-16">
+                                    <img src="{{ $product->image ? asset('storage/' . $product->image) : "" }}" alt="Product Image" class="w-16 h-16">
                                 </td>
                                 <td class="px-4 py-2 text-sm">{{$product->name}}</td>
                                 <td class="px-4 py-2 text-sm">{{substr($product->description, 0, 3)}} {{strlen($product->description) > 5 ? "..." : ""}}</td>

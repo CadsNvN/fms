@@ -4,7 +4,7 @@
             <div class="border-b-2 border-gray-300 p-2">
                 <h1 class="text-xl text-blue-500 font-bold">ADD NEW PRODUCT</h1>
             </div>
-            <form method="POST" action="/product/store" class="flex flex-col w-full p-2">
+            <form method="POST" enctype="multipart/form-data" action="/product/store" class="flex flex-col w-full p-2">
                 @csrf
                 <div class="flex flex-col space-y-2 mt-3">
                     <label for="name">NAME</label>
@@ -35,6 +35,14 @@
                         <label for="stock">STOCK</label>
                         <input id="stock" name="stock" type="number" class="rounded border border-gray-300"/>
                         @error('stock')
+                            <p class="text-red-500 text-xs">{{$message}}</p>
+                        @enderror
+                    </div>
+
+                    <div class="flex flex-col space-y-2">
+                        <label for="image">PRODUCT IMAGE</label>
+                        <input type="file" name="image" id="image" class="rounded border border-gray-300">
+                        @error('image')
                             <p class="text-red-500 text-xs">{{$message}}</p>
                         @enderror
                     </div>

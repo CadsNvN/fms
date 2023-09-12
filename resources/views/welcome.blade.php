@@ -44,27 +44,6 @@
 </section>
 {{-- END OF PRODUCTS --}}
 
-{{-- TESTIMONIAL --}}
-<section class="text-gray-600 body-font pt-10">
-  <div class="mx-auto max-w-[1240px]">
-    <div class="z-10 text-center text-black">
-      <h1 class="text-4xl font-bold uppercase mb-4">
-        Testimonial
-      </h1>
-      <a href="/" class="hover:underline text-l">See more</a>
-    </div>
-  
-    <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-wrap -m-4">
-        <x-testimonial-card/>
-        <x-testimonial-card/>
-        <x-testimonial-card/>
-      </div>
-    </div>
-  </div>
-</section>
-{{-- END OF TESTIMONIAL --}}
-
 {{-- CONTACT US --}}
 <section class="text-gray-600 body-font bg-gray-100 relative">
   <div class="mx-auto max-w-[1240px]">
@@ -107,4 +86,25 @@
   </div>
 </section>
 {{-- END OF CONTACT US --}}
+
+{{-- TESTIMONIAL --}}
+<section class="text-gray-600 body-font pt-10">
+  <div class="mx-auto max-w-[1240px]">
+    <div class="z-10 text-center text-black">
+      <h1 class="text-4xl font-bold uppercase mb-4">
+        Testimonial
+      </h1>
+      <a href="/" class="hover:underline text-l">See more</a>
+    </div>
+  
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap -m-4">
+        <x-testimonial-card/>
+        <x-testimonial-card/>
+        <x-testimonial-card/>
+      </div>
+    </div>
+  </div>
+</section>
+{{-- END OF TESTIMONIAL --}}
 </x-welcome-layout>
