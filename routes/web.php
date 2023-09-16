@@ -104,6 +104,11 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('/dashboard', 'index')->name('dashboard');
     });
 
+    // List of users
+    Route::get('/List-user', function () {
+        return view('pages.List-user');
+    })->name('List-user');
+
     // products
     Route::prefix('/product')->controller(ProductController::class)->as('product.')->group(function() {
         Route::get('/products', 'index')->name('index');

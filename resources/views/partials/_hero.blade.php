@@ -9,12 +9,15 @@
           110 Bayanan Rd, Bacoor, 4102 Cavite
         </p>
         {{-- <p>110 Bayanan Rd, Bacoor, 4102 Cavite</p> --}}
-        <div class="pt-6">
+        @guest
+          <div class="pt-6">
             <a href="register.html" class="inline-block border-2 border-white-800 
             text-blue-800 font-semibold py-2 px-4 rounded-md uppercase mt-2 bg-white">
               Sign Up to Access Full Services
             </a>
-        </div>
+          </div>
+        @endguest
+
     </div>
   </div>
 

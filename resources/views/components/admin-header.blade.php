@@ -1,6 +1,6 @@
 <header class="bg-blue-800 border-b border-gray-300">
     <div class="flex items-center justify-between mx-auto max-w-[1240px] ">
-        <a href="{{route('admin.dashboard')}}" class="flex items-center justify-start">
+        <a href="{{route('welcome')}}" class="flex items-center justify-start">
             <h1 class="text-white text-xl font-bold px-4 py-2 border border-white rounded">Torres Escaro FMS</h1>
         </a>
         <div class="flex space-x-4">
@@ -14,7 +14,7 @@
                             <x-dropdown align="right" width="48">
                                 <x-slot name="trigger">
                                     <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                        {{-- <div>{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}</div> --}}
+                                        {{-- <div>{{ Auth::User()->firstName }} {{ Auth::User()->lastName }}</div> --}}
                                         <div>Matt Francia</div>
             
                                         <div class="ml-1">
@@ -86,7 +86,7 @@
                 </div>
             </nav>
             <div class="flex items-center justify-center">
-                <img src="{{asset('images/Torres_Escaro2.jpg')}}" alt="" class="w-10 h-10 rounded-full border border-gray-300">
+                <img src="{{asset('images/Torreslogo.png')}}" alt="" class="w-10 h-10 rounded-full border border-gray-300">
             </div>  
         </div>
     </div> 

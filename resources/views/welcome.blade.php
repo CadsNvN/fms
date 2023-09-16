@@ -12,7 +12,7 @@
     </x-sub-header-text>
   
     <div class="container px-5 py-10 mx-auto">
-      <div class="flex flex-wrap -m-4">
+      <div class="flex flex-wrap m-4">
         <x-news/>
         <x-news/>
         <x-news/>

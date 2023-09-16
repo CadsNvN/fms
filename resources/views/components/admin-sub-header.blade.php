@@ -28,7 +28,7 @@
                     <x-slot name="content">
                         <x-dropdown-link :href="route('orders.current')">
                             Current Orders
-                        </x-dropdown-link>
+                        </x-dropdown-link> 
                         <x-dropdown-link :href="route('orders.completed')">
                             Completed Orders
                         </x-dropdown-link>
@@ -37,13 +37,15 @@
             </li>
 
             <li>
-                <a class="cursor-pointer inline-flex items-center px-3 py-2 border border-gray-400 text-base leading-4 font-medium rounded text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                <a href="{{route('List-user')}}"
+                class="cursor-pointer inline-flex items-center px-3 py-2 border border-gray-400 text-base leading-4 font-medium rounded text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                     Feedback
                 </a>
             </li>
 
             <li>
-                <a class="cursor-pointer inline-flex items-center px-3 py-2 border border-gray-400 text-base leading-4 font-medium rounded text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                <a href="{{route('List-user')}}"
+                class="cursor-pointer inline-flex items-center px-3 py-2 border border-gray-400 text-base leading-4 font-medium rounded text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                     Users
                 </a>
             </li>
