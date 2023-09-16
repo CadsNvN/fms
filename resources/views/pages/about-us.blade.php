@@ -18,7 +18,7 @@
             <div class="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-blue-800">
               <h3 class="text-xl font-semibold tracki">Torres Escaro Funeral services</h3>
               <time class="text-xs tracki uppercase text-gray-600">2009</time>
-              <p class="mt-3">The funeral business is established and begins its operations.</p>
+              <p class="mt-3">Our funeral business is established and begins its operations.</p>
             </div>
             <div class="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-blue-800">
               <h3 class="text-xl font-semibold tracki">Initial Years</h3>

@@ -19,6 +19,12 @@ class OrderController extends Controller
 
     public function store(Request $request) {
 
+        $cartItem = Cart::where('user_id', auth()->user()->id)->where('status', 'active')->get();
+
+        if (count($cartItem) == 0) {
+            return redirect()->back()->with('error', 'Your cart is empty. Add items to your cart before placing an order.');
+        }
+
         $user = auth()->user();
     
         $order = [
