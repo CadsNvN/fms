@@ -35,6 +35,10 @@ class CartController extends Controller
     public function addToCart(Request $request, Product $product) {
 
         $userId = auth()->user()->id;
+
+        if ($product->stock == 0) {
+            return redirect()->route('product.browse')->with('error', 'Product is out of stock.');
+        }
     
         $cartItem = Cart::where('user_id', $userId)->where('product_id', $product->id)->where('status', 'active')->first();
     
@@ -70,7 +74,15 @@ class CartController extends Controller
         $product = Product::where('id', $cart->product_id)->first();
         $price = $product->price;
 
-        $cart->quantity = $cart->quantity + 1;
+        // check if quantity is greater than stock
+        $newQuantity = $cart->quantity + 1;
+        if ($newQuantity > $product->stock){
+            return back()->with('error', 'Reached the maximum quantity for this item');
+        }
+
+
+        // $cart->quantity = $cart->quantity + 1;
+        $cart->quantity = $newQuantity;
         $cart->total_amount = $cart->total_amount + $price;
         $addedQuantity = $cart->save();
 
@@ -102,7 +114,7 @@ class CartController extends Controller
                 return redirect()->route('cart.index')->with('error', 'Unable to Deducted');
             }
         } else {
-            return back()->with('error', 'Reached the minimum quantity fo this Item');
+            return back()->with('error', 'Reached the minimum quantity for this item');
         }
     } 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\OrderItems;
 use Illuminate\Http\Request;
 
@@ -17,10 +18,10 @@ class OrderController extends Controller
         ]);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request, Product $product) {
 
+        // Check if cart is empty
         $cartItem = Cart::where('user_id', auth()->user()->id)->where('status', 'active')->get();
-
         if (count($cartItem) == 0) {
             return redirect()->back()->with('error', 'Your cart is empty. Add items to your cart before placing an order.');
         }
@@ -56,15 +57,20 @@ class OrderController extends Controller
 
             if ($orderItemsCreated) {
                 for ($i = 0; $i < count($productIds); $i++) {
-                    $cartItem = Cart::where('product_id', $productIds[$i])->where('status', 'active')->first();   
-                    if ($cartItem) {
-
-                        $cartItem->status = "ordered";
-                        $cartItem->save();
+                    $product = Product::find($productIds[$i]);
+                    if ($product) {
+                        $product->decrement('stock', $quantities[$i]);
+                        $product->save();
                     }
                 }
+                
+                foreach ($cartItem as $item) {
+                    $item->status = "ordered";
+                    $item->save();
+                }
+                   
             }
-    
+
             return redirect()->route('order.index')->with('success', 'Order Successful');
         } else {
             return redirect()->back()->with('error', 'Failed to create order');
@@ -74,6 +80,21 @@ class OrderController extends Controller
     public function destroy($orderId) {
         try {
             $order = Order::findOrFail($orderId);
+
+            // Get the associated order items
+            $orderItems = $order->orderItems;
+
+            // Increment the stock quantity for each product in the order
+            foreach ($orderItems as $orderItem) {
+                $product = Product::find($orderItem->product_id);
+
+                if ($product) {
+                    $product->increment('stock', $orderItem->quantity);
+                }
+            }
+
+            // Delete the order
+            $order->orderItems()->delete();
             $order->delete(); 
             return redirect()->back()->with('success', 'Order deleted successfully.');
         } catch (\Exception $e) {
@@ -126,6 +147,14 @@ class OrderController extends Controller
 
             $order = Order::findOrFail($orderId);
 
+            $request->validate([
+                'payment_method' => 'required',
+                'amount_recieved' => 'required|numeric|min:' . $order->total_due,
+                'payment_date' => 'required',
+                'first_name' => 'required',
+                'last_name' => 'required',
+            ]);
+
             $order->status = 'confirmed';
             $order->payment_method = $request->payment_method;
             $order->ammount_recived = $request->amount_recieved;
@@ -133,9 +162,9 @@ class OrderController extends Controller
             $order->payment_date = $request->payment_date;
             $order->paid_by = $request->first_name . ' ' . $request->last_name;
 
-            $order->save(); 
+            $order->save();   
 
-            return redirect()->back()->with('success', 'Order confirmed successfully.');
+            return redirect()->back()->with('success', 'Order confirmed successfully.');  
 
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Error confirming Order: ' . $e->getMessage());

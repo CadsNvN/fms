@@ -1,13 +1,13 @@
-<x-app-layout>
-    <section class="py-4">
-        <div class="flex flex-col mx-auto max-w-[1240px]">
+<x-welcome-layout>
+    <section class="py-4 flex-grow">
+        <div class="flex flex-col mx-auto max-w-[1240px] min-h-screen">
             <div class="flex flex-row justify-between mb-3">
                 <div class="w-full py-2 border-b border-gray-300">
                     <h1 class="text-xl font-bold">Your Orders</h1>
                 </div>
             </div>
     
-            <div>
+            <div class="">
                 <table class="table-auto w-full border-collapse">
                     <thead>
                         <tr class="text-left bg-gray-200">
@@ -52,5 +52,5 @@
             </div>
         </div>
     </section>
-</x-app-layout>
+</x-welcome-layout>
     

@@ -1,5 +1,5 @@
-<x-app-layout>
-    <div class="flex flex-col mx-auto max-w-[1240px]">
+<x-welcome-layout>
+    <div class="flex flex-col mx-auto max-w-[1240px] flex-grow min-h-screen">
             <div class="py-4 flex space-x-4">
                 <div class="w-2/3">
                     @if (count($items) < 1)
@@ -99,4 +99,4 @@
                 </div>
             </div>
     </div>
-</x-app-layout>
+</x-welcome-layout>
