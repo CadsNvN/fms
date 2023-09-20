@@ -58,8 +58,8 @@
           <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
             <h2 class="title-font font-semibold text-black tracking-widest text-xs">EMAIL</h2>
             <a class="text-indigo-800 leading-relaxed">torresescarofuneral@gmail.com</a>
-            <h2 class="title-font font-semibold text-black tracking-widest text-xs mt-4">PHONE</h2>
-            <p class="leading-relaxed text-black">0921-421-4743 / 0919-075-5427 / (046) 502-6635</p>
+            <h2 class="title-font font-semibold text-black tracking-widest text-xs mt-4">MOBILE</h2>
+            <p class="leading-relaxed text-black">0921-421-4743 / 0919-075-5427 / <br> LANDLINE: (046) 502-6635</p>
           </div>
         </div>
       </div>
