@@ -12,6 +12,17 @@ class ServiceInformation extends Model
 {
     use HasFactory;
 
+    protected $table = 'service_informations';
+
+    protected $fillable = [
+        'deceased_information_id',
+        'informant_id',
+        'casket_id',
+        'hearse_id',
+        'serviceType'
+    ];
+
+
     public function informant() {
         return $this->belongsTo(Informant::class);
     }

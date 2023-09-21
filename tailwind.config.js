@@ -16,6 +16,7 @@ export default {
             },
             backgroundImage: {
                 'hero-image': "url('/public/images/Torres_Escaro1.jpg')",
+                'urn': "url('/icons/urn.png')",
             }
         },
     },

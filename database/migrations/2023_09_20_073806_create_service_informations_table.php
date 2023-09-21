@@ -1,12 +1,12 @@
 <?php
 
 use App\Models\Casket;
-use App\Models\DeceasedInformation;
 use App\Models\Hearse;
 use App\Models\Informant;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\DeceasedInformation;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -17,10 +17,10 @@ return new class extends Migration
     {
         Schema::create('service_informations', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(DeceasedInformation::class)->constrained()->onDelete('cascade');
-            $table->foreignIdFor(Informant::class)->constrained()->onDelete('cascade');
-            $table->foreignIdFor(Casket::class)->constrained()->onDelete('cascade');
-            $table->foreignIdFor(Hearse::class)->constrained()->onDelete('cascade');
+            $table->foreignIdFor(DeceasedInformation::class)->nullable()->onDelete('cascade');
+            $table->foreignIdFor(Informant::class)->nullable()->onDelete('cascade');
+            $table->foreignIdFor(Casket::class)->nullable()->onDelete('cascade');
+            $table->foreignIdFor(Hearse::class)->nullable()->onDelete('cascade');
             $table->string('serviceType');
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('service_information');
+        Schema::dropIfExists('service_informations');
     }
 };

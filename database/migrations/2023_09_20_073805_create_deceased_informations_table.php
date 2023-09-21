@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('lastName');
             $table->date('dob');
             $table->string('age');
+            $table->string('sex');
             $table->string('height');
             $table->string('weight');
             $table->string('address');

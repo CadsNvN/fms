@@ -1,5 +1,5 @@
 <section class="bg-white">
-    <div class="flex items=center justify-between mx-auto max-w-[1240px] ">
+    <div class="flex items=center justify-between mx-auto max-w-[1300px] px-4 ">
         <ul class="flex space-x-4 py-3">
             <li>
                 <a  href="{{route('admin.dashboard')}}"

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('service_requests', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');
-            $table->foreignIdFor(ServiceInformation::class)->constrained()->onDelete('cascade');
+            $table->foreignId('service_information_id')->constrained('service_informations')->onDelete('cascade');
             $table->string('status')->default('pending');
             $table->uuid('requestId');
             $table->timestamps();

@@ -1,14 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CasketController;
+use App\Http\Controllers\HearseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReceiptController;
+use App\Http\Controllers\InformantController;
+use App\Http\Controllers\ServiceRequestController;
+use App\Http\Controllers\ServiceInformationController;
+use App\Http\Controllers\DeceasedInformationController;
 use App\Http\Controllers\Admin\AdminDashboardController;
-use App\Http\Controllers\CartController;
 use App\Http\Controllers\Owner\OwnerDashboardController;
 use App\Http\Controllers\Customer\CustomerDasboardController;
-use App\Http\Controllers\ReceiptController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,6 +99,28 @@ Route::middleware(['auth', 'role:customer'])->group(function() {
         Route::get('/existing', 'index')->name('index');
         Route::delete('/{orderId}/delete', 'destroy')->name('destroy');
     });
+
+
+    Route::prefix('/service')->as('service.')->group(function() {
+
+        Route::get('/type', [ServiceInformationController::class, 'index'])->name('index');
+        Route::post('/type-save', [ServiceInformationController::class, 'store'])->name('store');
+
+        Route::prefix('/{serviceInformation}')->group(function() {
+            Route::controller(ServiceInformationController::class)->group(function() {
+                Route::get('/deceased-info', 'deceased')->name('deceased');
+                Route::get('/informant-info', 'informant')->name('informant');
+                Route::get('/inclusions', 'inclusions')->name('inclusions');
+                Route::get('/other-services', 'otherServices')->name('other-services');
+            });
+        });
+
+    });
+
+
+
+
+
 });
 // END CUSTOMER
 

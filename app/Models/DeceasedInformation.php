@@ -10,6 +10,9 @@ class DeceasedInformation extends Model
 {
     use HasFactory;
 
+    
+    protected $table = 'deceased_informations';
+
     public function serviceInformation() {
         return $this->belongsTo(ServiceInformation::class);
     }

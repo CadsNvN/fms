@@ -1,5 +1,5 @@
 <header class="bg-blue-800 border-b border-gray-300">
-    <div class="flex items-center justify-between mx-auto max-w-[1240px] ">
+    <div class="flex items-center justify-between mx-auto max-w-[1300px] px-4 ">
         <a href="{{route('welcome')}}" class="flex items-center justify-start">
             <h1 class="text-white text-xl font-bold px-4 py-2 border border-white rounded">Torres Escaro FMS</h1>
         </a>
