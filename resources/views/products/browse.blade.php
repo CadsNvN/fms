@@ -19,9 +19,9 @@
                         </a>
                         <div class="mt-4">
                             @if ($product->category_id == 1)
-                                <h3 class="text-gray-600 text-xs font-bold tracking-widest title-font mb-1">Traditional Plan</h3>
+                                <h3 class="text-gray-600 text-xs font-bold tracking-widest title-font mb-1">Memorial Services</h3>
                             @else
-                                <h3 class="text-gray-600 text-xs font-bold tracking-widest title-font mb-1">Cremation Plan</h3>
+                                <h3 class="text-gray-600 text-xs font-bold tracking-widest title-font mb-1">Direct Cremation Services</h3>
                             @endif
                             <h2 class="text-gray-900 title-font text-lg font-medium">{{$product->name}}</h2> 
                             <h2 class="text-gray-900 title-font text-sm font-medium">{{substr($product->description, 0, 50)}} {{strlen($product->description) > 50 ? "..." : ""}}</h2> 
