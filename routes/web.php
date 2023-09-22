@@ -102,19 +102,28 @@ Route::middleware(['auth', 'role:customer'])->group(function() {
 
 
     Route::prefix('/service')->as('service.')->group(function() {
-
-        Route::get('/type', [ServiceInformationController::class, 'index'])->name('index');
-        Route::post('/type-save', [ServiceInformationController::class, 'store'])->name('store');
-
-        Route::prefix('/{serviceInformation}')->group(function() {
-            Route::controller(ServiceInformationController::class)->group(function() {
-                Route::get('/deceased-info', 'deceased')->name('deceased');
-                Route::get('/informant-info', 'informant')->name('informant');
-                Route::get('/inclusions', 'inclusions')->name('inclusions');
-                Route::get('/other-services', 'otherServices')->name('other-services');
-            });
+        Route::controller(ServiceInformationController::class)->group(function() {
+            Route::get('/type', 'index')->name('type.index');
+            Route::post('/type-save', 'store')->name('type.store');
         });
 
+    });
+
+
+    Route::prefix('/service/{serviceInformation}')->as('service.')->group(function() {
+      
+        Route::controller(ServiceInformationController::class)->group(function() {
+            Route::get('/deceased-info', 'deceased')->name('deceased');
+            Route::get('/informant-info', 'informant')->name('informant');
+            Route::get('/inclusions', 'inclusions')->name('inclusions');
+            Route::get('/other-services', 'otherServices')->name('other-services');
+        });
+
+        Route::controller(DeceasedInformationController::class)->group(function() {
+            Route::post('/decease-info/save', 'store')->name('deceased.store');
+        });
+
+    
     });
 
 

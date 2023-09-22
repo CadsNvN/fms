@@ -13,6 +13,33 @@ class DeceasedInformation extends Model
     
     protected $table = 'deceased_informations';
 
+    protected $fillable = [
+        'firstName',
+        'middleName',
+        'lastName',
+        'dob',
+        'age',
+        'sex',
+        'height',
+        'weight',
+        'address',
+        'occupation',
+        'citizenship',
+        'religion',
+        'civilStatus',
+        'fathersName',
+        'mothersMaidenName',
+        'placeOfDeath',
+        'timeOfDeath',
+        'dateOfDeath',
+        'causeOfDeath',
+        'addressOfCemetery',
+        'placeOfViewing',
+        'dateOfInterment',
+        'timeOfInterment',
+    ];
+    
+
     public function serviceInformation() {
         return $this->belongsTo(ServiceInformation::class);
     }

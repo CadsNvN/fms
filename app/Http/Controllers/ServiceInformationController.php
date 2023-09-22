@@ -26,14 +26,17 @@ class ServiceInformationController extends Controller
                 'serviceType' => $request->service_type
             ]);
 
-            return redirect()->route('service.deceased', $serviceInformation->id);
+            return redirect()->route('service.deceased', $serviceInformation->id)
+            ->with('serviceInfo', $serviceInformation);
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Something went wrong');
         }
     }
-    public function deceased()
+    public function deceased($id)
     {
-        return view('service.deceased-info');
+        return view('service.deceased-info', [
+            'serviceId' => $id
+        ]);
     }
 
     public function informant()

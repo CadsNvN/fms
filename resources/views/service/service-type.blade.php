@@ -9,7 +9,7 @@
 
                 <div class=" flex items-center space-x-4 rounded-md ">
 
-                    <form action="{{ route('service.store') }}" method="POST" 
+                    <form action="{{ route('service.type.store') }}" method="POST" 
                     class="border-2 border-gray-400 hover:border-green-400 hover:bg-green-100 rounded-lg p-6 group cursor-pointer">
                     @csrf
                     <input type="hidden" name="service_type" value="Memorial Service">
@@ -28,7 +28,7 @@
                        </button>
                     </form>
 
-                    <form action="{{ route('service.store') }}" method="POST" 
+                    <form action="{{ route('service.type.store') }}" method="POST" 
                     class="border-2 border-gray-400 hover:border-green-300 hover:bg-green-50 rounded-lg p-6 group cursor-pointer">
                     @csrf
                     <input type="hidden" name="service_type" value="Direct Crimation">
