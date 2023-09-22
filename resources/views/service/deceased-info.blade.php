@@ -143,6 +143,14 @@
                         </div>
 
                     </div>
+
+                    <div class="flex items-center justify-end mt-5">
+                        <x-primary-button>
+                            <a href="{{  }}">
+                                NEXT
+                            </a>
+                        </x-primary-button>
+                    </div>
                 
                 </form>
             </div>
