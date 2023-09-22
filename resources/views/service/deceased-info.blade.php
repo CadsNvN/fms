@@ -146,7 +146,7 @@
 
                     <div class="flex items-center justify-end mt-5">
                         <x-primary-button>
-                            <a href="{{  }}">
+                            <a>
                                 NEXT
                             </a>
                         </x-primary-button>
