@@ -19,6 +19,10 @@ export default {
                 'urn': "url('/icons/urn.png')",
             }
         },
+        fontFamily: {
+            'serif': ['ui-serif', 'Georgia'],
+
+        }
     },
 
     plugins: [forms],

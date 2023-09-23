@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('informants', function (Blueprint $table) {
             $table->id();
             $table->string('firstName');
-            $table->string('middleName');
+            $table->string('middleName')->nullable();
             $table->string('lastName');
-            $table->string('age');
+            $table->string('age')->nullable();
             $table->string('address');
-            $table->string('occupation');
-            $table->string('contactNumber');
-            $table->string('relationshipToTheDeceased');
+            $table->string('occupation')->nullable();
+            $table->string('telePhoneNo')->nullable();
+            $table->string('cellPhoneNo');
+            $table->string('relationshipToTheDeceased')->nullable();
             $table->timestamps();
         });
     }

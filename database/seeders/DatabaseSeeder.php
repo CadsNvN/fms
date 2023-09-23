@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Database\Seeders\UserSeeder;
+use Database\Seeders\CasketSeeder;
 use Database\Seeders\ProfileSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(ProfileSeeder::class);
         $this->call(CategorySeeder::class);
+        $this->call(CasketSeeder::class);
     }
 }

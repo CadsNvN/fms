@@ -32,7 +32,7 @@ class ServiceInformation extends Model
     }
 
     public function casket() {
-        return $this->hasOne(Casket::class);
+        return $this->belongsTo(Casket::class);
     }
 
     public function hearse() {

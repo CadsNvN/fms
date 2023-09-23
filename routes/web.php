@@ -117,10 +117,22 @@ Route::middleware(['auth', 'role:customer'])->group(function() {
             Route::get('/informant-info', 'informant')->name('informant');
             Route::get('/inclusions', 'inclusions')->name('inclusions');
             Route::get('/other-services', 'otherServices')->name('other-services');
+            Route::get('/caskets', 'caskets')->name('caskets');
+            Route::get('/hearses', 'hearses')->name('hearses');
+            Route::get('/flowers', 'flowers')->name('flowers');
+
         });
 
         Route::controller(DeceasedInformationController::class)->group(function() {
             Route::post('/decease-info/save', 'store')->name('deceased.store');
+        });
+
+        Route::controller(InformantController::class)->group(function() {
+            Route::post('/informant-info/save', 'store')->name('informant.store');
+        });
+
+        Route::controller(CasketController::class)->group(function() {
+            Route::put('/casket/select', 'selectCasket')->name('casket.select');
         });
 
     
