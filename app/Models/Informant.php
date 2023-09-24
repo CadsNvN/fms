@@ -17,7 +17,6 @@ class Informant extends Model
         'age',
         'address',
         'occupation',
-        'contactNumber',
         'telePhoneNo',
         'cellPhoneNo',
         'relationshipToTheDeceased'

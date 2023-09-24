@@ -14,35 +14,35 @@ class CasketSeeder extends Seeder
     public function run(): void
     {
         DB::table('caskets')->insert([
-            'name' => 'casket 1',
+            'name' => 'Casket 1',
             'description' => 'This is the casket 1',
             'price' => 15000,
             'stock' => 5,
         ]);
 
         DB::table('caskets')->insert([
-            'name' => 'casket 2',
+            'name' => 'Casket 2',
             'description' => 'This is the casket 2',
             'price' => 17000,
             'stock' => 5,
         ]);
 
         DB::table('caskets')->insert([
-            'name' => 'casket 3',
+            'name' => 'Casket 3',
             'description' => 'This is the casket 3',
             'price' => 18000,
             'stock' => 5,
         ]);
 
         DB::table('caskets')->insert([
-            'name' => 'casket 4',
+            'name' => 'Casket 4',
             'description' => 'This is the casket 4',
             'price' => 23000,
             'stock' => 5,
         ]);
 
         DB::table('caskets')->insert([
-            'name' => 'casket 5',
+            'name' => 'Casket 5',
             'description' => 'This is the casket 5',
             'price' => 70000,
             'stock' => 5,

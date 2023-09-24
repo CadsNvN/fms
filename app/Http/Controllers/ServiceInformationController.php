@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\Casket;
+use App\Models\Hearse;
 use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
 use App\Models\ServiceInformation;
@@ -33,17 +34,45 @@ class ServiceInformationController extends Controller
             return redirect()->back()->with('error', 'Something went wrong');
         }
     }
+
+    public function setGallonsOfWater(Request $request, $serviceId) {
+        // dd($request->all());
+        $serviceInformation = ServiceInformation::find($serviceId);
+
+        if(!$serviceInformation) {
+            return redirect()->back()->with('error', 'Something went wrong');
+        }
+
+        if (!$serviceInformation->casket_id == null && !$serviceInformation->hearse_id == null) {
+            $serviceInformation->gallonsOfWater = $request->gallonsOfWater;
+            $saved = $serviceInformation->save();
+
+            if(!$saved) {
+                return redirect()->back()->with('error', 'Something went wrong');
+            }
+            return redirect()->route('service.other-services', $serviceId);
+
+        } else {
+            return redirect()->back()->with('error', 'Please select a casket and a hearse first');
+        }
+
+    }
     public function deceased($serviceId)
     {
+        $deceased = ServiceInformation::find($serviceId)->deceasedInformation;
+
         return view('service.deceased-info', [
-            'serviceId' => $serviceId
+            'serviceId' => $serviceId,
+            'deceased' => $deceased
         ]);
     }
 
     public function informant($serviceId)
     {
+        $informant = ServiceInformation::find($serviceId)->informant;
         return view('service.informant-info', [
-            'serviceId' => $serviceId
+            'serviceId' => $serviceId,
+            'informant' => $informant 
         ]);
     }
 
@@ -58,7 +87,8 @@ class ServiceInformationController extends Controller
     public function otherServices($serviceId)
     {
         return view('service.other-services', [
-            'serviceId' => $serviceId
+            'serviceId' => $serviceId,
+            'otherService' => ServiceInformation::find($serviceId)->otherServices->first()
         ]);
     }
 
@@ -72,7 +102,8 @@ class ServiceInformationController extends Controller
             'casket' => $serviceInformation->casket,
             'hearse' => $serviceInformation->hearse,
             'informant' => $serviceInformation->informant,
-            'otherServices' => $serviceInformation->otherServices
+            'otherServices' => $serviceInformation->otherServices,
+            'serviceId' => $serviceId
         ]);
     }
 
@@ -86,7 +117,8 @@ class ServiceInformationController extends Controller
 
     public function hearses($serviceId) {
         return view('service.hearses', [
-            'serviceId' => $serviceId
+            'serviceId' => $serviceId,
+            'hearses' => Hearse::all()
         ]);
     }
 
@@ -95,4 +127,29 @@ class ServiceInformationController extends Controller
             'serviceId' => $serviceId
         ]);
     }
+
+    public function recieved($serviceId) {
+        return view('service.request-received', [
+            'serviceId' => $serviceId
+        ]);
+    }
+
+    public function submitRequest(Request $request, $serviceId) {
+        $serviceInformation = ServiceInformation::find($serviceId);
+
+        if(!$serviceInformation) {
+            return redirect()->back()->with('error', 'Something went wrong');
+        }
+
+        $serviceInformation->status = 'pending';
+        $saved = $serviceInformation->save();
+
+        if(!$saved) {
+            return redirect()->back()->with('error', 'Something went wrong');
+        }
+
+        return redirect()->route('service.received', $serviceId);
+    }
+
+
 }

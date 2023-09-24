@@ -10,7 +10,7 @@ class DeceasedInformation extends Model
 {
     use HasFactory;
 
-    
+
     protected $table = 'deceased_informations';
 
     protected $fillable = [
@@ -38,9 +38,10 @@ class DeceasedInformation extends Model
         'dateOfInterment',
         'timeOfInterment',
     ];
-    
 
-    public function serviceInformation() {
-        return $this->belongsTo(ServiceInformation::class);
+
+    public function serviceInformation()
+    {
+        return $this->hasOne(ServiceInformation::class);
     }
 }

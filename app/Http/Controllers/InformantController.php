@@ -23,7 +23,7 @@ class InformantController extends Controller
             'relationshipToTheDeceased' => 'nullable|max:255',
         ]);
 
-        $created = Informant::create($validated);
+        $created = Informant::updateOrCreate($validated);
 
         if ($created) {
             $serviceInfo = ServiceInformation::find($serviceId);

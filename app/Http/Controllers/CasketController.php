@@ -48,7 +48,7 @@ class CasketController extends Controller
                 return redirect()->back()->with('Something went wrong.');
             }
         } else {
-            return redirect()->back()->with('Something went wrong.');
+            return redirect()->back()->with('Service Not Found');
         }
 
     }

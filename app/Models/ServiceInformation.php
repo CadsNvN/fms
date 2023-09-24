@@ -36,10 +36,10 @@ class ServiceInformation extends Model
     }
 
     public function hearse() {
-        return $this->hasOne(Hearse::class);
+        return $this->belongsTo(Hearse::class);
     }
 
     public function deceasedInformation() {
-        return $this->hasOne(DeceasedInformation::class);
+        return $this->belongsTo(DeceasedInformation::class);
     }
 }
