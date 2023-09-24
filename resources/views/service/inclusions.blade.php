@@ -35,7 +35,7 @@
                                     Casket
                                 </p>
                         
-                                @if ($serviceInfo === null) 
+                                @if ($serviceInfo->casket === null) 
                                     <span class="text-xs text-red-500">No Casket Choosen Yet</span>
                                 @else 
                                     <span class="text-xs text-blue-500">{{$serviceInfo->casket->name}}</span>

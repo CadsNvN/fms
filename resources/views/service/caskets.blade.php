@@ -1,9 +1,11 @@
 <x-app-layout>
     <section>
         <div class="max-w-[900px] mx-auto">
-            <form action="{{ route('service.casket.select', $serviceId) }}" method="POST">
+            <form action="{{ route('service.casket.select', $serviceId) }}" method="POST" id="casketForm">
                 @csrf
                 @method('PUT')
+                <input id="selectedCasket" type="hidden" name="casketId" value="">
+            </form>
                 <div class="flex flex-wrap gap-4 p-4">
                     @foreach ($caskets as $casket)
                         <div class="flex relative rounded group w-96 h-64 hover:scale-150 transition-transform ease-in-out delay-150 duration-500 hover:z-20">
@@ -17,15 +19,18 @@
                                     <img alt="gallery" class=" inset-0 w-full h-full object-cover object-center rounded " src="{{ asset('images/BatesVille.jpg') }}">
                                     <img alt="gallery" class=" inset-0 w-full h-full object-cover object-center rounded " src="{{ asset('images/BatesVille.jpg') }}">
                                     <img alt="gallery" class=" inset-0 w-full h-full object-cover object-center rounded " src="{{ asset('images/BatesVille.jpg') }}">
-                                </div>
-                                
+                                </div>                                
                             </div>
-                            <input type="hidden" name="casketId" value="{{ $casket->id }}">
-                            <button class="absolute z-20 top-4 right-8 px-4 py-2 text-sm rounded group-hover:bg-blue-600 group-hover:text-white opacity-0 group-hover:opacity-100">Select</button>
+                            <button type="button" onclick="selectCasket({{ $casket->id }})" class="absolute z-20 top-4 right-8 px-4 py-2 text-sm rounded group-hover:bg-blue-600 group-hover:text-white opacity-0 group-hover:opacity-100">Select</button>
                         </div>
                     @endforeach
                 </div>
-            </form>
+            <script>
+                function selectCasket(casketId) {
+                    document.getElementById('selectedCasket').value = casketId;
+                    document.getElementById('casketForm').submit();
+                }
+            </script>
         </div>
     </section>
 </x-app-layout>

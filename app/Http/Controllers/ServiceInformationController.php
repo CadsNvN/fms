@@ -19,7 +19,6 @@ class ServiceInformationController extends Controller
     public function store(Request $request)
     {
         try {
-
             $serviceInformation = ServiceInformation::create([
                 'deceased_information_id' => null,
                 'informant_id' => null,
@@ -50,7 +49,6 @@ class ServiceInformationController extends Controller
 
     public function inclusions($serviceId)
     {
-
         return view('service.inclusions', [
             'serviceId' => $serviceId,
             'serviceInfo' => ServiceInformation::find($serviceId)

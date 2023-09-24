@@ -32,16 +32,21 @@ class CasketController extends Controller
         ]);
     }
 
-    public function selectCasket(Request $request, $serviceId) {
-
-        // dd($request->all);
+    public function selectCasket(Request $request, $serviceId)
+    {
+        // dd($request->all());
 
         $serviceInformation = ServiceInformation::find($serviceId);
-        $serviceInformation->casket_id = $request->casketId;
-        $saved = $serviceInformation->save();
 
-        if ($saved) {
-            return redirect()->route('service.inclusions', $serviceId);
+        if ($serviceInformation) {
+            $serviceInformation->casket_id = $request->casketId;
+            $saved = $serviceInformation->save();
+
+            if ($saved) {
+                return redirect()->route('service.inclusions', $serviceId);
+            } else {
+                return redirect()->back()->with('Something went wrong.');
+            }
         } else {
             return redirect()->back()->with('Something went wrong.');
         }
