@@ -3,7 +3,7 @@
         <div class="w-full flex flex-col space-y-1">
             <label class="text-xs ">OCCUPATION</label>
             <input type="text" name="occupation" placeholder="Occupation" class="w-full text-sm bg-inherit border border-gray-300 rounded " 
-            value="{{ old('occupation') ?? $deceased->occupation }}">
+            value="{{ old('occupation') ?? ($deceased->occupation ?? '') }}">
             @error('occupation')
                 <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
             @enderror
@@ -13,7 +13,7 @@
         <div class="w-full flex flex-col space-y-1">
             <label class="text-xs ">RELIGION</label>
             <input type="text" name="religion" placeholder="Religion" class="w-full text-sm bg-inherit border border-gray-300 rounded " 
-            value="{{ old('religion') ?? $deceased->religion }}">
+            value="{{ old('religion') ?? ($deceased->religion ?? '') }}">
             @error('religion')
                 <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
             @enderror
@@ -26,7 +26,7 @@
             <div class="w-full flex flex-col space-y-1">
                 <label class="text-xs ">CITIZENSHIP</label>
                 <input type="text" name="citizenship" placeholder="Citizenship" class="w-full text-sm bg-inherit border border-gray-300 rounded " 
-                value="{{ old('citizenship') ?? $deceased->citizenship }}">
+                value="{{ old('citizenship') ?? ($deceased->citizenship ?? '') }}">
                 @error('citizenship')
                     <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
                 @enderror
@@ -35,7 +35,7 @@
             <div class="w-full flex flex-col space-y-1">
                 <label class="text-xs ">CIVIL STATUS</label>
                 <select name="civilStatus" id="" class="w-full text-sm bg-inherit border border-gray-300 rounded " 
-                value="{{ old('civilStatus') ?? $deceased->civilStatus }}">
+                value="{{ old('civilStatus') ?? ($deceased->civilStatus ?? '') }}">
                     <option value="Married">Married</option>
                     <option value="Single">Single</option>
                     <option value="Separated">Separated</option>
@@ -49,7 +49,7 @@
             <div class="w-full flex flex-col space-y-1">
                 <label class="text-xs ">SEX</label>
                 <select name="sex" id="" class="w-full text-sm bg-inherit border border-gray-300 rounded " 
-                value="{{ old('sex') ?? $deceased->sex }}">
+                value="{{ old('sex') ?? ($deceased->sex ?? '') }}">
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
@@ -64,7 +64,7 @@
         <div class="w-full flex flex-col space-y-1">
             <label class="text-xs ">NAME OF FATHER</label>
             <input type="text" name="fathersName" placeholder="Name of father" class="w-full text-sm bg-inherit border border-gray-300 rounded " 
-            value="{{ old('fathersName') ?? $deceased->fathersName }}">
+            value="{{ old('fathersName') ?? ($deceased->fathersName ?? '') }}">
             @error('fathersName')
                 <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
             @enderror
@@ -73,7 +73,7 @@
         <div class="w-full flex flex-col space-y-1">
             <label class="text-xs ">MAIDEN NAME OF MOTHER</label>
             <input type="text" name="mothersMaidenName" placeholder="Maiden name of mother" class="w-full text-sm bg-inherit border border-gray-300 rounded " 
-            value="{{ old('mothersMaidenName') ?? $deceased->mothersMaidenName }}">
+            value="{{ old('mothersMaidenName') ?? ($deceased->mothersMaidenName ?? '') }}">
             @error('mothersMaidenName')
                 <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
             @enderror

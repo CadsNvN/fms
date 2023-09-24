@@ -20,7 +20,7 @@
                                     <div class="w-full flex flex-col space-y-1">
                                         <label class="text-xs ">FIRST NAME</label>
                                         <input type="text" name="firstName" placeholder="First name" class="w-full text-sm bg-inherit border border-gray-300 rounded "
-                                        value="{{ old('firstName') ?? $informant->firstName }}">
+                                        value="{{ old('firstName') ?? ($informant->firstName ?? '') }}">
                                         @error('firstName')
                                             <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
                                         @enderror
@@ -29,7 +29,7 @@
                                     <div class="w-full flex flex-col space-y-1">
                                         <label class="text-xs ">MIDDLE NAME</label>
                                         <input type="text" name="middleName" placeholder="Middle name" class="w-full text-sm bg-inherit border border-gray-300 rounded "
-                                        value="{{ old('middleName') ?? $informant->middleName }}">
+                                        value="{{ old('middleName') ?? ($informant->middleName ?? '') }}">
                                         @error('middleName')
                                             <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
                                         @enderror
@@ -38,7 +38,7 @@
                                     <div class="w-full flex flex-col space-y-1">
                                         <label class="text-xs ">LAST NAME</label>
                                         <input type="text" name="lastName" placeholder="Last name" class="w-full text-sm bg-inherit border border-gray-300 rounded "
-                                        value="{{ old('lastName') ?? $informant->lastName }}">
+                                        value="{{ old('lastName') ?? ($informant->lastName ?? '') }}">
                                         @error('lastName')
                                             <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
                                         @enderror
@@ -51,7 +51,7 @@
                                     <div class="w-full flex flex-col space-y-1">
                                         <label class="text-xs ">AGE</label>
                                         <input type="text" name="age" placeholder="Age" class="w-full text-sm bg-inherit border border-gray-300 rounded "
-                                        value="{{ old('age') ?? $informant->age }}">
+                                        value="{{ old('age') ?? ($informant->age ?? '') }}">
                                         @error('age')
                                             <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
                                         @enderror
@@ -60,7 +60,7 @@
                                     <div class="w-full flex flex-col space-y-1">
                                         <label class="text-xs ">OCCUPATION</label>
                                         <input type="text" name="occupation" placeholder="Occupation" class="w-full text-sm bg-inherit border border-gray-300 rounded "
-                                        value="{{ old('occupation') ?? $informant->occupation }}">
+                                        value="{{ old('occupation') ?? ($informant->occupation ?? '') }}">
                                         @error('occupation')
                                             <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
                                         @enderror
@@ -70,7 +70,7 @@
                                 <div class="w-full flex flex-col space-y-1">
                                     <label class="text-xs ">ADDRESS</label>
                                     <input type="text" name="address" placeholder="Address" class="w-full text-sm bg-inherit border border-gray-300 rounded "
-                                    value="{{ old('address') ?? $informant->address }}">
+                                    value="{{ old('address') ?? ($informant->address ?? '') }}">
                                     @error('address')
                                         <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
                                     @enderror
@@ -90,7 +90,7 @@
                                     <div class="w-full flex flex-col space-y-1">
                                         <label class="text-xs ">TELEPHONE NUMBER</label>
                                         <input type="text" name="telePhoneNo" placeholder="Telephone number" class="w-full text-sm bg-inherit border border-gray-300 rounded "
-                                        value="{{ old('telePhoneNo') ?? $informant->telePhoneNo }}">
+                                        value="{{ old('telePhoneNo') ?? ($informant->telePhoneNo ?? '') }}">
                                         @error('telePhoneNo')
                                             <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
                                         @enderror
@@ -99,7 +99,7 @@
                                     <div class="w-full flex flex-col space-y-1">
                                         <label class="text-xs ">CELLPHONE NUMBER</label>
                                         <input type="text" name="cellPhoneNo" placeholder="Cellphone Number" class="w-full text-sm bg-inherit border border-gray-300 rounded "
-                                        value="{{ old('cellPhoneNo') ?? $informant->cellPhoneNo }}">
+                                        value="{{ old('cellPhoneNo') ?? ($informant->cellPhoneNo ?? '') }}">
                                         @error('cellPhoneNo')
                                             <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
                                         @enderror
@@ -109,7 +109,7 @@
                                 <div class="w-full flex flex-col space-y-1">
                                     <label class="text-xs ">RELATIONSHIP TO THE DECEASED</label>
                                     <input type="text" name="relationshipToTheDeceased" placeholder="Relation to the Deceased" class="w-full text-sm bg-inherit border border-gray-300 rounded "
-                                    value="{{ old('relationshipToTheDeceased') ?? $informant->relationshipToTheDeceased }}">
+                                    value="{{ old('relationshipToTheDeceased') ?? ($informant->relationshipToTheDeceased ?? '') }}">
                                     @error('relationshipToTheDeceased')
                                         <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
                                     @enderror

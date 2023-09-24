@@ -15,7 +15,7 @@
                     <div>
                         <textarea name="description" placeholder="Write something.."
                         class="w-full min-h-[150px] rounded border-2 border-gray-200 p-4 text-justify">
-                        {{ $otherService->description }}
+                        {{ ($otherService->description ?? '') }}
                         </textarea>
                     </div>
                     <div class="flex items-center space-x-4">

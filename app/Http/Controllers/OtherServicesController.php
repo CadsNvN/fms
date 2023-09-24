@@ -7,12 +7,13 @@ use App\Models\ServiceInformation;
 
 class OtherServicesController extends Controller
 {
-    public function store(Request $request, $serviceId) {
+    public function store(Request $request, $serviceId)
+    {
 
         // dd($request->all());
 
         $validated = $request->validate([
-            'description' => 'required'
+            'description' => 'string|nullable'
         ]);
 
         $serviceInformation = ServiceInformation::find($serviceId);
@@ -21,7 +22,7 @@ class OtherServicesController extends Controller
             'description' => $validated['description']
         ]);
 
-        if($saved) {
+        if ($saved) {
             return redirect()->route('service.summary', $serviceId);
         } else {
             return redirect()->back()->with('error', 'Something went wrong');
