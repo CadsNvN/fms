@@ -28,11 +28,27 @@ class ServiceInformationController extends Controller
                 'serviceType' => $request->service_type
             ]);
 
-            return redirect()->route('service.deceased', $serviceInformation->id)
+            return redirect()->route('service.inclusions', $serviceInformation->id)
             ->with('serviceInfo', $serviceInformation);
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Something went wrong');
         }
+    }
+
+    public function destroy($serviceId) {
+        $serviceInformation = ServiceInformation::find($serviceId);
+
+        if(!$serviceInformation) {
+            return redirect()->back()->with('error', 'Something went wrong');
+        }
+
+        $deleted = $serviceInformation->delete();
+
+        if(!$deleted) {
+            return redirect()->back()->with('error', 'Something went wrong');
+        }
+
+        return redirect()->route('service.type.index');
     }
 
     public function setGallonsOfWater(Request $request, $serviceId) {
@@ -50,7 +66,7 @@ class ServiceInformationController extends Controller
             if(!$saved) {
                 return redirect()->back()->with('error', 'Something went wrong');
             }
-            return redirect()->route('service.other-services', $serviceId);
+            return redirect()->route('service.deceased', $serviceId);
 
         } else {
             return redirect()->back()->with('error', 'Please select a casket and a hearse first');

@@ -80,12 +80,24 @@
                             </p>
                         </div>
                         <div class="flex items-center space-x-3 pt-4">
-                            <a class="nav-button text-sm px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 hover:text-gray-700 cursor-pointer" 
-                            href="{{ route('service.informant', $serviceId) }}"
-                            >Back</a>
-                            <button type="submit" class=" text-sm px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white cursor-pointer">Save and Proceed</button>
+                            <a class="nav-button text-sm px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 hover:text-gray-700 cursor-pointer"
+                            href="javascript:void(0);" onclick="deleteService()">
+                            Cancel
+                            </a>
+                            <button type="submit" class=" text-sm px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white cursor-pointer">Next</button>
                         </div>
                     </form>
+                    <form id="delete-form" action="{{ route('service.destroy', $serviceId) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+
+                    <script>
+                        function deleteService() {
+                            document.getElementById('delete-form').submit();
+                        }
+                    </script>
+                    
                 </div>
             </div>
         </div>

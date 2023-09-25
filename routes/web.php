@@ -75,32 +75,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/receipt/{orderId}', [ReceiptController::class, 'index'])->name('receipt.view');
     Route::get('/generate-receipt/{orderId}', [ReceiptController::class, 'generateReceipt'])->name('invoice.print');
 
-});
-
-// CUSTOMER
-Route::middleware(['auth', 'role:customer'])->group(function () {
-    Route::prefix('customer')->controller(CustomerDasboardController::class)->as('customer.')->group(function () {
-        Route::get('/dashboard', 'index')->name('dashboard');
-    });
-
-    //CARTS
-    Route::prefix('/cart')->as('cart.')->controller(CartController::class)->group(function () {
-        Route::get('/cart', 'index')->name('index');
-        Route::put('/{cartItem}/add', 'addQuantity')->name('add');
-        Route::post('/show/{product}/save', 'addToCart')->name('save');
-        Route::delete('/cart-delete/{cartItem}', 'destroy')->name('destroy');
-
-        Route::put('/{cartItem}/subtract', 'subtractQuantity')->name('subtract');
-    });
-
-
-    // OORDERS
-    Route::prefix('/order')->controller(OrderController::class)->as('order.')->group(function () {
-        Route::post('/create', 'store')->name('store');
-        Route::get('/existing', 'index')->name('index');
-        Route::delete('/{orderId}/delete', 'destroy')->name('destroy');
-    });
-
 
     Route::prefix('/service')->as('service.')->group(function () {
         Route::controller(ServiceInformationController::class)->group(function () {
@@ -113,7 +87,9 @@ Route::middleware(['auth', 'role:customer'])->group(function () {
 
     Route::prefix('/service/{serviceInformation}')->as('service.')->group(function () {
 
+
         Route::controller(ServiceInformationController::class)->group(function () {
+            Route::delete('', 'destroy')->name('destroy');
             Route::get('/deceased-info', 'deceased')->name('deceased');
             Route::get('/informant-info', 'informant')->name('informant');
             Route::get('/inclusions', 'inclusions')->name('inclusions');
@@ -150,6 +126,35 @@ Route::middleware(['auth', 'role:customer'])->group(function () {
 
 
     });
+
+});
+
+// CUSTOMER
+Route::middleware(['auth', 'role:customer'])->group(function () {
+    Route::prefix('customer')->controller(CustomerDasboardController::class)->as('customer.')->group(function () {
+        Route::get('/dashboard', 'index')->name('dashboard');
+    });
+
+    //CARTS
+    Route::prefix('/cart')->as('cart.')->controller(CartController::class)->group(function () {
+        Route::get('/cart', 'index')->name('index');
+        Route::put('/{cartItem}/add', 'addQuantity')->name('add');
+        Route::post('/show/{product}/save', 'addToCart')->name('save');
+        Route::delete('/cart-delete/{cartItem}', 'destroy')->name('destroy');
+
+        Route::put('/{cartItem}/subtract', 'subtractQuantity')->name('subtract');
+    });
+
+
+    // OORDERS
+    Route::prefix('/order')->controller(OrderController::class)->as('order.')->group(function () {
+        Route::post('/create', 'store')->name('store');
+        Route::get('/existing', 'index')->name('index');
+        Route::delete('/{orderId}/delete', 'destroy')->name('destroy');
+    });
+
+
+    
 
 
 });
