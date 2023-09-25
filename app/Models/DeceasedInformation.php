@@ -10,10 +10,38 @@ class DeceasedInformation extends Model
 {
     use HasFactory;
 
-    
+
     protected $table = 'deceased_informations';
 
-    public function serviceInformation() {
-        return $this->belongsTo(ServiceInformation::class);
+    protected $fillable = [
+        'firstName',
+        'middleName',
+        'lastName',
+        'dob',
+        'age',
+        'sex',
+        'height',
+        'weight',
+        'address',
+        'occupation',
+        'citizenship',
+        'religion',
+        'civilStatus',
+        'fathersName',
+        'mothersMaidenName',
+        'placeOfDeath',
+        'timeOfDeath',
+        'dateOfDeath',
+        'causeOfDeath',
+        'addressOfCemetery',
+        'placeOfViewing',
+        'dateOfInterment',
+        'timeOfInterment',
+    ];
+
+
+    public function serviceInformation()
+    {
+        return $this->hasOne(ServiceInformation::class);
     }
 }

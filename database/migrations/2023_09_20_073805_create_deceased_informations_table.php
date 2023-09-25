@@ -22,13 +22,13 @@ return new class extends Migration
             $table->string('height');
             $table->string('weight');
             $table->string('address');
-            $table->string('occupation');
-            $table->string('citizenship');
-            $table->string('religion');
-            $table->string('civilStatus');
+            $table->string('occupation')->nullable();
+            $table->string('citizenship')->nullable();
+            $table->string('religion')->nullable();
+            $table->string('civilStatus')->nullable();
             $table->string('fathersName');
             $table->string('mothersMaidenName');
-            $table->string('placeOfDeath');
+            $table->string('placeOfDeath')->nullable();
             $table->string('timeOfDeath');
             $table->string('dateOfDeath');
             $table->string('causeOfDeath')->nullable();

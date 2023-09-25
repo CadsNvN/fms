@@ -15,7 +15,7 @@ class Casket extends Model
     }
 
     public function serviceInformation() {
-        return $this->belongsTo(ServiceInformation::class);
+        return $this->hasOne(ServiceInformation::class);
     }
     
 }

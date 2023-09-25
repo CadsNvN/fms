@@ -11,11 +11,13 @@ class Hearse extends Model
 {
     use HasFactory;
 
-    public function hearseImages() {
+    public function hearseImages()
+    {
         return $this->hasMany(CasketImages::class);
     }
 
-    public function serviceInformation() {
-        return $this->belongsTo(ServiceInformation::class);
+    public function serviceInformation()
+    {
+        return $this->hasOne(ServiceInformation::class);
     }
 }

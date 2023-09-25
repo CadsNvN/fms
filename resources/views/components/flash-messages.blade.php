@@ -5,6 +5,7 @@
 @elseif (session()->has('error'))
     <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show" class="fixed top-5 left-1/2 bg-red-700 text-white transform -translate-x-1/2 px-10 py-3 text-medium rounded shadow-xl">
         <p>{{session('error')}}</p>
+        {{-- x-init="setTimeout(() => show = false, 3000)" --}}
     </div>
 @elseif (session()->has('success'))
     <div x-data="{show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show" class="fixed top-5 left-1/2 bg-green-700 text-white transform -translate-x-1/2 px-10 py-3 text-medium rounded shadow-xl">

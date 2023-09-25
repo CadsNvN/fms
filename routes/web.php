@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReceiptController;
 use App\Http\Controllers\InformantController;
+use App\Http\Controllers\OtherServicesController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\ServiceRequestController;
 use App\Http\Controllers\ServiceInformationController;
@@ -29,7 +30,7 @@ use App\Http\Controllers\Customer\CustomerDasboardController;
 */
 
 Route::get('/', [ProductController::class, 'welcomePageProducts'])
-->name('welcome');
+    ->name('welcome');
 
 // ABOUT US
 Route::get('/about-us', function () {
@@ -45,7 +46,7 @@ route::get('/contact-us', function () {
 
 // PRODUCTS
 Route::get('/show/{product}', [ProductController::class, 'show'])
-->name('product.show');
+    ->name('product.show');
 
 Route::get('/product/browse', [ProductController::class, 'browse'])
     ->name('product.browse');
@@ -75,12 +76,12 @@ Route::get('/about-us', function () {
 
 Route::middleware('auth')->group(function () {
     // PROFILE
-    Route::prefix('/profile')->controller(ProfileController::class)->as('profile.')->group(function() {
+    Route::prefix('/profile')->controller(ProfileController::class)->as('profile.')->group(function () {
         Route::get('/edit', 'edit')->name('edit');
         Route::patch('/update', 'update')->name('update');
         Route::delete('/destroy', 'destroy')->name('destroy');
     });
-    
+
     //Order Receipt
     Route::get('/receipt/{orderId}', [ReceiptController::class, 'index'])->name('receipt.view');
     Route::get('/generate-receipt/{orderId}', [ReceiptController::class, 'generateReceipt'])->name('invoice.print');
@@ -88,58 +89,88 @@ Route::middleware('auth')->group(function () {
 });
 
 // CUSTOMER
-Route::middleware(['auth', 'role:customer'])->group(function() {
-    Route::prefix('customer')->controller(CustomerDasboardController::class)->as('customer.')->group(function() {
+Route::middleware(['auth', 'role:customer'])->group(function () {
+    Route::prefix('customer')->controller(CustomerDasboardController::class)->as('customer.')->group(function () {
         Route::get('/dashboard', 'index')->name('dashboard');
     });
 
     //CARTS
-    Route::prefix('/cart')->as('cart.')->controller(CartController::class)->group(function() {
+    Route::prefix('/cart')->as('cart.')->controller(CartController::class)->group(function () {
         Route::get('/cart', 'index')->name('index');
         Route::put('/{cartItem}/add', 'addQuantity')->name('add');
         Route::post('/show/{product}/save', 'addToCart')->name('save');
         Route::delete('/cart-delete/{cartItem}', 'destroy')->name('destroy');
-        
+
         Route::put('/{cartItem}/subtract', 'subtractQuantity')->name('subtract');
     });
 
 
     // OORDERS
-    Route::prefix('/order')->controller(OrderController::class)->as('order.')->group(function() {
+    Route::prefix('/order')->controller(OrderController::class)->as('order.')->group(function () {
         Route::post('/create', 'store')->name('store');
         Route::get('/existing', 'index')->name('index');
         Route::delete('/{orderId}/delete', 'destroy')->name('destroy');
     });
 
 
-    Route::prefix('/service')->as('service.')->group(function() {
-
-        Route::get('/type', [ServiceInformationController::class, 'index'])->name('index');
-        Route::post('/type-save', [ServiceInformationController::class, 'store'])->name('store');
-
-        Route::prefix('/{serviceInformation}')->group(function() {
-            Route::controller(ServiceInformationController::class)->group(function() {
-                Route::get('/deceased-info', 'deceased')->name('deceased');
-                Route::get('/informant-info', 'informant')->name('informant');
-                Route::get('/inclusions', 'inclusions')->name('inclusions');
-                Route::get('/other-services', 'otherServices')->name('other-services');
-            });
+    Route::prefix('/service')->as('service.')->group(function () {
+        Route::controller(ServiceInformationController::class)->group(function () {
+            Route::get('/type', 'index')->name('type.index');
+            Route::post('/type-save', 'store')->name('type.store');
         });
 
     });
 
 
+    Route::prefix('/service/{serviceInformation}')->as('service.')->group(function () {
 
+        Route::controller(ServiceInformationController::class)->group(function () {
+            Route::get('/deceased-info', 'deceased')->name('deceased');
+            Route::get('/informant-info', 'informant')->name('informant');
+            Route::get('/inclusions', 'inclusions')->name('inclusions');
+            Route::get('/other-services', 'otherServices')->name('other-services');
+            Route::get('/caskets', 'caskets')->name('caskets');
+            Route::get('/hearses', 'hearses')->name('hearses');
+            Route::get('/flowers', 'flowers')->name('flowers');
+            Route::get('/summary', 'serviceSummary')->name('summary');
+            Route::put('/gallons-water-save', 'setGallonsOfWater')->name('gallons.water');
+            Route::get('/service-recieved', 'recieved')->name('received');
+            Route::put('/submit-request', 'submitRequest')->name('submit.request');
+
+        });
+
+        Route::controller(DeceasedInformationController::class)->group(function () {
+            Route::post('/decease-info/save', 'store')->name('deceased.store');
+        });
+
+        Route::controller(InformantController::class)->group(function () {
+            Route::post('/informant-info/save', 'store')->name('informant.store');
+        });
+
+        Route::controller(CasketController::class)->group(function () {
+            Route::put('/casket/select', 'selectCasket')->name('casket.select');
+        });
+
+        Route::controller(HearseController::class)->group(function () {
+            Route::put('/hearse/select', 'selectHearse')->name('hearse.select');
+        });
+
+        Route::controller(OtherServicesController::class)->group(function () {
+            Route::post('/other-services/save', 'store')->name('other-services.store');
+        });
+
+
+    });
 
 
 });
 // END CUSTOMER
 
 // ADMIN
-Route::middleware(['auth', 'role:admin'])->group(function() {
+Route::middleware(['auth', 'role:admin'])->group(function () {
 
     // dashboard
-    Route::prefix('/admin')->controller(AdminDashboardController::class)->as('admin.')->group(function() {
+    Route::prefix('/admin')->controller(AdminDashboardController::class)->as('admin.')->group(function () {
         Route::get('/dashboard', 'index')->name('dashboard');
     });
 
@@ -160,7 +191,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     });
 
     // products
-    Route::prefix('/product')->controller(ProductController::class)->as('product.')->group(function() {
+    Route::prefix('/product')->controller(ProductController::class)->as('product.')->group(function () {
         Route::get('/products', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
@@ -170,7 +201,7 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     });
 
     // orders
-    Route::prefix('/orders')->controller(OrderController::class)->as('orders.')->group(function() {
+    Route::prefix('/orders')->controller(OrderController::class)->as('orders.')->group(function () {
         Route::get('/current', 'currentOrders')->name('current');
         Route::get('/completed', 'completedOrders')->name('completed');
         Route::get('/current/{orderId}', 'processOrder')->name('process');
@@ -181,13 +212,13 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
 // END ADMIN
 
 // OWNER
-Route::middleware(['auth', 'role:owner'])->group(function() {
+Route::middleware(['auth', 'role:owner'])->group(function () {
     // dashboard
-    Route::prefix('owner')->controller(OwnerDashboardController::class)->as('owner.')->group(function() {
+    Route::prefix('owner')->controller(OwnerDashboardController::class)->as('owner.')->group(function () {
         Route::get('/dashboard', 'index')->name('dashboard');
     });
 });
 // END OWNER
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

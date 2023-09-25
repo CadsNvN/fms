@@ -21,7 +21,9 @@ return new class extends Migration
             $table->foreignIdFor(Informant::class)->nullable()->onDelete('cascade');
             $table->foreignIdFor(Casket::class)->nullable()->onDelete('cascade');
             $table->foreignIdFor(Hearse::class)->nullable()->onDelete('cascade');
+            $table->string('gallonsOfWater')->nullable();
             $table->string('serviceType');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

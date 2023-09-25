@@ -10,6 +10,18 @@ class Informant extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'firstName',
+        'middleName',
+        'lastName',
+        'age',
+        'address',
+        'occupation',
+        'telePhoneNo',
+        'cellPhoneNo',
+        'relationshipToTheDeceased'
+    ];
+
     public function serviceInformation() {
         return $this->belongsTo(ServiceInformation::class);
     }

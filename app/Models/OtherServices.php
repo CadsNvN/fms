@@ -9,7 +9,13 @@ class OtherServices extends Model
 {
     use HasFactory;
 
-    public function serviceInformation() {
+    protected $fillable = [
+        'service_information_id',
+        'description'
+    ];
+
+    public function serviceInformation()
+    {
         return $this->belongsTo(ServiceInformation::class);
     }
 }
