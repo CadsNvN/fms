@@ -23,7 +23,7 @@
               <a href="{{route('contact-us')}}" class="text-white">Contact Us</a>
             </li>
             <li class="border-b-2 border-b-blue-800 hover:border-b-white px-3 ">
-              <a href="{{route('news-announcement')}}" class="text-white">News & Announcements</a>
+              <a href="{{route('news-announcement.browse')}}" class="text-white">News & Announcements</a>
             </li>
         </div>
        <div>

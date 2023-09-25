@@ -37,7 +37,7 @@
             </li>
 
             <li>
-                <a href="{{route('List-user')}}"
+                <a href=""
                 class="cursor-pointer inline-flex items-center px-3 py-2 border border-gray-400 text-base leading-4 font-medium rounded text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                     Feedback
                 </a>
@@ -49,6 +49,15 @@
                     Users
                 </a>
             </li>
+
+            <li>
+                <a href="{{route('news-announcement.index')}}"
+                class="cursor-pointer inline-flex items-center px-3 py-2 border border-gray-400 text-base leading-4 font-medium rounded text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                    News and Announcements
+                </a>
+            </li>
+
+
             
         </ul>
     </div>

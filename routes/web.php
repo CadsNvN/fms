@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReceiptController;
 use App\Http\Controllers\InformantController;
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\ServiceRequestController;
 use App\Http\Controllers\ServiceInformationController;
 use App\Http\Controllers\DeceasedInformationController;
@@ -40,10 +41,7 @@ route::get('/contact-us', function () {
     return view('pages.contact-us');
 })->name('contact-us');
 
-// NEWS & ANNOUNCEMENTS
-route::get('/news-announcement', function () {
-    return view('pages.news-announcement');
-})->name('news-announcement');
+
 
 // PRODUCTS
 Route::get('/show/{product}', [ProductController::class, 'show'])
@@ -53,6 +51,19 @@ Route::get('/product/browse', [ProductController::class, 'browse'])
     ->name('product.browse');
 
 //END PRODUCTS
+
+// NEWS & ANNOUNCEMENTS
+// route::get('/news-announcement', function () {
+//     return view('news-announcement.browse');
+// })->name('news-announcement');
+
+route::get('/show/{announcement}', [AnnouncementController::class, 'show'])
+->name('news-announcement.show');
+
+route::get('/news-announcement/browse', [AnnouncementController::class, 'browse'])
+->name('news-announcement.browse');
+// END NEWS & ANNOUNCEMENTS
+
 
 Route::get('/about-us', function () {
     return view('pages.about-us');
@@ -136,6 +147,17 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::get('/List-user', function () {
         return view('pages.List-user');
     })->name('List-user');
+
+
+    // create news and announcement
+    route::prefix('/news-announcement')->controller(AnnouncementController::class)->as('news-announcement.')->group(function() {
+        Route::get('/news-announcements', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/{announcement}/edit', 'edit')->name('edit');
+        Route::put('/{announcement}/update', 'update')->name('update');
+        Route::delete('/{announcement}/delete', 'destroy')->name('destroy');
+    });
 
     // products
     Route::prefix('/product')->controller(ProductController::class)->as('product.')->group(function() {
