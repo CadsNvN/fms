@@ -1,6 +1,6 @@
 <x-app-layout>
  <section class="py-4">
-  <div class="flex flex-col mx-auto max-w-[1240px]">
+  <div class="flex flex-col mx-auto max-w-[1300px] px-4">
     <div class="flex flex-row justify-between mb-3">
       <div class="py-2 border-b border-gray-300">
         <h1 class="text-xl font-bold">News and Announcements</h1>
@@ -35,7 +35,7 @@
                   @foreach ($announcement->images as $image)
                     <img src="{{ $image->path ? asset('storage/' . $image->path) : "" }}" alt="news-announcement Image" class="w-16 h-16">
                   @endforeach
-                  </td>
+                </td>
                 <td class="px-4 py-2 text-sm flex items-center space-x-2">
                     <a href="/news-announcement/{{$announcement->id}}/edit" class="rounded py-1 px-2 cursor-pointer">
                         <i class='bx bxs-edit text-xl text-blue-600' ></i>

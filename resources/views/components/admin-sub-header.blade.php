@@ -26,12 +26,12 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('orders.current')">
+                        <x-dropdown-link :href="route('service.pending')">
                             Pending Requests
                         </x-dropdown-link> 
-                        {{-- <x-dropdown-link :href="route('orders.completed')">
+                        <x-dropdown-link :href="route('service.completed')">
                             Completed
-                        </x-dropdown-link> --}}
+                        </x-dropdown-link>
                     </x-slot>
                 </x-dropdown>
             </li>

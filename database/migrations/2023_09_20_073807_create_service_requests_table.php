@@ -6,8 +6,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -19,6 +18,16 @@ return new class extends Migration
             $table->foreignId('service_information_id')->constrained('service_informations')->onDelete('cascade');
             $table->string('status')->default('pending');
             $table->uuid('requestNumber')->unique();
+            $table->string('paymentMethod')->nullable();
+            $table->string('ammountReceived')->nullable();
+            $table->string('paymentDate')->nullable();
+            $table->string('paidBy')->nullable();
+            $table->string('totalDue')->nullable();
+            $table->string('totalPaid')->nullable();
+            $table->string('totalChange')->nullable();
+            $table->string('isDiscounted')->nullable();
+            $table->string('discountAmount')->nullable();
+            $table->string('discountType')->nullable();
             $table->timestamps();
         });
     }

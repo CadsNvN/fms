@@ -1,9 +1,9 @@
 <x-app-layout>
     <section class="py-4">
-        <div class="flex flex-col mx-auto max-w-[1240px]">
+        <div class="flex flex-col mx-auto max-w-[1300px] px-4">
             <div class="flex flex-row justify-between mb-3">
                 <div class="w-full py-2 border-b border-gray-300">
-                    <h1 class="text-xl font-bold">Your Products</h1>
+                    <h1 class="text-xl font-bold">PENDING REQUEST</h1>
                 </div>
             </div>
     
@@ -33,7 +33,7 @@
                                 </td>
 
                                 <td class="px-4 py-2 text-sm flex items-center space-x-2"> {{-- href="{{ route('orders.process', $reqest->id) }}" --}}                                           
-                                    <a  class="rounded p-2 cursor-pointer text-xs font-medium text-white bg-green-700 px-4 py-1">
+                                    <a href="{{ route('service.process', $request->id) }}" class="rounded p-2 cursor-pointer text-xs font-medium text-white bg-green-700 px-4 py-1">
                                         Process
                                     </a>
                                 </td>
