@@ -1,7 +1,7 @@
 <x-app-layout>
     <section>
-        <div class="mx-auto max-w-[1240px] px-4">
-            <div class="w-full flex flex-col items-center justify-center">
+        <div class="mx-auto max-w-[1240px] px-4 ">
+            <div class="w-full h-[650px] flex flex-col items-center justify-center">
 
                 <div class="py-12">
                     <p class="text-2xl font-bold">Please choose the service you need.</p>
@@ -45,11 +45,14 @@
                         </button>
                      </form>
                 </div>
+                <div class="w-[80%] mt-14 ">
+                    <p class="text-slate-700 text-lg font-serif drop-shadow-lg text-center italic hover:text-green-600 transition delay-150 cursor-pointer">"As it is our objective to ease your burden and assist you in this time of bereavement, 
+                        and for us to provide you the best service, may request you to accomplish and fill up of the following forms".</p>
+                </div>
+
+                <x-small-candle width='200px' />
             </div>
         </div>
-        <div class="px-80 mt-14 ">
-            <p class="text-slate-700 text-xl font-serif drop-shadow-lg text-center italic hover:text-green-600 transition delay-150 cursor-pointer">"As it is our objective to ease your burden and assist you in this time of bereavement, 
-                and for us to provide you the best service, may request you to take note of the following".</p>
-        </div>
+        
     </section>
 </x-app-layout>

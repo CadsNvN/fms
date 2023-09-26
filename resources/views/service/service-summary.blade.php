@@ -180,7 +180,7 @@
                 </div>
 
                 <div class="w-1/3 pt-14">
-                    <form action="{{ route('service.submit.request', $serviceId) }}" method="POST"
+                    <form action="{{ route('service.service-request.store', $serviceId) }}" method="POST"
                      class="w-full h-fit rounded-md bg-white shadow-md flex flex-col p-4 space-y-4 ">
                      @csrf
                      @method('PUT')

@@ -135,6 +135,10 @@ Route::middleware('auth')->group(function () {
             Route::post('/other-services/save', 'store')->name('other-services.store');
         });
 
+        Route::controller(ServiceRequestController::class)->group(function () {
+            Route::post('/service-request/save', 'store')->name('service-request.store');
+        });
+
 
     });
 
