@@ -17,7 +17,7 @@
                     <div>
                         <textarea name="otherServices" placeholder="Write something.."
                         class="w-full min-h-[150px] rounded border-2 border-gray-200 p-4 text-justify">
-                        {{ ($serviceInformation->other_services ?? '') }}
+                        {{($serviceInformation->other_services ?? '')}}
                         </textarea>
                     </div>
                     <div class="flex items-center space-x-4">

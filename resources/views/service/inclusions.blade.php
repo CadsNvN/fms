@@ -15,25 +15,25 @@
                             <p class="text-2xl font-medium">PACKAGE INCLUSIONS</p>
                         </div>
                         <div class="flex flex-col">
-                            <p class="text-base flex items-center border-b border-gray-300 hover:border-green-300">
+                            <p class="text-base flex items-center border-b border-gray-300 hover:border-green-300 py-1">
                                 <i class='bx bxs-circle text-xs mr-3'></i>
                                 Retrieval of Remains
                             </p>
-                            <p class="text-base flex items-center border-b border-gray-300">
+                            <p class="text-base flex items-center border-b border-gray-300 py-1">
                                 <i class='bx bxs-circle text-xs mr-3'></i>
                                 Embalming
                             </p>
-                            <p class="text-base flex items-center border-b border-gray-300">
+                            <p class="text-base flex items-center border-b border-gray-300 py-1">
                                 <i class='bx bxs-circle text-xs mr-3'></i>
                                 Viewing Equipment
                             </p>
-                            <p class="text-base flex items-center border-b border-gray-300">
+                            <p class="text-base flex items-center border-b border-gray-300 py-1">
                                 <i class='bx bxs-circle text-xs mr-3'></i>
                                 Flower
                             </p>
                             
                             <div class="flex items-center justify-between border-b border-gray-300">
-                                <p class="text-base flex items-center">
+                                <p class="text-base flex items-center ">
                                     <i class='bx bxs-circle text-xs mr-3'></i>
                                     Casket
                                 </p>
@@ -66,7 +66,7 @@
                                     <i class='bx bx-right-arrow-alt text-xl text-blue-600 ml-1 mt-[3px]'></i>
                                 </a>
                             </div>
-                            <div class="flex items-center space-x-4 border-b border-gray-300">
+                            <div class="flex items-center space-x-4 border-b border-gray-300 py-1">
                                 <p class="text-base flex items-center">
                                     <i class='bx bxs-circle text-xs mr-3'></i>
                                     Hot and Cold Water Despenser with
@@ -75,7 +75,7 @@
                                 value="{{ $serviceInfo->gallonsOfWater }}">
                                 <span class="text-base "> gallons of water</span>
                             </div>
-                            <p class="text-base flex items-center border-b border-gray-300">
+                            <p class="text-base flex items-center border-b border-gray-300 py-1">
                                 <i class='bx bxs-circle text-xs mr-3'></i>
                                 Facilitation of Death Certificate and Permits c/o
                             </p>

@@ -5,12 +5,8 @@
             {{-- <input type="text" name="occupation" placeholder="Occupation" class="w-full text-sm bg-inherit border border-gray-300 rounded " 
             value="{{ old('occupation') ?? ($deceased->occupation ?? '') }}"> --}}
             <select name="occupation" class="w-full text-sm bg-inherit border border-gray-300 rounded " >
-                <option value="farmer" {{ (old('occupation') == 'farmer' || $deceased->occupation == 'farmer') ? 'selected' : '' }}>Famer</option>
-                <option value="teacher" {{ (old('occupation') == 'teacher' || $deceased->occupation == 'teacher') ? 'selected' : '' }}>Teacher</option>
-                <option value="engineer" {{ (old('occupation') == 'engineer' || $deceased->occupation == 'engineer') ? 'selected' : '' }}>Engineer</option>
-                <option value="business" {{ (old('occupation') == 'business' || $deceased->occupation == 'business') ? 'selected' : '' }}>Business</option>
-                <option value="police" {{ (old('occupation') == 'police' || $deceased->occupation == 'police') ? 'selected' : '' }}>Police</option>
-                <option value="web developer" {{ (old('occupation') == 'web developer' || $deceased->occupation == 'web developer') ? 'selected' : '' }}>Web Developer</option>
+                <option value="farmer" {{ (!is_null($deceased) && (old('occupation') == 'farmer' || $deceased->occupation == 'farmer')) ? 'selected' : '' }}>Farmer</option>
+                <option value="teacher" {{ (!is_null($deceased) && (old('occupation') == 'teacher' || $deceased->occupation == 'teacher')) ? 'selected' : '' }}>Teacher</option>
             </select>
             @error('occupation')
                 <span class="text-xs text-red-500 pl-2">{{ $message }}</span>

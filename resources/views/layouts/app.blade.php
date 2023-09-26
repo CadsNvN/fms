@@ -17,10 +17,13 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            <x-admin-header/>
-            @if ( Auth::user()->role === 'admin' || Auth::user()->role === 'owner')
+            @if (Auth::user()->role === 'customer')
+                <x-header />
+            @else
+                <x-admin-header/>
                 <x-admin-sub-header/>
             @endif
+            
 
             <!-- Page Content -->
             <main>

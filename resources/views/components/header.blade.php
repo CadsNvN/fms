@@ -1,4 +1,4 @@
-<header class="bg-blue-800 py-3">
+<header class="bg-blue-800 ">
     <nav class="flex justify-between items-center mx-auto max-w-[1240px]">
 
         <a href="/" class="text-white flex space-x-2 items-center">
@@ -37,7 +37,7 @@
                       focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                   @elseif(Auth::user()->role === 'customer')
                       {{-- <a href="{{ route('cart.index') }}" class="rounded px-4 py-2 border border-white text-white font-semibold text-sm" >My Cart</a>  --}}
-                      <a href="{{route('cart.index')}}"><box-icon name='cart' type='solid' color='#fdf5f5' ></box-icon></a>
+                      {{-- <a href="{{route('cart.index')}}"><box-icon name='cart' type='solid' color='#fdf5f5' ></box-icon></a> --}}
                       {{-- <a href="{{ route('order.index') }}" class="rounded px-4 py-2 border border-white text-white font-semibold text-sm" >My Orders</a>    --}}
                   @endif
          
@@ -69,7 +69,7 @@
                                             </x-dropdown-link>
 
                                             <x-dropdown-link :href="route('order.index')">
-                                                {{ __('My Orders') }}
+                                                {{ __('Requests') }}
                                             </x-dropdown-link>
                     
                                             <!-- Authentication -->
