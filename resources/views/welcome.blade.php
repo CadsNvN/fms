@@ -2,7 +2,7 @@
 @include('partials._hero')
 
 {{-- NEW AND UPDATE --}}
-<section class="text-gray-400 bg-white body-font text-center">
+<section class="text-gray-400 bg-white body-font">
   <div class="mx-auto max-w-[1240px]" data-aos="fade-up">
     <x-sub-header-text>
       <h1 class="text-4xl font-bold uppercase mb-4">
@@ -12,11 +12,10 @@
     </x-sub-header-text>
   
     <div class="container px-5 py-10 mx-auto">
-      <div class="flex flex-wrap m-4">
-      {{-- @foreach ($announcements as $announcement) --}}
-        <x-news  />
-        {{-- :announcement="$announcement" --}}
-      {{-- @endforeach --}}
+      <div class="flex flex-wrap -m-4">
+        @foreach($announcements as $announcement)
+          <x-news :announcement="$announcement"/>
+        @endforeach
       </div>
     </div>
   </div>

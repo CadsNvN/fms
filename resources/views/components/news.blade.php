@@ -1,38 +1,20 @@
 
-    <div class="grid gap-6 lg:grid-cols-3 xl:gap-x-12">
-      <div class="mb-6 lg:mb-0">
-        <div
-          class="relative block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-          <div class="flex">
-            <div
-              class="relative mx-4 -mt-4 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20"
-              data-te-ripple-init data-te-ripple-color="light">
-              <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/024.webp" class="w-full" />
-              {{-- {{$announcement->image ? asset('storage/' . $announcement->image) : asset('images/Torreslogo.png')}} --}}
-              <a href="#!">
-                <div
-                  class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,.15)]">
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h5 class="mb-3 text-lg font-bold">My paradise</h5>
-            <p class="mb-4 text-neutral-500 dark:text-neutral-300">
-              <small>Published <u>13.01.2022</u> by
-                <a href="#!">Anna Maria Doe</a></small>
-            </p>
-            <p class="mb-4 pb-2">
-              Ut pretium ultricies dignissim. Sed sit amet mi eget urna
-              placerat vulputate. Ut vulputate est non quam dignissim
-              elementum. Donec a ullamcorper diam.
-            </p>
-            <a href="#!" data-te-ripple-init data-te-ripple-color="light"
-              class="inline-block rounded-full bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]">Read
-              more</a>
-          </div>
-        </div>
+<div class="p-4 md:w-1/3">
+  <div class="h-full border-2 border-gray-800 rounded-lg overflow-hidden">
+    <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{{asset('images/Torres_Escaro2.jpg')}}" alt="blog">
+    <div class="p-6">
+      <h2 class="tracking-widest text-lg title-font font-medium text-black mb-1">{{$announcement->title}}</h2>
+      <h1 class="title-font text-sm font-medium text-black mb-3">{{$announcement->date}}</h1>
+      <p class="leading-relaxed mb-3 text-black">{{$announcement->description}}</p>
+      <div class="flex items-center flex-wrap">
+        <a class="text-indigo-400 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+          <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="M12 5l7 7-7 7"></path>
+          </svg>
+        </a>
+        
       </div>
-
     </div>
- 
+  </div>
+</div>

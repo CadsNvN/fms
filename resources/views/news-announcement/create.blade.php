@@ -36,9 +36,9 @@
 
         {{-- IMAGE --}}
         <div class="flex flex-col space-y-4 mt-3">
-          <label for="image">NEWS AND ANNOUNCEMENT IMAGE</label>
-          <input type="file" name="image" id="image" class="text-sm rounded border border-gray-300 w-full">
-          @error('image')
+          <label for="image">NEWS / ANNOUNCEMENT IMAGE</label>
+          <input type="file" name="images[]" id="image" class="text-sm rounded border border-gray-300 w-full" multiple>
+          @error('images')
               <p class="text-red-500 text-xs">{{$message}}</p>
           @enderror
         </div>

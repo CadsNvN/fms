@@ -45,19 +45,14 @@
                         </button>
                     </form>
                 </div>
-                <div class="w-[80%] mt-14 ">
-                    <p class="text-slate-700 text-lg font-serif drop-shadow-lg text-center italic hover:text-green-600 transition delay-150 cursor-pointer">"As it is our objective to ease your burden and assist you in this time of bereavement, 
-                        and for us to provide you the best service, may request you to accomplish and fill up of the following forms".</p>
+                <div class="px-40 mt-14 ">
+                    <img src="{{ asset('images/candle1-removebg.png') }}" alt="candle" class="w-32 h-auto mx-auto pb-3">
+                    <hr class=" border-t-gray-400 w-[5in] h-auto mx-auto">
+                    <p class=" px-36 text-slate-900 text-base font-serif drop-shadow-lg text-center italic">"As it is our objective to ease your burden and assist you in this time of bereavement, 
+                        and for us to provide you the best service, may request you to take note of the following".</p>
                 </div>
-
-                <x-small-candle width='200px' />
             </div>
         </div>
-        <div class="px-80 mt-14 ">
-            <img src="{{ asset('images/candle1-removebg.png') }}" alt="candle" class="w-32 h-auto mx-auto pb-3">
-            <hr class=" border-t-gray-400 w-[5in] h-auto mx-auto">
-            <p class=" px-36 text-slate-900 text-base font-serif drop-shadow-lg text-center italic">"As it is our objective to ease your burden and assist you in this time of bereavement, 
-                and for us to provide you the best service, may request you to take note of the following".</p>
-            </div>
+        
     </section>
 </x-app-layout>

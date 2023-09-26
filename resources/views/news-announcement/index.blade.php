@@ -32,7 +32,8 @@
                 <td class="px-4 py-2 text-sm">{{ $announcement->description }}</td>
                 <td class="px-4 py-2 text-sm">{{ $announcement->date }}</td>
                 <td class="px-4 py-2 text-sm">
-                    <img src="{{ $announcement->image ? asset('storage/' . $announcement->image) : "" }}" alt="news-announcement Image" class="w-16 h-16">
+                  @foreach ($announcement->images as $image)
+                    <img src="{{ $image->path ? asset('storage/' . $image->path) : "" }}" alt="news-announcement Image" class="w-16 h-16">
                 </td>
                 <td class="px-4 py-2 text-sm flex items-center space-x-2">
                     <a href="/news-announcement/{{$announcement->id}}/edit" class="rounded py-1 px-2 cursor-pointer">

@@ -33,17 +33,27 @@ class AnnouncementController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $announcementFields = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'date' => 'required|date',
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Use 'images.*' to validate each image in the array
         ]);
-
-        if($request->hasFile('image')) {
-            $announcementFields['image'] = $request->image->store('announcementImage', 'public');
-        }
-
+       
         $announcement = Announcement::create($announcementFields);
+
+         $imagePaths = [];
+        if($request->hasFile('images')) {
+            foreach($request->file('images') as $image) {
+               $path = $image->store('announcementImage', 'public'); // Store each image in the 'announcementImages' directory
+               $imagePaths[] = $path;
+               
+               $announcement->images()->create([
+                   'path' => $path
+               ]);
+            }
+        }
 
         return redirect()->route('news-announcement.index')->with('success', 'Announcement has been added successfully!');
     }

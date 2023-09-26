@@ -15,4 +15,8 @@ class Announcement extends Model
         'date',
         'image'
     ];
+
+    public function announcementImages() {
+        return $this->hasMany(AnnouncementImage::class);
+    }
 }
