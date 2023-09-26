@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Casket;
 use App\Models\Informant;
+use App\Models\ServiceRequest;
 use App\Models\DeceasedInformation;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -42,4 +43,9 @@ class ServiceInformation extends Model
     public function deceasedInformation() {
         return $this->belongsTo(DeceasedInformation::class);
     }
+
+    public function serviceRequest() {
+        return $this->hasOne(ServiceRequest::class);
+    }
+
 }

@@ -18,6 +18,6 @@ class ServiceRequest extends Model
     ];
 
     public function serviceInformation() {
-        return $this->hasOne(ServiceInformation::class);
+        return $this->belongsTo(ServiceInformation::class);
     }
 }

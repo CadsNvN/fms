@@ -29,14 +29,14 @@
                         <x-dropdown-link :href="route('orders.current')">
                             Pending Requests
                         </x-dropdown-link> 
-                        <x-dropdown-link :href="route('orders.completed')">
+                        {{-- <x-dropdown-link :href="route('orders.completed')">
                             Completed
-                        </x-dropdown-link>
+                        </x-dropdown-link> --}}
                     </x-slot>
                 </x-dropdown>
             </li>
 
-            <li>
+            {{-- <li>
                 <a href=""
                 class="cursor-pointer inline-flex items-center px-3 py-2 border border-gray-400 text-base leading-4 font-medium rounded text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                     Feedback
@@ -48,7 +48,7 @@
                 class="cursor-pointer inline-flex items-center px-3 py-2 border border-gray-400 text-base leading-4 font-medium rounded text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                     Users
                 </a>
-            </li>
+            </li> --}}
 
             <li>
                 <a href="{{route('news-announcement.index')}}"
