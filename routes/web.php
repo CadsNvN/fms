@@ -96,6 +96,7 @@ Route::middleware('auth')->group(function () {
 
     });
 
+   
 
     Route::prefix('/service/{serviceInformation}')->as('service.')->group(function () {
 
@@ -218,6 +219,17 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/current/{orderId}', 'processOrder')->name('process');
         Route::put('/current/{orderId}/confirm', 'confirmOrder')->name('confirm');
     });
+
+
+    Route::prefix('/request')->as('service.')->group(function () {
+        Route::controller(ServiceRequestController::class)->group(function () {
+            Route::get('/pending', 'pending')->name('pending');
+            Route::get('/completed', 'completed')->name('completed');
+            Route::get('/{requestId}/process', 'process')->name('process');
+            Route::put('/{requestId}/complete', 'complete')->name('complete');
+        });
+    });
+
 
 });
 // END ADMIN
