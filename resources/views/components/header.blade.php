@@ -1,4 +1,4 @@
-<header class="bg-blue-800 ">
+<header class="bg-blue-800 py-3 ">
     <nav class="flex justify-between items-center mx-auto max-w-[1240px]">
 
         <a href="/" class="text-white flex space-x-2 items-center">
@@ -45,7 +45,7 @@
                     <nav x-data="{ open: false }">
                         <!-- Primary Navigation Menu -->
                         <div class="max-w-7xl mx-auto">
-                            <div class="flex justify-between h-16">
+                            <div class="flex justify-between">
                     
                                 <!-- Settings Dropdown -->
                                 <div class="hidden sm:flex sm:items-center sm:ml-6">

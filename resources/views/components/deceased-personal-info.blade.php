@@ -40,7 +40,7 @@
 
         <div class="w-full flex flex-col space-y-1">
             <label class="text-xs ">AGE</label>
-            <input id="ageInput" type="number" name="age" placeholder="Age" class="w-full text-sm bg-inherit border border-gray-300 rounded " 
+            <input id="ageInput" type="text" name="age" placeholder="Age" class="w-full text-sm bg-inherit border border-gray-300 rounded " 
             value="{{ old('age') ?? ($deceased->age ?? '') }}">
             @error('age')
                 <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
@@ -89,7 +89,13 @@
         const today = new Date();
         const age = today.getFullYear() - dob.getFullYear();
 
-        // Update the age input's value
-        ageInput.value = age;
+        // Check if the selected date is the current date
+        if (dob.toISOString().split('T')[0] === today.toISOString().split('T')[0]) {
+            // If the selected date is the current date, set the value to 'New Born'
+            ageInput.value = 'New Born';
+        } else {
+            // Otherwise, set the calculated age
+            ageInput.value = age;
+        }
     });
 </script>

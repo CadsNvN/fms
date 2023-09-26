@@ -17,6 +17,7 @@ use App\Http\Controllers\DeceasedInformationController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Owner\OwnerDashboardController;
 use App\Http\Controllers\Customer\CustomerDasboardController;
+use App\Models\ServiceRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -211,8 +212,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
     // orders
-    Route::prefix('/orders')->controller(OrderController::class)->as('orders.')->group(function () {
-        Route::get('/current', 'currentOrders')->name('current');
+    Route::prefix('/request')->controller(ServiceRequestController::class)->as('orders.')->group(function () {
+        Route::get('/pending', 'pending')->name('current');
         Route::get('/completed', 'completedOrders')->name('completed');
         Route::get('/current/{orderId}', 'processOrder')->name('process');
         Route::put('/current/{orderId}/confirm', 'confirmOrder')->name('confirm');

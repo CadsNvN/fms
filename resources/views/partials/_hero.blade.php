@@ -10,13 +10,10 @@
         </p>
         {{-- <p>110 Bayanan Rd, Bacoor, 4102 Cavite</p> --}}
         <div class="pt-6 mb-5">
-          <a href="{{ route('service.type.index') }}" class="text-2xl border-2 border-blue-300 bg-white cursor-pointer hover:bg-blue-700 hover:text-white
-          text-blue-800 font-semibold py-4 px-8 rounded-md uppercase mt-2">
+          <a href="{{ route('service.type.index') }}" class="text-2xl cursor-pointer  hover:bg-blue-800 bg-blue-700 text-white font-semibold py-4 px-8 rounded-md uppercase mt-2">
             Request Funeral Services
           </a>
         </div>
-
-
     </div>
   </div>
 

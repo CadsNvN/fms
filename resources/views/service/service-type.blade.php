@@ -45,11 +45,11 @@
                         </button>
                     </form>
                 </div>
-                <div class="px-40 mt-14 ">
+                <div class="px-40 mt-5 ">
                     <img src="{{ asset('images/candle1-removebg.png') }}" alt="candle" class="w-32 h-auto mx-auto pb-3">
                     <hr class=" border-t-gray-400 w-[5in] h-auto mx-auto">
                     <p class=" px-36 text-slate-900 text-base font-serif drop-shadow-lg text-center italic">"As it is our objective to ease your burden and assist you in this time of bereavement, 
-                        and for us to provide you the best service, may request you to take note of the following".</p>
+                    and for us to provide you the best service, may request you to take note of the following".</p>
                 </div>
             </div>
         </div>
