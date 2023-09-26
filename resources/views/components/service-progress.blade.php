@@ -27,12 +27,12 @@
             <p class="text-2xl {{ $serviceInformation->informant ? 'text-green-500' : 'text-gray-400'  }} ">3</p>
         </li>
 
-        <p class="font-bold text-xl text-gray-400">---</p>
+        <p class="font-bold text-xl text-gray-400 {{ is_null($serviceInformation->other_services) ? 'text-gray-400' : 'text-green-500' }}">---</p>
 
         <li class="flex items-center justify-center font-bold w-14 h-14 rounded-full
-        {{ !empty($serviceInformation->otherServices) ? 'bg-gray-200' : 'bg-green-200' }}
+        {{ is_null($serviceInformation->other_services) ? 'bg-gray-200' : 'bg-green-200' }}
         {{ $page == 'others' ? 'border-[3px] border-green-500' : ''}} ">
-            <p class="text-2xl {{ !empty($serviceInformation->otherServices) ? 'text-gray-400' : 'text-green-500' }} ">4</p>
+            <p class="text-2xl {{ is_null($serviceInformation->other_services) ? 'text-gray-400' : 'text-green-500' }} ">4</p>
         </li>
     </ul>
 </div>

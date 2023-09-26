@@ -2,9 +2,10 @@
     <section>
         <div class="max-w-[1300px] mx-auto px-4">
             <x-service-progress :serviceId="$serviceId" :page="$page" />
-            <form action="{{ route('service.other-services.store', $serviceId) }}" method="POST"
+            <form action="{{ route('service.setOtherServices', $serviceId) }}" method="POST"
             class="w-full flex items-center space-x-4 ">
             @csrf
+            @method('PUT')
                 <div class="w-1/2">
                     <x-candle />
                 </div>
@@ -14,9 +15,9 @@
                         <h2 class="text-base text-gray-600">Please feel free to specify any additional assistance or services you may require.</h1>
                     </div>
                     <div>
-                        <textarea name="description" placeholder="Write something.."
+                        <textarea name="otherServices" placeholder="Write something.."
                         class="w-full min-h-[150px] rounded border-2 border-gray-200 p-4 text-justify">
-                        {{ ($otherService->description ?? '') }}
+                        {{ ($serviceInformation->other_services ?? '') }}
                         </textarea>
                     </div>
                     <div class="flex items-center space-x-4">

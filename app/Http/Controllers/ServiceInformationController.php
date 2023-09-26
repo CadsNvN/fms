@@ -107,7 +107,7 @@ class ServiceInformationController extends Controller
     {
         return view('service.other-services', [
             'serviceId' => $serviceId,
-            'otherService' => ServiceInformation::find($serviceId)->otherServices->first(),
+            'serviceInformation' => ServiceInformation::find($serviceId),
             'page' => 'others'
         ]);
     }
@@ -169,6 +169,24 @@ class ServiceInformationController extends Controller
         }
 
         return redirect()->route('service.received', $serviceId);
+    }
+
+    public function setOtherServices(Request $request, $serviceId) {
+
+        $serviceInformation = ServiceInformation::find($serviceId);
+
+        if(!$serviceInformation) {
+            return redirect()->back()->with('error', 'Something went wrong');
+        }
+
+        $serviceInformation->other_services = $request->otherServices ? $request->otherServices : 'none';
+        $saved = $serviceInformation->save();
+
+        if(!$saved) {
+            return redirect()->back()->with('error', 'Something went wrong');
+        }
+
+        return redirect()->route('service.summary', $serviceId);
     }
 
 

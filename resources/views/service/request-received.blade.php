@@ -2,7 +2,7 @@
     <section>
         <div class="max-w-[1300px] mx-auto p-4 ">
             <div class="w-full flex flex-col items-center justify-center">
-                <x-small-candle/>
+                <x-small-candle width='300px' />
                 <h2 class="text-3xl font-semibold text-blue-600 mb-4 text-center">Our Deepest Condolences</h2>
                 <p class="text-gray-700 text-base leading-relaxed text-center w-[70%]">
                     We have received your request, and in this difficult time, we want to extend our deepest condolences. 

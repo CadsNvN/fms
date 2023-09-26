@@ -3,7 +3,7 @@
         <div class="max-w-[1300px] mx-auto p-4">
             <div class="flex space-x-4">
             
-                <div class="w-2/3 flex flex-col space-y-4 pt-1">
+                <div class="w-full flex flex-col space-y-4 pt-1">
                     <a class="nav-button text-sm px-4 py-2 w-fit rounded bg-gray-300 hover:bg-gray-400 hover:text-gray-700 cursor-pointer" 
                     href="{{ route('service.other-services', $serviceId) }}"
                     >Back</a>
@@ -176,24 +176,24 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="w-full sticky top-20">
+                        <form action="{{ route('service.service-request.store', $serviceId) }}" method="POST"
+                         class="w-full h-fit rounded-md bg-white shadow-md flex flex-col p-4 space-y-4 ">
+                         @csrf
+                            <h2 class="text-xl font-semibold ">SUMMARY</h2>
+    
+                            <div class="flex items-center justify-between">
+                                <p class="text-base font-medium ">TOTAL</p>
+                                <p class="text-base font-medium ">&#8369;{{ $casket->price }}</p>
+                            </div>
+                            
+                            <button type="submit" class=" text-sm px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white cursor-pointer">Request Service</button>
+                        </form>
+                    </div>
                    
                 </div>
-
-                <div class="w-1/3 pt-14">
-                    <form action="{{ route('service.submit.request', $serviceId) }}" method="POST"
-                     class="w-full h-fit rounded-md bg-white shadow-md flex flex-col p-4 space-y-4 ">
-                     @csrf
-                     @method('PUT')
-                        <h2 class="text-xl font-semibold ">SUMMARY</h2>
-
-                        <div class="flex items-center justify-between">
-                            <p class="text-base font-medium ">TOTAL</p>
-                            <p class="text-base font-medium ">&#8369;{{ $casket->price }}</p>
-                        </div>
-                        
-                        <button type="submit" class=" text-sm px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white cursor-pointer">Request Service</button>
-                    </form>
-                </div>
+            
             </div>
         </div>
     </section>

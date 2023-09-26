@@ -10,6 +10,13 @@ class ServiceRequest extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'service_information_id',
+        'status',
+        'requestNumber'
+    ];
+
     public function serviceInformation() {
         return $this->hasOne(ServiceInformation::class);
     }

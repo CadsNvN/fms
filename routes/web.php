@@ -112,6 +112,7 @@ Route::middleware('auth')->group(function () {
             Route::put('/gallons-water-save', 'setGallonsOfWater')->name('gallons.water');
             Route::get('/service-recieved', 'recieved')->name('received');
             Route::put('/submit-request', 'submitRequest')->name('submit.request');
+            Route::put('/other-services', 'setOtherServices')->name('setOtherServices');
 
         });
 
@@ -133,6 +134,10 @@ Route::middleware('auth')->group(function () {
 
         Route::controller(OtherServicesController::class)->group(function () {
             Route::post('/other-services/save', 'store')->name('other-services.store');
+        });
+
+        Route::controller(ServiceRequestController::class)->group(function () {
+            Route::post('/service-request/save', 'store')->name('service-request.store');
         });
 
 

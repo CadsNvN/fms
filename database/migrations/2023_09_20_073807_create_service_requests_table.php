@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');
             $table->foreignId('service_information_id')->constrained('service_informations')->onDelete('cascade');
             $table->string('status')->default('pending');
-            $table->uuid('requestId');
+            $table->uuid('requestNumber')->unique();
             $table->timestamps();
         });
     }

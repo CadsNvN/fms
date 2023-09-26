@@ -31,7 +31,7 @@
     <div class="w-full flex space-x-4 items-start">
         <div class="w-full flex flex-col space-y-1">
             <label class="text-xs ">DATE OF BIRTH</label>
-            <input type="date" name="dob" placeholder="Date of Birth" class="w-full text-sm bg-inherit border border-gray-300 rounded " 
+            <input id="dobInput" type="date" name="dob" placeholder="Date of Birth" class="w-full text-sm bg-inherit border border-gray-300 rounded " 
             value="{{ old('dob') ?? ($deceased->dob ?? '') }}">
             @error('dob')
                 <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
@@ -40,7 +40,7 @@
 
         <div class="w-full flex flex-col space-y-1">
             <label class="text-xs ">AGE</label>
-            <input type="number" name="age" placeholder="Age" class="w-full text-sm bg-inherit border border-gray-300 rounded " 
+            <input id="ageInput" type="number" name="age" placeholder="Age" class="w-full text-sm bg-inherit border border-gray-300 rounded " 
             value="{{ old('age') ?? ($deceased->age ?? '') }}">
             @error('age')
                 <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
@@ -75,3 +75,21 @@
         @enderror
     </div>
 </div>
+
+<script>
+    // JavaScript code to calculate age based on the birthdate input
+    const dobInput = document.getElementById('dobInput');
+    const ageInput = document.getElementById('ageInput');
+
+    dobInput.addEventListener('input', () => {
+        // Get the selected date of birth
+        const dob = new Date(dobInput.value);
+
+        // Calculate the age
+        const today = new Date();
+        const age = today.getFullYear() - dob.getFullYear();
+
+        // Update the age input's value
+        ageInput.value = age;
+    });
+</script>

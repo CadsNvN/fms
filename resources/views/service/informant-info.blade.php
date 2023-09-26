@@ -51,7 +51,7 @@
                                     
                                     <div class="w-full flex flex-col space-y-1">
                                         <label class="text-xs ">AGE</label>
-                                        <input type="text" name="age" placeholder="Age" class="w-full text-sm bg-inherit border border-gray-300 rounded "
+                                        <input type="number" name="age" placeholder="Age" class="w-full text-sm bg-inherit border border-gray-300 rounded "
                                         value="{{ old('age') ?? ($informant->age ?? '') }}">
                                         @error('age')
                                             <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
@@ -60,8 +60,13 @@
         
                                     <div class="w-full flex flex-col space-y-1">
                                         <label class="text-xs ">OCCUPATION</label>
-                                        <input type="text" name="occupation" placeholder="Occupation" class="w-full text-sm bg-inherit border border-gray-300 rounded "
-                                        value="{{ old('occupation') ?? ($informant->occupation ?? '') }}">
+                                        <select name="occupation" class="w-full text-sm bg-inherit border border-gray-300 rounded " >
+                                            <option value="farmer" {{ (old('occupation') == 'farmer' || $informant->occupation == 'farmer') ? 'selected' : '' }}>Famer</option>
+                                            <option value="teacher" {{ (old('occupation') == 'teacher' || $informant->occupation == 'teacher') ? 'selected' : '' }}>Teacher</option>
+                                            <option value="engineer" {{ (old('occupation') == 'engineer' || $informant->occupation == 'engineer') ? 'selected' : '' }}>Engineer</option>
+                                            <option value="business" {{ (old('occupation') == 'business' || $informant->occupation == 'business') ? 'selected' : '' }}>Business</option>
+                                            <option value="police" {{ (old('occupation') == 'police' || $informant->occupation == 'police') ? 'selected' : '' }}>Police</option>
+                                        </select>
                                         @error('occupation')
                                             <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
                                         @enderror
@@ -109,8 +114,14 @@
         
                                 <div class="w-full flex flex-col space-y-1">
                                     <label class="text-xs ">RELATIONSHIP TO THE DECEASED</label>
-                                    <input type="text" name="relationshipToTheDeceased" placeholder="Relation to the Deceased" class="w-full text-sm bg-inherit border border-gray-300 rounded "
-                                    value="{{ old('relationshipToTheDeceased') ?? ($informant->relationshipToTheDeceased ?? '') }}">
+                                    <select name="relationshipToTheDeceased" class="w-full text-sm bg-inherit border border-gray-300 rounded " >
+                                        <option value="son" {{ (old('son') == 'farmer' || $informant->relationshipToTheDeceased == 'son') ? 'selected' : '' }}>Son</option>
+                                        <option value="sibling" {{ (old('occupation') == 'sibling' || $informant->relationshipToTheDeceased == 'sibling') ? 'selected' : '' }}>Sibling</option>
+                                        <option value="mother" {{ (old('occupation') == 'mother' || $informant->relationshipToTheDeceased == 'mother') ? 'selected' : '' }}>Mother</option>
+                                        <option value="father" {{ (old('occupation') == 'father' || $informant->relationshipToTheDeceased == 'father') ? 'selected' : '' }}>Father</option>
+                                        <option value="daugther" {{ (old('occupation') == 'police' || $informant->relationshipToTheDeceased == 'daugther') ? 'selected' : '' }}>Daugther</option>
+                                        <option value="grand parent" {{ (old('occupation') == 'grand parent' || $informant->relationshipToTheDeceased == 'grand parent') ? 'selected' : '' }}>Grand Parent</option>
+                                    </select>
                                     @error('relationshipToTheDeceased')
                                         <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
                                     @enderror

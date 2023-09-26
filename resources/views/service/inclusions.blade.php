@@ -16,25 +16,25 @@
                         </div>
                         <div class="flex flex-col">
                             <p class="text-base flex items-center border-b border-gray-300 hover:border-green-300">
-                                <i class='bx bx-check text-3xl text-green-500 mr-3'></i>
+                                <i class='bx bxs-circle text-xs mr-3'></i>
                                 Retrieval of Remains
                             </p>
                             <p class="text-base flex items-center border-b border-gray-300">
-                                <i class='bx bx-check text-3xl text-green-500 mr-3'></i>
+                                <i class='bx bxs-circle text-xs mr-3'></i>
                                 Embalming
                             </p>
                             <p class="text-base flex items-center border-b border-gray-300">
-                                <i class='bx bx-check text-3xl text-green-500 mr-3'></i>
+                                <i class='bx bxs-circle text-xs mr-3'></i>
                                 Viewing Equipment
                             </p>
                             <p class="text-base flex items-center border-b border-gray-300">
-                                <i class='bx bx-check text-3xl text-green-500 mr-3'></i>
+                                <i class='bx bxs-circle text-xs mr-3'></i>
                                 Flower
                             </p>
                             
                             <div class="flex items-center justify-between border-b border-gray-300">
                                 <p class="text-base flex items-center">
-                                    <i class='bx bx-check text-3xl text-green-500 mr-3'></i>
+                                    <i class='bx bxs-circle text-xs mr-3'></i>
                                     Casket
                                 </p>
                         
@@ -51,7 +51,7 @@
                             </div>
                             <div class="flex items-center justify-between border-b border-gray-300">
                                 <p class="text-base flex items-center">
-                                    <i class='bx bx-check text-3xl text-green-500 mr-3'></i>
+                                    <i class='bx bxs-circle text-xs mr-3'></i>
                                     Hearse of Interment
                                 </p>
 
@@ -68,7 +68,7 @@
                             </div>
                             <div class="flex items-center space-x-4 border-b border-gray-300">
                                 <p class="text-base flex items-center">
-                                    <i class='bx bx-check text-3xl text-green-500 mr-3'></i>
+                                    <i class='bx bxs-circle text-xs mr-3'></i>
                                     Hot and Cold Water Despenser with
                                 </p>
                                 <input type="text" name="gallonsOfWater" class="w-10 h-6 text-xs text-center rounded border-2 border-gray-300 bg-inherit"
@@ -76,7 +76,7 @@
                                 <span class="text-base "> gallons of water</span>
                             </div>
                             <p class="text-base flex items-center border-b border-gray-300">
-                                <i class='bx bx-check text-3xl text-green-500 mr-3'></i>
+                                <i class='bx bxs-circle text-xs mr-3'></i>
                                 Facilitation of Death Certificate and Permits c/o
                             </p>
                         </div>
