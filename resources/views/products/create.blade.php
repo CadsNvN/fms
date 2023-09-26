@@ -7,7 +7,7 @@
             <form method="POST" enctype="multipart/form-data" action="/product/store" class="flex flex-col w-full p-2">
                 @csrf
                 <div class="flex flex-col space-y-2 mt-3">
-                    <label for="name">NAME</label>
+                    <label for="name">PRODUCT NAME</label>
                     <input id="name" name="name" type="text" class="rounded border border-gray-300"/>
                     @error('name')
                         <p class="text-red-500 text-xs">{{$message}}</p>
@@ -23,26 +23,26 @@
                 </div>
     
                 <div class="flex space-x-4 mt-3">
-                    <div class="flex flex-col space-y-2">
+                    <div class="flex flex-col space-y-2 w-full">
                         <label for="price">PRICE</label>
-                        <input id="price" name="price" type="number" class="rounded border border-gray-300"/>
+                        <input id="price" name="price" type="number" class="rounded border border-gray-300 w-full"/>
                         @error('price')
                             <p class="text-red-500 text-xs">{{$message}}</p>
                         @enderror
                     </div>
         
-                    <div class="flex flex-col space-y-2">
+                    <div class="flex flex-col space-y-2 w-full">
                         <label for="stock">STOCK</label>
-                        <input id="stock" name="stock" type="number" class="rounded border border-gray-300"/>
+                        <input id="stock" name="stock" type="number" class="rounded border border-gray-300 w-full"/>
                         @error('stock')
                             <p class="text-red-500 text-xs">{{$message}}</p>
                         @enderror
                     </div>
 
-                    <div class="flex flex-col space-y-2">
+                    <div class="flex flex-col space-y-2 w-full">
                         <label for="image">PRODUCT IMAGE</label>
-                        <input type="file" name="image" id="image" class="rounded border border-gray-300">
-                        @error('image')
+                        <input type="file" name="images[]" id="image" class="text-sm rounded border border-gray-300 w-full" multiple>
+                        @error('images')
                             <p class="text-red-500 text-xs">{{$message}}</p>
                         @enderror
                     </div>

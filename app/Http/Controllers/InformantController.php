@@ -29,7 +29,7 @@ class InformantController extends Controller
             $serviceInfo = ServiceInformation::find($serviceId);
             $serviceInfo->informant_id = $created->id;
             $serviceInfo->save();
-            return redirect()->route('service.inclusions', $serviceId)->with('success', 'Saved! now please choose your inclusions');
+            return redirect()->route('service.other-services', $serviceId)->with('success', 'Saved! now please choose your inclusions');
         } else {
             return redirect()->back()->with('error', 'Something went wrong, please try again');
         }

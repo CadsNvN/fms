@@ -2,12 +2,12 @@
     <section>
         <div class="mx-auto max-w-[1300px] px-4">
             <div class="w-full flex flex-col py-4">
-                <div class="w-full flex items-start justify-between space-x-4">
+                <div class="w-full flex items-center justify-between space-x-4">
                     <div class="w-1/2">
                         <x-candle />
                     </div>
                     
-                    <form action="{{ route('service.informant.store', $serviceId) }}" method="POST" class="w-1/2 mt-32">
+                    <form action="{{ route('service.informant.store', $serviceId) }}" method="POST" class="w-2/3 pt-16">
                         @csrf
                         <div class="flex flex-col space-y-5">
                             <div class="">
@@ -117,7 +117,7 @@
 
                                 <div class="flex items-center space-x-3 py-1">
                                     <a class="nav-button text-sm px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 hover:text-gray-700 cursor-pointer" data-back="personal-info">Back</a>
-                                    <button type="submit" class=" text-sm px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white cursor-pointer">Save and Proceed</button>
+                                    <button type="submit" class=" text-sm px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-white cursor-pointer">Next</button>
                                 </div>
                             </div>
 

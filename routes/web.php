@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReceiptController;
 use App\Http\Controllers\InformantController;
 use App\Http\Controllers\OtherServicesController;
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\ServiceRequestController;
 use App\Http\Controllers\ServiceInformationController;
 use App\Http\Controllers\DeceasedInformationController;
@@ -41,10 +42,7 @@ route::get('/contact-us', function () {
     return view('pages.contact-us');
 })->name('contact-us');
 
-// NEWS & ANNOUNCEMENTS
-route::get('/news-announcement', function () {
-    return view('pages.news-announcement');
-})->name('news-announcement');
+
 
 // PRODUCTS
 Route::get('/show/{product}', [ProductController::class, 'show'])
@@ -54,6 +52,19 @@ Route::get('/product/browse', [ProductController::class, 'browse'])
     ->name('product.browse');
 
 //END PRODUCTS
+
+// NEWS & ANNOUNCEMENTS
+// route::get('/news-announcement', function () {
+//     return view('news-announcement.browse');
+// })->name('news-announcement');
+
+route::get('/show/{announcement}', [AnnouncementController::class, 'show'])
+->name('news-announcement.show');
+
+route::get('/news-announcement/browse', [AnnouncementController::class, 'browse'])
+->name('news-announcement.browse');
+// END NEWS & ANNOUNCEMENTS
+
 
 Route::get('/about-us', function () {
     return view('pages.about-us');
@@ -75,32 +86,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/receipt/{orderId}', [ReceiptController::class, 'index'])->name('receipt.view');
     Route::get('/generate-receipt/{orderId}', [ReceiptController::class, 'generateReceipt'])->name('invoice.print');
 
-});
-
-// CUSTOMER
-Route::middleware(['auth', 'role:customer'])->group(function () {
-    Route::prefix('customer')->controller(CustomerDasboardController::class)->as('customer.')->group(function () {
-        Route::get('/dashboard', 'index')->name('dashboard');
-    });
-
-    //CARTS
-    Route::prefix('/cart')->as('cart.')->controller(CartController::class)->group(function () {
-        Route::get('/cart', 'index')->name('index');
-        Route::put('/{cartItem}/add', 'addQuantity')->name('add');
-        Route::post('/show/{product}/save', 'addToCart')->name('save');
-        Route::delete('/cart-delete/{cartItem}', 'destroy')->name('destroy');
-
-        Route::put('/{cartItem}/subtract', 'subtractQuantity')->name('subtract');
-    });
-
-
-    // OORDERS
-    Route::prefix('/order')->controller(OrderController::class)->as('order.')->group(function () {
-        Route::post('/create', 'store')->name('store');
-        Route::get('/existing', 'index')->name('index');
-        Route::delete('/{orderId}/delete', 'destroy')->name('destroy');
-    });
-
 
     Route::prefix('/service')->as('service.')->group(function () {
         Route::controller(ServiceInformationController::class)->group(function () {
@@ -113,7 +98,9 @@ Route::middleware(['auth', 'role:customer'])->group(function () {
 
     Route::prefix('/service/{serviceInformation}')->as('service.')->group(function () {
 
+
         Route::controller(ServiceInformationController::class)->group(function () {
+            Route::delete('', 'destroy')->name('destroy');
             Route::get('/deceased-info', 'deceased')->name('deceased');
             Route::get('/informant-info', 'informant')->name('informant');
             Route::get('/inclusions', 'inclusions')->name('inclusions');
@@ -151,6 +138,35 @@ Route::middleware(['auth', 'role:customer'])->group(function () {
 
     });
 
+});
+
+// CUSTOMER
+Route::middleware(['auth', 'role:customer'])->group(function () {
+    Route::prefix('customer')->controller(CustomerDasboardController::class)->as('customer.')->group(function () {
+        Route::get('/dashboard', 'index')->name('dashboard');
+    });
+
+    //CARTS
+    Route::prefix('/cart')->as('cart.')->controller(CartController::class)->group(function () {
+        Route::get('/cart', 'index')->name('index');
+        Route::put('/{cartItem}/add', 'addQuantity')->name('add');
+        Route::post('/show/{product}/save', 'addToCart')->name('save');
+        Route::delete('/cart-delete/{cartItem}', 'destroy')->name('destroy');
+
+        Route::put('/{cartItem}/subtract', 'subtractQuantity')->name('subtract');
+    });
+
+
+    // OORDERS
+    Route::prefix('/order')->controller(OrderController::class)->as('order.')->group(function () {
+        Route::post('/create', 'store')->name('store');
+        Route::get('/existing', 'index')->name('index');
+        Route::delete('/{orderId}/delete', 'destroy')->name('destroy');
+    });
+
+
+    
+
 
 });
 // END CUSTOMER
@@ -167,6 +183,17 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/List-user', function () {
         return view('pages.List-user');
     })->name('List-user');
+
+
+    // create news and announcement
+    route::prefix('/news-announcement')->controller(AnnouncementController::class)->as('news-announcement.')->group(function() {
+        Route::get('/news-announcements', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/{announcement}/edit', 'edit')->name('edit');
+        Route::put('/{announcement}/update', 'update')->name('update');
+        Route::delete('/{announcement}/delete', 'destroy')->name('destroy');
+    });
 
     // products
     Route::prefix('/product')->controller(ProductController::class)->as('product.')->group(function () {
