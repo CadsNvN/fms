@@ -79,7 +79,8 @@ class ServiceInformationController extends Controller
 
         return view('service.deceased-info', [
             'serviceId' => $serviceId,
-            'deceased' => $deceased
+            'deceased' => $deceased,
+            'page' => 'deceased'
         ]);
     }
 
@@ -88,7 +89,8 @@ class ServiceInformationController extends Controller
         $informant = ServiceInformation::find($serviceId)->informant;
         return view('service.informant-info', [
             'serviceId' => $serviceId,
-            'informant' => $informant 
+            'informant' => $informant ,
+            'page' => 'informant'
         ]);
     }
 
@@ -96,7 +98,8 @@ class ServiceInformationController extends Controller
     {
         return view('service.inclusions', [
             'serviceId' => $serviceId,
-            'serviceInfo' => ServiceInformation::find($serviceId)
+            'serviceInfo' => ServiceInformation::find($serviceId),
+            'page' => 'inclusions'
         ]);
     }
 
@@ -104,7 +107,8 @@ class ServiceInformationController extends Controller
     {
         return view('service.other-services', [
             'serviceId' => $serviceId,
-            'otherService' => ServiceInformation::find($serviceId)->otherServices->first()
+            'otherService' => ServiceInformation::find($serviceId)->otherServices->first(),
+            'page' => 'others'
         ]);
     }
 

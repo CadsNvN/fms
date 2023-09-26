@@ -1,6 +1,7 @@
 <x-app-layout>
     <section>
         <div class="max-w-[1300px] mx-auto px-4">
+            <x-service-progress :serviceId="$serviceId" :page="$page" />
             <div class="flex space-x-4 items-center">
                 <div class="w-1/2">
                     <x-candle/>

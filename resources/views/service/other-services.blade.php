@@ -1,6 +1,7 @@
 <x-app-layout>
     <section>
-        <div class="max-w-[1300px] mx-auto p-4">
+        <div class="max-w-[1300px] mx-auto px-4">
+            <x-service-progress :serviceId="$serviceId" :page="$page" />
             <form action="{{ route('service.other-services.store', $serviceId) }}" method="POST"
             class="w-full flex items-center space-x-4 ">
             @csrf

@@ -1,6 +1,7 @@
 <x-app-layout>
     <section>
         <div class="mx-auto max-w-[1300px] px-4">
+            <x-service-progress :serviceId="$serviceId" :page="$page"/>
             <div class="w-full flex flex-col py-4">
                
                 <div class="w-full flex items-center justify-between space-x-4">

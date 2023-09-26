@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreignIdFor(Hearse::class)->nullable()->onDelete('cascade');
             $table->string('gallonsOfWater')->nullable();
             $table->string('serviceType');
-            $table->string('status')->nullable();
+            $table->string('other_services')->nullable();
             $table->timestamps();
         });
     }
