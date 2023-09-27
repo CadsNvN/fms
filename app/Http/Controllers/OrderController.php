@@ -147,6 +147,8 @@ class OrderController extends Controller
 
             $order = Order::findOrFail($orderId);
 
+            // if ($order-)
+
             $request->validate([
                 'payment_method' => 'required',
                 'amount_recieved' => 'required|numeric|min:' . $order->total_due,

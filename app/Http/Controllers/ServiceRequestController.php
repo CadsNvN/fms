@@ -43,6 +43,10 @@ class ServiceRequestController extends Controller
 
         $serviceRequest = ServiceRequest::find($requestId);
 
+        if($request->ammountReceived < $serviceRequest->totalDue) {
+            return redirect()->back()->with('error', 'Amount received is less than total due!');
+        }
+
         $serviceRequest->status = 'completed';
         $serviceRequest->totalChange = $request->ammountReceived - $serviceRequest->totalDue;
         $serviceRequest->paidBy = $request->firstName . ' ' . $request->lastName;

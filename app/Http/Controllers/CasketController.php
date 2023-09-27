@@ -37,6 +37,16 @@ class CasketController extends Controller
         // dd($request->all());
 
         $serviceInformation = ServiceInformation::find($serviceId);
+        // dd('Current Stock: ' . $serviceInformation->stock);
+        // Check if the selected casket is available (stock > 0)
+        // if ($serviceInformation->stock <= 0) {
+        //     return redirect()->back()->with('Casket is out of stock.');
+        // }
+
+        // dd('stock checked');
+
+        // $serviceInformation->stock--;
+        // $serviceInformation->save();
 
         if ($serviceInformation) {
             $serviceInformation->casket_id = $request->casketId;
