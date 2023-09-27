@@ -33,13 +33,14 @@ class AnnouncementController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $announcementFields = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'date' => 'required|date',
             'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Use 'images.*' to validate each image in the array
         ]);
+
        
         $announcement = Announcement::create($announcementFields);
 

@@ -11,7 +11,7 @@
         <div class="flex flex-col space-y-2 mt-3">
           <label for="name">TITLE</label>
           <input id="title" name="title" type="text" placeholder="Title" class="rounded border border-gray-300"/>
-          @error('name')
+          @error('title')
               <p class="text-red-500 text-xs">{{$message}}</p>
           @enderror
         </div>
@@ -29,7 +29,7 @@
         <div class="flex flex-col space-y-4 mt-3">
           <label for="image">DATE</label>
           <input type="date" name="date" id="date" class="text-sm rounded border border-gray-300 w-full">
-          @error('image')
+          @error('date')
               <p class="text-red-500 text-xs">{{$message}}</p>
           @enderror
         </div>
@@ -37,7 +37,7 @@
         {{-- IMAGE --}}
         <div class="flex flex-col space-y-4 mt-3">
           <label for="image">NEWS / ANNOUNCEMENT IMAGE</label>
-          <input type="file" name="images[]" id="image" class="text-sm rounded border border-gray-300 w-full" multiple>
+          <input type="file" name="images[]" id="images" class="text-sm rounded border border-gray-300 w-full" multiple>
           @error('images')
               <p class="text-red-500 text-xs">{{$message}}</p>
           @enderror
