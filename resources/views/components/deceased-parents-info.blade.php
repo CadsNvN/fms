@@ -1,5 +1,5 @@
 <div class="flex flex-col space-y-5">
-    <div class="w-full flex space-x-4 items-center">
+    <div class="w-full flex space-x-4 items-start">
         <div class="w-full flex flex-col space-y-1">
             <label class="text-xs ">OCCUPATION</label>
             {{-- <input type="text" name="occupation" placeholder="Occupation" class="w-full text-sm bg-inherit border border-gray-300 rounded " 
@@ -26,7 +26,7 @@
                 <option value="architect" {{ (!is_null($deceased) && (old('occupation') == 'architect' || $deceased->occupation == 'architect')) ? 'selected' : '' }}>Architect</option>
                 <option value="real_estate_agent" {{ (!is_null($deceased) && (old('occupation') == 'real_estate_agent' || $deceased->occupation == 'real_estate_agent')) ? 'selected' : '' }}>Real Estate Agent</option>
                 <!-- Add "Other" option for manual entry -->
-                <option value="other" {{ (!is_null($deceased) && (old('occupation') == 'other' || $deceased->occupation == 'other')) ? 'selected' : '' }}>Other (Specify Below)</option>
+                <option id="occupation-select" >Other</option>
             </select>
             @error('occupation')
                 <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
@@ -46,7 +46,7 @@
             const otherOccupationInput = document.getElementById('other-occupation');
         
             // Listen for changes to the select input
-            occupationSelect.addEventListener('change', function () {
+            occupationSelect.addEventListener('click', function () {
                 if (this.value === 'other') {
                     // If "Other" is selected, show the text input field
                     otherOccupationContainer.style.display = 'block';
@@ -71,7 +71,7 @@
     </div>
 
     <div class="flex flex-col space-y-5">
-        <div class="w-full flex space-x-4 items-center">
+        <div class="w-full flex space-x-4 items-start">
             <div class="w-full flex flex-col space-y-1">
                 <label class="text-xs ">CITIZENSHIP</label>
                 <input type="text" name="citizenship" placeholder="Citizenship" class="w-full text-sm bg-inherit border border-gray-300 rounded " 
@@ -109,7 +109,7 @@
         </div>
     </div>
 
-    <div class="w-full flex space-x-4 items-center">
+    <div class="w-full flex space-x-4 items-start">
         <div class="w-full flex flex-col space-y-1">
             <label class="text-xs ">NAME OF FATHER</label>
             <input type="text" name="fathersName" placeholder="Name of father" class="w-full text-sm bg-inherit border border-gray-300 rounded " 

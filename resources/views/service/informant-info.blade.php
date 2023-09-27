@@ -92,7 +92,7 @@
                                 
                                     <div class="w-full flex flex-col space-y-1">
                                         <label class="text-xs ">TELEPHONE NUMBER</label>
-                                        <input type="text" name="telePhoneNo" placeholder="Telephone number" class="w-full text-sm bg-inherit border border-gray-300 rounded "
+                                        <input type="number" name="telePhoneNo" placeholder="Telephone number" class="w-full text-sm bg-inherit border border-gray-300 rounded "
                                         value="{{ old('telePhoneNo') ?? ($informant->telePhoneNo ?? '') }}">
                                         @error('telePhoneNo')
                                             <span class="text-xs text-red-500 pl-2">{{ $message }}</span>
@@ -101,7 +101,7 @@
         
                                     <div class="w-full flex flex-col space-y-1">
                                         <label class="text-xs ">CELLPHONE NUMBER</label>
-                                        <input type="text" name="cellPhoneNo" placeholder="Cellphone Number" class="w-full text-sm bg-inherit border border-gray-300 rounded "
+                                        <input type="number" name="cellPhoneNo" placeholder="Cellphone Number" class="w-full text-sm bg-inherit border border-gray-300 rounded "
                                         value="{{ old('cellPhoneNo') ?? ($informant->cellPhoneNo ?? '') }}">
                                         @error('cellPhoneNo')
                                             <span class="text-xs text-red-500 pl-2">{{ $message }}</span>

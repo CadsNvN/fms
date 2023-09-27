@@ -53,6 +53,24 @@
                 </div>
             </div>
         </div>
-        
-    </section>
+
+    <div class=" pb-12">
+    <div class="mx-96 p-10 bg-slate-200 shadow-xl">
+        <img src="{{ asset('images/headerLogo.png') }}" alt="Header Logo" class="w-[auto] h-[1in] mb-3.5">
+        <div class="flex flex-col ml-3 ">
+                    <p class="font-bold mb-2 ml-[4in]"> No. Serial Number</p>
+                    <div class="flex flex-row mb-2 ml-7">
+                        <p class="text-2xl font-bold">Acknowledgement Receipt</p>
+                        <p class="text-lg font-bold ml-[1in]">Date: </p>
+                    </div>
+                    <p class="text-base font-bold mb-1">Recerved from:</p>
+                    <p class="text-base font-bold mb-1">and address at:</p>
+                    <p class="text-base font-bold mb-1">business style of:</p>
+                    <p class="text-base font-bold mb-1">the sum of pesos:</p>
+                    <p class="text-base font-bold mb-1">In partial / full payment for:</p>
+                    <p class="flex flex-row justify-end italic font-thin text-sm my-2"> 
+                        ❝This is only an Acknowledgement Receipt(Not an OFFICIAL RECEIPT)❞
+                    </p>
+                </div>
+            </div>
 </x-app-layout>

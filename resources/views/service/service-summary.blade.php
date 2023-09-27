@@ -177,7 +177,7 @@
                         </div>
                     </div>
 
-                    <div class="w-full sticky top-20">
+                    <div class="w-full">
                         <form action="{{ route('service.service-request.store', $serviceId) }}" method="POST"
                          class="w-full h-fit rounded-md bg-white shadow-md flex flex-col p-4 space-y-4 ">
                          @csrf
