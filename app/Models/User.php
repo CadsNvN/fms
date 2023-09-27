@@ -6,6 +6,7 @@ namespace App\Models;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Profile;
+use App\Models\ServiceRequest;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -62,6 +63,11 @@ class User extends Authenticatable
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function serviceRequests(): HasMany
+    {
+        return $this->hasMany(ServiceRequest::class);
     }
 
 }

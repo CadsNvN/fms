@@ -9,7 +9,7 @@
 
                 <div class=" flex items-center space-x-4 rounded-md ">
 
-                    <form action="{{ route('service.type.store') }}" method="POST" 
+                    <form action="{{ route('service.type.store', $serviceId) }}" method="POST" 
                     class="border-2 border-gray-400 hover:border-green-400 hover:bg-green-100 rounded-lg p-6 group cursor-pointer hover:scale-105 transition-transform ease-in-out delay-150 duration-500">
                     @csrf
                     <input type="hidden" name="service_type" value="Memorial Service">

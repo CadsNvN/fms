@@ -27,42 +27,31 @@
   <div class="mx-auto max-w-[1240px]" data-aos="fade-up">
     <x-sub-header-text>
       <h1 class="text-4xl font-bold uppercase mb-4">
-        Products
+        Caskets
       </h1>
       <a href="{{route('product.browse')}}" class="hover:underline text-l">See more Products</a>
     </x-sub-header-text>
 
-      <div class="max-w-[1200px] mx-auto">
-        <form  method="POST" id="casketForm">
-            @csrf
-            @method('PUT')
-            <input id="selectedCasket" type="hidden" name="casketId" value="">
-        </form>
-            <div class="flex flex-wrap gap-4 p-4">
-                @foreach ($caskets as $casket)
-                    <div class="flex relative rounded group w-96 h-64 hover:scale-150 transition-transform ease-in-out delay-150 duration-500 hover:z-20">
-                        <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded " src="{{ asset('images/BatesVille.jpg') }}">
-                        <div class="overflow-y-auto p-4 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 group-hover:opacity-100 rounded">
-                            <h2 class="tracking-widest text-lg font-bold text-blue-500 mb-1">&#8369;{{$casket->price}}</h2>
-                            {{-- <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Holden Caulfield</h1> --}}
-                            <p class="leading-relaxed">{{$casket->description}}</p>
-                            <p class="pt-4 text-sm font-semibold">MORE IMAGES</p>
-                            <div class="flex flex-col space-y-3">
-                                <img alt="gallery" class=" inset-0 w-full h-full object-cover object-center rounded " src="{{ asset('images/BatesVille.jpg') }}">
-                                <img alt="gallery" class=" inset-0 w-full h-full object-cover object-center rounded " src="{{ asset('images/BatesVille.jpg') }}">
-                                <img alt="gallery" class=" inset-0 w-full h-full object-cover object-center rounded " src="{{ asset('images/BatesVille.jpg') }}">
-                            </div>                                
-                        </div>
-                        <button type="button" onclick="selectCasket({{ $casket->id }})" class="absolute z-20 top-4 right-8 px-4 py-2 text-sm rounded group-hover:bg-blue-600 group-hover:text-white opacity-0 group-hover:opacity-100">Select</button>
-                    </div>
-                @endforeach
+    <div class="container w-full px-5 py-20 mx-auto">
+      <div class="flex flex-wrap w-full m-4">
+        @foreach ($caskets as $casket)
+          <div class="p-4 md:w-1/3">
+            <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+              <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{{ asset('images/BatesVille.jpg') }}" alt="blog">
+              <div class="p-6">
+                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CASKET</h2>
+                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{$casket->Name}}</h1>
+                <p class="leading-relaxed mb-3">{{ $casket->description }}</p>
+                <form action="{{ route('service.type.storeFromCasket') }}" method="POST" class="flex items-center flex-wrap">
+                  @csrf
+                  <input type="hidden" name="casketId" value="{{ $casket->id }}">
+                  <button type="submit" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Select</button>
+                </form>
+              </div>
             </div>
-        <script>
-            function selectCasket(casketId) {
-                document.getElementById('selectedCasket').value = casketId;
-                document.getElementById('casketForm').submit();
-            }
-        </script>
+          </div>
+        @endforeach
+      </div>
     </div>
   </div>
   
@@ -125,11 +114,36 @@
   
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-wrap -m-4">
-        <x-testimonial-card/>
-        <x-testimonial-card/>
-        <x-testimonial-card/>
+        <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
+          <div class="h-full text-center">
+            <img alt="testimonial" class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="{{asset('images/RIP.jpg')}}">
+            <p class="leading-relaxed">Maraming salamat po sa maayos at magandang serbisyo sa Capt. M. Sarino St., Silangan, Mabolo 2, Bacoor city on September 17, 2023. Rest in peace Christian Teodoro Santos. In God Care</p>
+            <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Denver Ilas Delacruz</h2>
+            <p class="text-gray-500">Agent of Torres Escaro Funeral Service</p>
+          </div>
+        </div>
+        <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
+          <div class="h-full text-center">
+            <img alt="testimonial" class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="{{asset('images/RIP.jpg')}}">
+            <p class="leading-relaxed">Maraming salamat po sa maayos at magandang serbisyo sa Sambuhat street Brgy. DulongBayan, Bacoor City On Sept. 14 2023. Rest in Peace Rhainnie Blanco (2 Yrs Old)</p>
+            <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Denver Ilas Delacruz</h2>
+            <p class="text-gray-500">Agent of Torres Escaro Funeral Service</p>
+          </div>
+        </div>
+        <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
+          <div class="h-full text-center">
+            <img alt="testimonial" class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="{{asset('images/RIP.jpg')}}">
+            <p class="leading-relaxed">Maraming salamat po sa maayos at magandang serbisyo at SGT. Ignacio Street, SapangPalay, Brgy. DulongBayan, Bacoor City. On Sept. 23, 2023. Rest in Peace Arnel Baldoza Carcusia.</p>
+            <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Denver Ilas Delacruz</h2>
+            <p class="text-gray-500">Agent of Torres Escaro Funeral Service</p>
+          </div>
+        </div>
       </div>
     </div>
+    
   </div>
 </section>
 {{-- END OF TESTIMONIAL --}}

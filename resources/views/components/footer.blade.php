@@ -29,8 +29,8 @@
           <div class="lg:w-1/4 md:w-1/2 w-full flex flex-col space-y-4">
               <h2 class="text-gray-900  text-base font-bold ">PRODUCTS</h2>
               <div class="flex flex-col space-y-1">
-                  <a class="text-gray-900">Traditional Plan</a>
-                  <a class="text-gray-900">Cremation Plan</a>
+                  <a class="text-gray-900">Memorial Service</a>
+                  <a class="text-gray-900">Direct Cremation Service</a>
               </div>
           </div>
 
@@ -39,7 +39,6 @@
               <div class="flex flex-col space-y-1">
                   <a class="text-gray-900">Our Company</a>
                   <a class="text-gray-900">Our Officers</a>
-                  <a class="text-gray-900">Corporate Governance</a>
               </div>
           </div>
 
@@ -47,8 +46,6 @@
               <h2 class="text-gray-900  text-base font-bold ">RESOURCES</h2>
               <div class="flex flex-col space-y-1">
                   <a class="text-gray-900">Contact Us</a>
-                  <a class="text-gray-900">Management Account</a>
-                  <a class="text-gray-900">Directory</a>
               </div>
           </div>
 
@@ -66,9 +63,7 @@
 
     <div class="bg-gray-100">
       <div class="mx-auto max-w-[1240px] flex py-4">
-        <p class="text-gray-500 text-sm text-center sm:text-left">© 2023 Torres-Escaro —
-          <a href="https://facebook.com" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">Torres-Escaro</a>
-        </p>
+        <p class="text-gray-500 text-sm text-center sm:text-left">© 2023 Torres-Escaro</p>
         <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
           <a class="text-gray-500">
             <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
