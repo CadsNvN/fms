@@ -90,8 +90,9 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('/service')->as('service.')->group(function () {
         Route::controller(ServiceInformationController::class)->group(function () {
-            Route::get('/type', 'index')->name('type.index');
-            Route::post('/type-save', 'store')->name('type.store');
+            Route::get('/type/{serviceId?}', 'index')->name('type.index');
+            Route::post('/type-save/{serviceId?}', 'store')->name('type.store');
+            Route::post('/choose-casket', 'storeFromCasket')->name('type.storeFromCasket');
         });
 
     });

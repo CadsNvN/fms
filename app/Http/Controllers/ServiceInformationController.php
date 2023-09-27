@@ -12,28 +12,54 @@ use App\Models\DeceasedInformation;
 
 class ServiceInformationController extends Controller
 {
-    public function index()
+    public function index($serviceId = null)
     {
-        return view('service.service-type');
+        return view('service.service-type', [
+            'serviceId' => !is_null($serviceId) ? $serviceId : null,
+        ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $serviceId = null)
+    {
+       
+        if (!is_null($serviceId)) {
+            // Handle the case where $serviceId is not null
+            $serviceExists = ServiceInformation::find($serviceId);
+            if ($serviceExists) {
+                $serviceExists->serviceType = $request->service_type;
+                $serviceExists->save();
+                return redirect()->route('service.inclusions', $serviceExists->id);
+            } else {
+                $serviceInformation = ServiceInformation::create([
+                    'serviceType' => $request->service_type
+                ]);
+                return redirect()->route('service.inclusions', $serviceInformation->id);
+            }
+        } else {
+            $serviceInformation = ServiceInformation::create([
+                'serviceType' => $request->service_type
+            ]);
+            return redirect()->route('service.inclusions', $serviceInformation->id);
+        }
+
+        
+
+    }
+
+    public function storeFromCasket(Request $request)
     {
         try {
             $serviceInformation = ServiceInformation::create([
-                'deceased_information_id' => null,
-                'informant_id' => null,
-                'casket_id' => null,
-                'hearse_id' => null,
-                'serviceType' => $request->service_type
+                'casket_id' => $request->casketId,
             ]);
 
-            return redirect()->route('service.inclusions', $serviceInformation->id)
-            ->with('serviceInfo', $serviceInformation);
+            return redirect()->route('service.type.index', $serviceInformation->id);
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Something went wrong');
         }
     }
+
+
 
     public function destroy($serviceId) {
         $serviceInformation = ServiceInformation::find($serviceId);

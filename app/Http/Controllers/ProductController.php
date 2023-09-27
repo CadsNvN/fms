@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Casket;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\Announcement;
 
 class ProductController extends Controller
 {
@@ -35,7 +36,8 @@ class ProductController extends Controller
     public function welcomePageProducts () {
         return view('welcome', [
             'announcements' => Announcement::latest()->take(3)->get(),
-            'products' => Product::latest()->take(4)->get()
+            'products' => Product::latest()->take(4)->get(),
+            'caskets' => Casket::all()
         ]);
     }
 
