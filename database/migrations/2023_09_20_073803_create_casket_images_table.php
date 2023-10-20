@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('casket_images', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Casket::class)->constrained()->onDelete('cascade');
-            $table->string('url');
+            $table->string('pathImages')->nullable();
             $table->timestamps();
         });
     }

@@ -10,8 +10,21 @@
             <li class="">
                 <a  href="{{route('product.index')}}"
                     class="inline-flex items-center px-3 py-2 border border-gray-400 text-base leading-4 font-medium rounded text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                    Products
+                </a>
+            </li>
+            <li class="">
+                <a  href="{{route('casket.index')}}"
+                    class="inline-flex items-center px-3 py-2 border border-gray-400 text-base leading-4 font-medium rounded text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                     Caskets
                 </a>
+            </li>
+            <li class="">
+                <a  href="{{route('hearse.index')}}"
+                    class="inline-flex items-center px-3 py-2 border border-gray-400 text-base leading-4 font-medium rounded text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                    Hearse
+                </a>
+            </li>
             <li>
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">

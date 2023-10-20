@@ -15,13 +15,13 @@ class CategorySeeder extends Seeder
     {
         DB::table('categories')->insert(
             [
-                'name' => 'Traditional Plan'
+                'name' => 'Memorial Service'
             ]
         );
 
         DB::table('categories')->insert(
             [
-                'name' => 'Cremation Plan'
+                'name' => 'Direct Creamation Service'
             ]
         );
     }

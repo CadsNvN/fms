@@ -36,12 +36,13 @@
       <div class="flex flex-wrap w-full m-4">
         @foreach ($caskets as $casket)
           <div class="p-4 md:w-1/3">
-            <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+            <div class="h-full border-2 border-gray-400 border-opacity-60 rounded-lg overflow-hidden">
               <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{{ asset('images/BatesVille.jpg') }}" alt="blog">
               <div class="p-6">
-                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CASKET</h2>
-                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{$casket->Name}}</h1>
-                <p class="leading-relaxed mb-3">{{ $casket->description }}</p>
+                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">Memorial Service</h2>
+                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{$casket->name}}</h1>
+                <h2 class="title-font text-lg font-medium text-gray-900 mb-3">&#8369;{{ number_format($casket->price, 2, '.', ',')}}</h2>
+                <p class="leading-relaxed mb-3">{{substr($casket->description, 0, 40)}} {{strlen($casket->description) > 40 ? "..." : ""}}</p>
                 <form action="{{ route('service.type.storeFromCasket') }}" method="POST" class="flex items-center flex-wrap">
                   @csrf
                   <input type="hidden" name="casketId" value="{{ $casket->id }}">

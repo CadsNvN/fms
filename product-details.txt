@@ -6,48 +6,18 @@ MBT..metal bubble top ..140k..
 Imported metal bubble top..220k..
 Imported casket..or BATEVILLE...ft. America ..500k..up ..
 
-list of Occupation
+System Revision
 
-Teacher
-Nurse
-Call Center Agent
-Doctor
-Engineer
-Accountant
-Police Officer
-Lawyer
-Government Employee
-Salesperson
-Construction Worker
-Farmer/Fisherman
-Entrepreneur
-Driver
-Tour Guide
-Graphic Designer
-IT/Software Developer
-Dentist
-Architect
-Real Estate Agent
-
-List of Cause of death
-
-Cardiovascular Diseases
-Cancer
-Respiratory Diseases
-Diabetes
-Infectious Diseases
-Kidney Diseases
-Hypertension
-Liver Diseases
-Road Traffic Accidents
-Neonatal Disorders
-Maternal Conditions
-Malnutrition
-Chronic Liver Disease
-Alzheimer's Disease and Other Dementias
-Renal Failure
-Congenital Anomalies
-Firearm Injuries
-Chronic Lower Respiratory Diseases
-Suicide
-Digestive Diseases
+All data must be Real
+Choosing between Casket & Urn must have different page
+Inventory in casket and hearse. CRUD operation, and must be real data
+Check the water gallons if theirs limit
+Other services page placeholder "Optional"
+Religion dropdown
+Payment method type downdown for GL, Cash, Bank, E-Wallet.
+Input box for Insurance discount and minus function if add a money or data
+How TORRES affliated with OWA?
+How data discount and Insurance is covered or the payment delivered?
+Proper Scheduling for hearse transaction limits
+Payment details for casket & hearse
+Sales Report in Dashboard

@@ -12,6 +12,7 @@
         />
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link rel="shortcut icon" href="{{ asset('images/Torreslogo.ico')}}" type="image/x-icon">
+        
         <title>Torres Escaro Funeral Service</title>
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -31,6 +32,7 @@
 
       {{-- flash messages --}}
       <x-flash-messages/>
+      <script src="../path/to/flowbite/dist/flowbite.js"></script>
     </body>
 </html>
 

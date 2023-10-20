@@ -19,7 +19,8 @@
         {{-- DESCRIPTION --}}
         <div class="flex flex-col space-y-2 mt-3">
           <label for="description">DESCRIPTION</label>
-          <input id="description" name="description" placeholder="Description" type="text" class="rounded border border-gray-300"/>
+          <textarea id="description" name="description" placeholder="Description" type="text" class="rounded border border-gray-300"></textarea>
+          {{-- <input id="description" name="description" placeholder="Description" type="text" class="rounded border border-gray-300"/> --}}
           @error('description')
               <p class="text-red-500 text-xs">{{$message}}</p>
           @enderror

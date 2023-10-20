@@ -15,10 +15,9 @@
                         <h2 class="text-base text-gray-600">Please feel free to specify any additional assistance or services you may require.</h1>
                     </div>
                     <div>
-                        <textarea name="otherServices" placeholder="Write something.."
-                        class="w-full min-h-[150px] rounded border-2 border-gray-200 p-4 text-justify">
-                        {{($serviceInformation->other_services ?? '')}}
-                        </textarea>
+                        <textarea name="otherServices" placeholder="Write something.. (This is Optional)"
+                        class="w-full min-h-[150px] rounded border-2 border-gray-200 
+                        p-4 text-justify">{{($serviceInformation->other_services ?? '')}}</textarea>
                     </div>
                     <div class="flex items-center space-x-4">
                         <a class="nav-button text-sm px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 hover:text-gray-700 cursor-pointer" 

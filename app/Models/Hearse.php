@@ -11,6 +11,12 @@ class Hearse extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'description',
+        'coverPhoto'
+    ];
+
     public function hearseImages()
     {
         return $this->hasMany(CasketImages::class);

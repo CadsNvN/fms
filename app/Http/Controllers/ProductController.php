@@ -37,7 +37,7 @@ class ProductController extends Controller
         return view('welcome', [
             'announcements' => Announcement::latest()->take(3)->get(),
             'products' => Product::latest()->take(4)->get(),
-            'caskets' => Casket::all()
+            'caskets' => Casket::latest()->take(3)->get()
         ]);
     }
 

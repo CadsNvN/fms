@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('hearse_images', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Hearse::class)->constrained()->onDelete('cascade');
-            $table->string('url');
+            $table->string('pathImages')->nullable();
             $table->timestamps();
         });
     }

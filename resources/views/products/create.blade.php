@@ -8,7 +8,7 @@
                 @csrf
                 <div class="flex flex-col space-y-2 mt-3">
                     <label for="name">PRODUCT NAME</label>
-                    <input id="name" name="name" type="text" class="rounded border border-gray-300"/>
+                    <input id="name" name="name" type="text" placeholder="Product name" class="rounded border border-gray-300"/>
                     @error('name')
                         <p class="text-red-500 text-xs">{{$message}}</p>
                     @enderror
@@ -16,7 +16,8 @@
     
                 <div class="flex flex-col space-y-2 mt-3">
                     <label for="description">DESCRIPTION</label>
-                    <input id="description" name="description" type="text" class="rounded border border-gray-300"/>
+                    <textarea name="description" id="description" placeholder="Description" type="text" class="rounded border border-gray-300"></textarea>
+                    {{-- <input id="description" name="description" type="text" class="rounded border border-gray-300"/> --}}
                     @error('description')
                         <p class="text-red-500 text-xs">{{$message}}</p>
                     @enderror
@@ -25,7 +26,7 @@
                 <div class="flex space-x-4 mt-3">
                     <div class="flex flex-col space-y-2 w-full">
                         <label for="price">PRICE</label>
-                        <input id="price" name="price" type="number" class="rounded border border-gray-300 w-full"/>
+                        <input id="price" name="price" type="number" placeholder="Price" class="rounded border border-gray-300 w-full"/>
                         @error('price')
                             <p class="text-red-500 text-xs">{{$message}}</p>
                         @enderror
@@ -33,7 +34,7 @@
         
                     <div class="flex flex-col space-y-2 w-full">
                         <label for="stock">STOCK</label>
-                        <input id="stock" name="stock" type="number" class="rounded border border-gray-300 w-full"/>
+                        <input id="stock" name="stock" type="number" placeholder="Stock" class="rounded border border-gray-300 w-full"/>
                         @error('stock')
                             <p class="text-red-500 text-xs">{{$message}}</p>
                         @enderror

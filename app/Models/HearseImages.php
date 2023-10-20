@@ -9,6 +9,11 @@ class HearseImages extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'hearse_id',
+        'pathImages'
+    ];
+
     public function casket() {
         return $this->belongsTo(Casket::class);
     }

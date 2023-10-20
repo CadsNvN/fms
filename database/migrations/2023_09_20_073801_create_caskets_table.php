@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('caskets', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('description');
+            $table->string('name');
+            $table->longText('description');
             $table->integer('price');
             $table->integer('stock');
             $table->string('coverPhoto')->nullable();
+            $table->boolean('is_available')->default(true);
+            $table->foreignId('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }

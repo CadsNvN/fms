@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Models\Order;
+use App\Models\Casket;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Order;
 
 class AdminDashboardController extends Controller
 {
@@ -16,12 +17,14 @@ class AdminDashboardController extends Controller
 
         $products = Product::all();
         $orders = Order::all();
+        $caskets = Casket::all();
         
 
         return view('admin.dashboard', [
             'users' => $users->count(),
             'products' => $products->count(),
-            'orders' => $orders->count()
+            'orders' => $orders->count(),
+            'caskets' => $caskets->count()
         ]);
     }
 }

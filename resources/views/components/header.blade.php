@@ -32,9 +32,9 @@
                 @auth
                 
                   @if(Auth::user()->role === 'admin')
-                      <a href="{{ route('admin.dashboard') }}" class="font-semibold text-gray-600
-                      hover:text-gray-900 dark:text-white dark:hover:text-white focus:outline 
-                      focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                      <a href="{{ route('admin.dashboard') }}" class="font-semibold text-white
+                      hover:border-b-white dark:text-white dark:hover:text-white focus:outline 
+                      focus:outline-2 focus:rounded-sm focus:outline-white">Dashboard</a>
                   @elseif(Auth::user()->role === 'customer')
                       {{-- <a href="{{ route('cart.index') }}" class="rounded px-4 py-2 border border-white text-white font-semibold text-sm" >My Cart</a>  --}}
                       {{-- <a href="{{route('cart.index')}}"><box-icon name='cart' type='solid' color='#fdf5f5' ></box-icon></a> --}}

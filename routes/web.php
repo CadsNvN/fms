@@ -59,7 +59,7 @@ Route::get('/product/browse', [ProductController::class, 'browse'])
 //     return view('news-announcement.browse');
 // })->name('news-announcement');
 
-route::get('/show/{announcement}', [AnnouncementController::class, 'show'])
+route::get('/show-news/{announcement}', [AnnouncementController::class, 'show'])
 ->name('news-announcement.show');
 
 route::get('/news-announcement/browse', [AnnouncementController::class, 'browse'])
@@ -203,6 +203,26 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::delete('/{announcement}/delete', 'destroy')->name('destroy');
     });
 
+    // caskets
+    Route::prefix('/casket')->controller(CasketController::class)->as('casket.')->group(function () {
+        Route::get('/caskets', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/{casket}/edit', 'edit')->name('edit');
+        Route::put('/{casket}/update', 'update')->name('update');
+        Route::delete('/{casket}/delete', 'destroy')->name('destroy');
+    });
+
+    // hearses
+    Route::prefix('/hearse')->controller(HearseController::class)->as('hearse.')->group(function () {
+        Route::get('/hearses', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/{hearse}/edit', 'edit')->name('edit');
+        Route::put('/{hearse}/update', 'update')->name('update');
+        Route::delete('/{hearse}/delete', 'destroy')->name('destroy');
+    });
+
     // products
     Route::prefix('/product')->controller(ProductController::class)->as('product.')->group(function () {
         Route::get('/products', 'index')->name('index');
@@ -212,6 +232,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::put('/{product}/update', 'update')->name('update');
         Route::delete('/{product}/delete', 'destroy')->name('destroy');
     });
+
+    
 
     // orders
     Route::prefix('/request')->controller(ServiceRequestController::class)->as('orders.')->group(function () {

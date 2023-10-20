@@ -10,6 +10,11 @@
                     Thank you for choosing Torres Escaro. We are here to stand by your side with understanding and empathy.
                 </p>
             </div>
+            <div class="pt-6 m-5 flex justify-center">
+                <a href="{{ route('service.type.index') }}" class="text-2xl cursor-pointer  hover:bg-blue-800 bg-blue-700 text-white font-semibold py-4 px-8 rounded-md uppercase mt-2">
+                    View your request
+                </a>
+            </div>
         </div>
     </section>
 </x-app-layout>

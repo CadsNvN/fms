@@ -14,38 +14,57 @@ class CasketSeeder extends Seeder
     public function run(): void
     {
         DB::table('caskets')->insert([
-            'name' => 'Casket 1',
-            'description' => 'This is the casket 1',
-            'price' => 15000,
+            'name' => 'Arrabieskie',
+            'description' => 'Half glass wood casket, Single door',
+            'price' => 35000,
             'stock' => 5,
+            'is_available' => true,
+            'category_id' => 1,
         ]);
 
         DB::table('caskets')->insert([
-            'name' => 'Casket 2',
-            'description' => 'This is the casket 2',
-            'price' => 17000,
+            'name' => 'Jr. Lizo',
+            'description' => 'Full glass wood casket, Single door',
+            'price' => 60000,
             'stock' => 5,
+            'is_available' => true,
+            'category_id' => 1,
         ]);
 
         DB::table('caskets')->insert([
-            'name' => 'Casket 3',
-            'description' => 'This is the casket 3',
-            'price' => 18000,
+            'name' => 'JRMFG Jr.',
+            'description' => 'Metal casket full glass',
+            'price' => 85000,
             'stock' => 5,
+            'is_available' => true,
+            'category_id' => 1,
         ]);
 
         DB::table('caskets')->insert([
-            'name' => 'Casket 4',
-            'description' => 'This is the casket 4',
-            'price' => 23000,
+            'name' => 'SRMFG Sr.',
+            'description' => 'Metal casket full glass',
+            'price' => 95000,
             'stock' => 5,
+            'is_available' => true,
+            'category_id' => 1,
         ]);
 
         DB::table('caskets')->insert([
-            'name' => 'Casket 5',
-            'description' => 'This is the casket 5',
-            'price' => 70000,
+            'name' => 'MBT',
+            'description' => 'Metal casket bubble top',
+            'price' => 140000,
             'stock' => 5,
+            'is_available' => true,
+            'category_id' => 1,
+        ]);
+
+        DB::table('caskets')->insert([
+            'name' => 'Batesville',
+            'description' => 'Metal Casket, Single Top (half lid cover), Half Glass, Elegant Interiors, corners and handles',
+            'price' => 500000,
+            'stock' => 5,
+            'is_available' => true,
+            'category_id' => 1,
         ]);
     }
 }
